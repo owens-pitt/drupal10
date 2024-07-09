@@ -1,0 +1,549 @@
+// let's use rems for accessibility, but make 1rem = 10px for sanity
+html {
+  font-size: 62.5%;
+}
+body {
+  @include bodyfont;
+}
+a {
+  //default bright blue
+  color: $brand-info;
+  text-decoration: none;
+}
+p {
+  margin: 0 0 1em;
+}
+.region-breadcrumb, .region-title, .region-sidebar-first, .region-sidebar-second, .region-footer, .region-content {
+  padding: 0 0.5rem;
+  .page-node-type-home-layout-page & {
+    padding: 0;
+  }
+}
+//remove nav arrows
+.dropdown-toggle::after {
+  display: none;
+}
+
+.field--name-label.field--label-hidden {
+	display: none;
+}
+
+.row.gx-5 {
+	clear: both;
+}
+
+
+//flexslider spacing
+.flexslider {
+  border: none;
+  border-radius: 0 !important;
+}
+
+// edit links
+.nav-tabs .nav-link {
+  color: $bright-blue;
+}
+
+// pagination
+.page-item {
+  @include darklink;
+  .page-link {
+    font-weight: 700;
+    line-height: 1;
+    padding: 0 0.75rem;
+    background-color: transparent;
+    border: none;
+  }
+  &.is-active {
+    .page-link {
+      color: $bright-blue;
+      background: none;
+    }
+  }
+}
+
+figure {
+  &.align-center {
+    @include desktop {
+      max-width: 85%;
+    }
+  }
+  &.caption img {
+    margin-bottom: .5em;
+  }
+  &.caption.align-right {
+	  margin-left: 25px;
+  }
+  &.caption.align-left {
+	  margin-right: 25px;
+  }
+}
+.field--name-body,
+.field--name-field-body {
+  h2, h3, p {
+    img {
+      margin-bottom: 25px;
+      @include desktop {
+        margin-bottom: 40px;
+      }
+      &.align-right {
+     	  margin-left: 25px;
+        @include desktop {
+          margin-left: 40px;
+        }
+      }
+      &.align-left {
+    	  margin-right: 25px;
+        @include desktop {
+          margin-right: 40px;
+        }
+      }
+    }
+  }
+}
+
+.caption {
+  > * {
+    height: auto;
+  }
+  figcaption {
+    font-size: 1.6rem;
+  }
+}
+
+// localist
+#lw {
+	font-family: $body_font;
+}
+.embed-default {
+  .event-date {
+    background: none !important;
+    width: auto !important;
+    @include tablet {
+      width: 70px !important;
+    }
+    .month {
+      color: $pitt-blue-dark;
+      font-size: 1.12rem !important;
+      text-transform: none !important;
+      font-weight: bold !important;
+      @include tablet {
+        font-size: 1.6rem !important;
+      }
+    }
+    .date {
+      color: $pitt-blue-dark;
+      font-size: 3.2rem !important;
+      font-weight: bold !important;
+      @include tablet {
+        font-size: 4.70rem !important;
+      }
+    }
+  }
+  .event-item {
+		margin-bottom: 25px !important; 
+		&:last-child {
+  		margin-bottom: 0 !important;
+		} 
+    @include tablet {
+  		margin-bottom: 2em !important;  
+      &:last-child {
+        	margin-bottom: 2em !important;
+      } 
+    }
+  }
+  .event-info {
+    margin-left: 60px !important;
+    @include tablet {
+      margin-left: 90px !important;
+    }
+    a.event-name {
+      //same has heading3, but must override the inline css
+      font-size: 1.6rem !important;
+      font-weight: 700 !important;
+      line-height: 1.2;
+      color: $pitt-blue-dark !important; 
+      @include tablet {
+        font-size: 2.0rem !important;
+      }
+      @include desktop {
+        font-size: 2.4rem !important;
+      }
+      &:hover {
+        color: $bright-blue;
+      }
+    }
+    p {
+	    @include bodyfont;
+    }
+    .viewmore {
+      @include viewmore;
+    }
+  }
+}
+
+/*** acalog ***/
+h1.acalog-program-name {
+	display: none;
+}
+.acalog-course-container,
+.acalog-program-container,
+.acalog-entity-container,
+.acalog-filter-container,
+.acalog-page-container,
+.acalog-program-core-course-container,
+.acalog-permalink-showhide > .acalog-permalink-container {
+	border: none;
+}
+.acalog-course-body,
+.acalog-program-core-course-body {
+	br {
+		margin-bottom: 1em;
+		display: block;
+	}
+	hr {
+		display: none;
+	}
+}
+.acalog-program-core-course-container {
+	.acalog-program-core-course-title {
+		display: none;
+	}
+}
+ul.acalog,
+ul.acalog-program-core-courses {
+	padding: 0;
+	margin: 2em 0 !important;
+	li.acalog-program-core-course,
+	li.acalog-course {
+		position: relative;
+		list-style: none;
+		border-top: 1px solid $pitt-blue !important;
+		&:last-child {
+			border-bottom: 1px solid $pitt-blue;
+		}
+		> a {
+			display: block;	
+			padding: 1em 0;
+			color: $pitt-blue;
+      &:after {
+        @include fontawesome;
+        content: "\f067";
+        font-weight: 300;
+        transform: none;  
+        height: auto;
+        width: auto;
+        position: relative;
+        right: 2px;   
+        top: 3px;
+        background-image: none;  
+        float: right;   
+//         transform: rotate(-135deg);
+      }
+  	}
+	}
+	li.acalog-course-open a:after {
+		transform: rotate(-135deg);
+		transition: .2s ease;
+	}
+}
+//sppecial rules for individual class embeds
+ul[data-acalog-data="courses"] {
+	margin: 0 !important;
+	li.acalog-course {
+		&:last-child {
+			border-bottom: none;
+		}
+		h1.acalog-course-title {
+			display: none;
+		}
+	}
+}
+.acalog-catalog-open > .acalog-catalog-link, 
+.acalog-course-open > .acalog-course-link, 
+.acalog-program-open > .acalog-program-link, 
+.acalog-entity-open > .acalog-entity-link, 
+.acalog-filter-open > .acalog-filter-link, 
+.acalog-page-open > .acalog-page-link, 
+.acalog-program-core-course-open > .acalog-program-core-course-link, 
+.acalog-permalink-open.acalog-permalink-showhide > .acalog-permalink-link {
+	color: $bright-blue !important;
+	border: none;
+	margin-top: 0;
+	&:after {
+		display: none;
+	}
+}
+.acalog-course-container, .acalog-program-container, .acalog-entity-container, .acalog-filter-container, .acalog-page-container, .acalog-program-core-course-container, .acalog-permalink-showhide > .acalog-permalink-container {
+	padding: 0;
+	margin: 0 0 2em;
+}
+
+/*
+.acalog-program-core-course {
+	padding: 10px 0;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	margin: 10px 0;
+	&.acalog-program-core-course-open {
+		border-top: 1px solid $gray;
+		border-bottom: 1px solid $gray;
+	}
+}
+*/
+.acalog-close {
+/*
+	@include smallcaps;
+	background: $gray-light;
+	padding: 8px 10px;
+	position: absolute;
+	top: 5px;
+	right: 11px;
+*/	border-radius: 0;
+	border: 0;
+
+text-indent: -9999px;
+	&:after {
+		@include fontawesome;
+		content: "\f00d";
+		margin-right: 0.325em;
+		top:3px;
+	.acalog-course-open & {
+		
+	}
+	}
+}
+.acalog .acalog-program-cores {
+	.acalog-program-core h3.acalog-program-core-name {
+		@include bodyfont;
+		font-weight: normal;
+	}
+	.acalog-program-core h4.acalog-program-core-name {
+		@include heading3;
+		text-transform: none;
+		letter-spacing: normal;
+	}
+}
+
+//minors
+.acalog-permalink-tooltip > .acalog-permalink-container {
+	position: relative;
+	border: none;
+	padding: 1em 0 1.5em;
+	h1.acalog-course-title {
+		display: none;
+	}
+
+}
+
+
+/*** login form ***/
+.login_container {
+  margin-bottom: 2em;
+  #login_passport {
+    margin-bottom: 6em; 
+    display: inline-block;
+  }
+  #login_local {
+    @include smallfont;
+    &:after {
+      @include fontawesome;
+      content: " \f0da";
+      font-weight: 900;
+      margin-left: 0.5em;
+    }
+    &.active{ 
+      color: $pitt-blue-dark;
+      &:after {
+        content: " \f0d7";
+      }
+    }
+  }
+}
+
+
+/*** accordions ***/
+// accordions in body
+
+.accordion_header {
+  @include bodyfont;
+  @include desktop {
+    max-width: 764px;
+    margin: 5em auto .5em
+  }  
+}
+.ckeditor-accordion-container {
+  padding: 1em 0 2em;  
+    > dl {
+    border: none;  
+    @include desktop {
+      max-width: 764px;
+      margin: 0 auto 2em;
+      .page-node-type-landing-page & {
+        max-width: none;
+      }
+    }
+    .page-node-type-home-layout-page & {
+      @include make-container-onecol;
+    }  
+    // title
+    dt {
+      > a {
+        color: $pitt-gray;
+        font-weight: 400;
+        background: none;
+        padding: 1.25em 3em 1.25em 1.25em;
+        border-bottom: 1px solid $blue-trans;
+        @include tablet {
+        }
+        @include desktop {
+        }
+        &:hover {
+          background: none;
+        }
+        > .ckeditor-accordion-toggle {
+          color: $pitt-gray;
+          top: 1em;
+          right: 1em;
+          left: auto;
+          width: auto;
+          padding: 0 0 0 10px;
+          &:before {
+            display: none;
+          }
+          &:after {
+            @include fontawesome;
+            content: "\f067";
+            font-size: 75%;
+            font-weight: 300;
+            transform: none;  
+            height: auto;
+            width: auto;
+            position: relative;
+            right: 0;        
+            background: transparent !important;
+          }
+        }
+      }
+      &:first-of-type > a {
+        border-top: 1px solid $blue-trans;
+      }
+      &:last-of-type > a {
+        border-bottom: 1px solid $blue-trans;
+      }
+      &.active > a {
+//         color: $pitt-blue;
+        font-weight: bold;
+        border-bottom: none;
+        background: $gray-light;
+        > .ckeditor-accordion-toggle {
+          &:after {
+            background: transparent !important;
+            transform: rotate(0);
+            content: "\f068";
+          }
+        }
+      }
+    }
+    // content
+    dd {
+      padding: 1.25em;
+      border-bottom: 1px solid $blue-trans;
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// accordion widget 
+.paragraph--type--accordion-container {
+  @include make-container-onecol;
+  padding: 0 15px;
+  margin: 2.5em auto 3.5em;
+  @include tablet {
+    padding: 0;
+  }
+  @include desktop {
+    max-width: 764px;
+    margin: 5em auto 3.5em;
+    padding: 0;
+  }
+  // different width for the home page 
+/*
+  .page-node-type-home-layout-page & {
+    @include make-container-onecol;
+    padding: 0 15px;
+  }  
+*/
+  h2.field--name-field-title {
+    @include make-container-onecol;
+    @include heading3;
+    padding-left: 0 !important;
+    color: $pitt-blue-dark;
+    margin-bottom: 1em;
+    position: relative;
+    @include desktop {
+      font-size: 3.1rem;
+    }
+  }
+  .field--name-field-text {
+    margin-bottom: 2em;
+  }
+  .accordion-flush .accordion-item {
+    border-bottom: 1px solid $blue-trans;
+    &:first-child {
+      border-top: 1px solid $blue-trans;
+    }
+    &:last-child {
+      border-bottom: 1px solid $blue-trans;
+    }
+     h3.accordion-header {
+      margin: 0;
+      .accordion-button {
+        @include bodyfont;
+        color: $pitt-gray;
+        font-weight: bold;
+        background: $gray-light;
+        padding: 1.25em;
+        box-shadow: none;
+        &:after {
+          @include fontawesome;
+          content: "\f068";
+          font-size: 75%;
+          font-weight: 300;
+          transform: none;  
+          height: auto;
+          width: auto;
+          position: relative;
+          right: 0;   
+          background-image: none; 
+          transform: rotate(0);
+      
+  //         transform: rotate(-135deg);
+              content: "\f068";
+        }
+        &.collapsed {
+          background: none;
+          font-weight: normal;
+          &:after {
+            content: "\f067";
+            transform: rotate(0);
+          }
+        }
+        span {
+          padding-right: 1em;
+          line-height: normal;
+        }
+      }
+    }
+    .accordion-collapse {
+      .accordion-body {
+        padding: 1.25em;
+        p:last-child {
+          margin-bottom: 0;
+        }
+      }
+    } 
+  }
+}

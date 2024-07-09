@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * Pitt Nine theme file.
+ */
+// provides template suggestions
+// Use Context instead
+/*
+  function pitt_nine_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+    $suggestions[] = 'page__'.$content_type;
+  }
+}
+*/
+
+function pitt_nine_preprocess(&$variables, $hook) {
+    $variables['base_path'] = base_path();
+}
+// adds block type class, to be set in block.twig.html
+function HOOK_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (isset($variables['elements']['content']['#block_content'])) {
+    array_splice($suggestions, 1, 0, 'block__bundle__' . $variables['elements']['content']['#block_content']->bundle());
+  }
+}
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Theme\ThemeSettings;
+use Drupal\system\Form\ThemeSettingsForm;
+use Drupal\Core\Form;
+
+// Hides the hamburger icon/flyout menu. Use of negative to default to showing icon and menu
+function pitt_nine_form_system_theme_settings_alter(&$form, Drupal\Core\Form\FormStateInterface $form_state) {
+  $form['pitt_nine_settings']['hide_burger'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Hide Hamburger Menu'),
+    '#default_value' => theme_get_setting('hide_burger', 'pitt_nine'),
+    '#description'  => t('Uncheck to hide the Hamburger menu. Make sure to disable blocks.'),
+  );
+  $form['pitt_nine_settings']['hide_search'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Hide Search Icon'),
+    '#default_value' => theme_get_setting('hide_search', 'pitt_nine'),
+    '#description'  => t('Uncheck to hide the Search icon. Make sure to disable blocks.'),
+  );
+  $form['pitt_nine_settings']['light_bg'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('White Header'),
+    '#default_value' => theme_get_setting('light_bg', 'pitt_nine'),
+    '#description'  => t('Use a white background and a blue Pitt mark in the header and footer'),
+  );
+}
+function pitt_nine_preprocess_page(&$variables) {
+  $variables['hide_burger'] = theme_get_setting('hide_burger','pitt_nine');
+  $variables['hide_search'] = theme_get_setting('hide_search','pitt_nine');
+}
+
+function pitt_nine_preprocess_html(&$variables) {
+  $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+  $variables['light_bg'] = theme_get_setting('light_bg','pitt_nine');
+}
+function pitt_nine_preprocess_block(&$variables) {
+  $variables['light_header'] = theme_get_setting('light_bg','pitt_nine');
+}
+function pitt_nine_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  if ($hook == 'form' & !empty($variables['element']['#id'])) {
+    $suggestions[] = 'form__' . str_replace('-', '_', $variables['element']['#id']);
+  }
+}

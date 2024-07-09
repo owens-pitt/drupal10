@@ -1,0 +1,144 @@
+.block-inline-blockhome-display-text {
+  @include make-container;
+  color: $pitt-blue-dark;
+  @include tablet {
+    padding: 50px 0 75px;
+    margin-bottom: 50px;
+  }
+  @include desktop {
+    
+  }
+  @include wide {
+    padding: 75px 0 100px;
+    margin-bottom: 100x;
+  }
+  h2 {
+    font-size: 3.3rem;
+  }
+  .field--name-body {
+    font-family: $serif;
+    p, li {
+      @include desktop {
+        font-size: 2.6rem;
+      }
+    }
+  }
+
+}
+.layout-section-torn,
+.layout--background-fullbleed--lightgraytorn {
+  color: #000;
+  background: $gray-light;
+  position: relative;
+  padding: 25px 0 100px;
+//no more torn edge; class remains
+
+/*
+ &:before, &:after {
+    content: "";
+    height: 50px;
+    width: 100%;    
+    display: block;
+    position: absolute;   
+    left: 0;
+    right: 0; 
+  }
+  &:before {
+    background: url(../img/grit_top.png) repeat-x center center;
+    top: -24px;
+    background-size: cover;
+  }
+  &:after {
+    background: url(../img/grit_bottom.png) repeat-x bottom left;
+    bottom: 0;
+    background-size: cover;
+  }
+*/
+  a {
+    color: $bright-blue-bg;
+  }
+
+}
+.layout--base--twocolrow {
+  padding-left: 20px;
+  padding-right: 20px;
+  @include tablet {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  > .layout-content {
+    .layout__region--first {
+        margin-bottom: 55px;
+      }
+      .layout__region--second {
+      }
+      @include tablet {
+      @include flex-parent;
+      .layout__region--first {
+        padding-right: 15px;
+        margin-bottom: 0;
+      }
+      .layout__region--second {
+        padding-left: 15px;
+      }
+      > .layout__region {
+        @include flex-equal-2;
+      }
+    }
+    @include desktop {
+      .layout__region--first {
+        padding-right: 25px;
+      }
+      .layout__region--second {
+        padding-left: 25px;
+      }    
+    }
+    @include wide {
+      h2.block-title {
+        margin-bottom: 75px;
+      }
+      .layout__region--first {
+        padding-right: 35px;
+      }
+      .layout__region--second {
+        padding-left: 35px;
+      }    
+    }    
+    .block-views, .block-inline-blockbasic {
+      padding: 0;
+    }
+  }
+}
+.layout--column-width--67-33 > .layout-content {
+  @include tablet {
+    .layout__region--first {
+      flex-basis: 66%;
+      flex-grow: 0;
+    }
+    .layout__region--second {
+      flex-basis: 33%;
+      flex-grow: 0;
+    }
+  }
+}
+/*
+//home page overrides
+.home-hero-page,
+.page-node-type-home-layout-page:not(.user-logged-in) {
+  header#header {
+    background: none;
+    position: relative;
+    z-index: 2;
+  }
+  .block-field-blocknodehome-layout-pagefield-home-hero {
+    margin-top: -100px;
+  }
+}
+*/
+.page-node-type-home-layout-page {
+  // Additional Body Text widget
+  .paragraph--type--body-text .field--name-field-body {
+     @include make-container-onecol;
+     margin: 0 auto;
+  }
+}

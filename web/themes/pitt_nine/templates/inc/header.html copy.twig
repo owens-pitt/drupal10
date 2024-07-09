@@ -1,0 +1,102 @@
+  {# check for menu placement #}
+  
+{# main nav below title #}
+{% if page.header and page.primary_menu %}
+  <div class="brand-wrapper">
+    <div class="{{ b5_top_container }} d-flex justify-content-between">
+      {{ page.header }}
+      {% if page.search_form %}
+        {{ page.search_form }}
+      {% endif %}
+      
+      <button class="navbar-search collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#block-pitt-nine-searchform" aria-controls="block-pitt-nine-searchform" aria-expanded="false" aria-label="Toggle search">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p><a href="#ex1" rel="modal:open">O</a></p>
+
+    </div>
+  </div>
+  <div class="nav-wrapper">
+    <div class="{{ b5_top_container }}">
+
+  <nav class="{{ nav_classes }} justify-content-between">
+    {{ page.primary_menu }}
+
+
+      <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+  </nav>
+
+      <div class="collapse navbar-collapse justify-content-md-end" id="navbarSupportedContent"></div>
+    </div>
+  </div>
+
+{# main nav beside title #}
+{% elseif page.header and page.primary_menu_header %}
+
+      <div class="{{ b5_top_container }} d-flex justify-content-between">
+      {{ page.header }}
+      <nav class="{{ nav_classes }}">
+        {{ page.primary_menu_header }}
+  
+      </div>
+          {% if page.search_form %}
+      {{ page.search_form }}
+    {% endif %}
+      <button class="navbar-search collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#block-pitt-nine-searchform" aria-controls="block-pitt-nine-searchform" aria-expanded="false" aria-label="Toggle search"> </button>
+      
+        <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse justify-content-md-end" id="navbarSupportedContent">
+
+        </div>
+    </nav>
+
+</div>
+{% else %}
+
+  {% if page.header %}
+    <div class="{{ b5_top_container }} d-flex">
+      {{ page.header }}
+    </div>
+  {% endif %}
+{% endif %}
+
+
+
+
+
+
+
+

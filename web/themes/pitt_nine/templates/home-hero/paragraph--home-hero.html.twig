@@ -1,0 +1,33 @@
+{%
+  set classes = [
+  'hero-banner',
+  'hero-banner--video',
+  'hero-banner--full-height',
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  not paragraph.isPublished() ? 'paragraph--unpublished'
+]
+%}
+{% block paragraph %}
+  {{ attach_library('pitt_nine/hero-banner') }}
+  <div{{ attributes.addClass(classes).setAttribute('role', 'region').setAttribute('aria-label', 'Hero area') }}>
+    {% block content %}
+      <div class="hero-banner-media">
+        <figure>
+          {{ content.field_autoplay_video }}
+          {{ content.field_image }}
+        </figure>
+      </div>
+      {% if content.field_top_line_title|render|striptags|raw|trim or field_bottom_line_title|render|striptags|raw|trim %}
+        <div class="hero-banner-content-container">
+          <div class="hero-banner-content">
+            <h1 class="hero-banner-heading sr-only" id="videoHero">{{ content.field_top_line_title }} {{ content.field_bottom_line_title }}</h1>
+          </div>
+        </div>
+
+      {% endif %}
+      <button class="hero-banner--video-btn" data-gtm=""><span class="sr-only">toggle video playback</span></button>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

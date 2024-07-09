@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,700|Rubik:400,500,700|Merriweather:400,700,900&display=swap");
+
+// Bootstrap overriden variables.
+// @see https://getbootstrap.com/docs/5.0/customize/sass/#variable-defaults.
+@import 'variables_bootstrap';
+
+// Include bootstrap.
+// @import '../../../../themes/contrib/bootstrap5/scss/style';
+
+// Sub theme styling.
+@import 'variables_theme';
+@import 'typography';
+@import 'mixins';
+@import 'breakpoints';
+
+@import 'modal';
+@import 'overrides';
+@import 'header';
+@import 'search';
+@import 'nav';
+@import 'nodes';
+@import 'node_layout';
+@import 'node_landing';
+@import 'blocks';
+@import 'block_grid';
+@import 'paragraphs';
+@import 'views';
+@import 'ranking_list';
+@import 'cards';
+@import 'editor';
+// @import 'callout';
+@import 'image-grid-callout';
+@import 'footer';
+
+//shared styling for subthemes
+@import 'microsites';
+
+// For site-specific custom files. File does not exist by default, you must create
+// your own custom.scss file in this directory.
+@import 'custom';
+
+

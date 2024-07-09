@@ -1,0 +1,240 @@
+.breadcrumb {
+  @include smallcaps;
+  @include smallfont;
+  font-family: $display_font;
+  @include desktop {
+    padding: 0 5px;
+  }
+  .breadcrumb-item {
+    color: $pitt-blue;
+    font-weight: 700;
+    a {
+      color: $pitt-blue;
+    } 
+    &:last-child {
+      font-weight: 400;
+    }
+  } 
+}
+
+.node_main {
+      margin-top: 45px;
+//     margin-bottom: 90px;
+  @include tablet {}
+  @include desktop {    
+    margin-top: 90px;
+//     margin-bottom: 180px;
+  }
+  @include wide {
+    margin-top: 90px;
+//     margin-bottom: 180px;    
+  }
+  @include wider {
+    margin-top: 90px;
+//     margin-bottom: 180px;
+  }
+}
+
+// general node styling
+  .field--name-body,
+  .field--name-field-body {
+      img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  }
+  
+.node--view-mode-full .node__content,
+.paragraph--type--body-text .field--name-field-body {
+  h2, h3, h4, h5, p {
+    margin: 1.25em 0 .75em;
+    &.no_top_margin {
+      margin-top: 0;
+    }
+  }
+  h2 {
+    @include heading2;
+    color: $pitt-blue-dark;
+  }
+  h3 {      
+    @include heading3;
+    color: $pitt-blue-dark;
+  }
+  h4 {
+    @include heading4;      
+    color: $pitt-blue-dark;
+    margin-top: 2em;
+  }
+  h5 {}
+  p {
+    line-height: 1.5;
+    margin: 0 0 1.25em;
+  }
+  ul, ol {
+    margin: 0 0 1.25em;
+    li:not(.acalog-course) {
+      .node__content & {
+        @include midpoint;
+        margin-left: 0;
+      }
+    }
+  }
+  hr {
+    clear: both;
+    margin: 1em 0;
+  }
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
+// common content styles
+ul.two_column {
+  padding-left: 0;
+  @include tablet {
+    @include flex-parent;
+    flex-wrap: wrap;
+  }
+  li {
+    @include midpoint;
+    margin-bottom: 0.25em;
+    @include tablet {
+      @include flex-equal-2;
+    }  
+  }
+}
+
+// blockquotes and pullquotes 
+blockquote {
+  font-size: 2rem;
+  margin: 2em 0;
+  p.attr {
+    @include smallfont;
+    @include allcaps;
+    text-align: right;
+    &:before {
+      content: "- "
+    }
+  }
+}
+
+
+// landing pages
+.landing_main, .t2_main {
+  margin-top: 90px;
+}
+//breakouts for two-col and now T2s
+.page-node-type-landing-layout-page .node__content,
+.page-node-type-landing-page .node__content {
+  .field--name-body {
+    margin-bottom: 70px;
+  }
+  // breakouts
+  .paragraph--type--section-overview {
+    margin-bottom: 40px;
+    @include tablet {
+      @include flex-parent;
+      margin-bottom: 70px;
+    }
+    > div.field--name-field-section-image,
+    a.section_image_link {
+      margin-bottom: 25px;
+      @include tablet {
+        flex: 0 0 170px;
+        margin-right: 25px;
+        margin-bottom: 0;
+      }
+    }
+    .field--name-field-section-title {
+      @include heading3;
+      color: $pitt-blue-dark;
+      margin: -10px 0 0.5em;
+    }
+    a .field--name-field-section-title:hover,
+    a .field--name-field-section-title.hover  {
+      color: $bright-blue;
+    }
+    a.section_image_link {
+      .field--name-field-section-image {
+        overflow: hidden;
+        img {
+          transition: .2s ease;
+        }
+      }
+      &:hover, &.hover {
+        .field--name-field-section-image {
+          overflow: hidden;
+          img {
+            transition: .2s ease;
+            transform: scale(1.07,1.07);
+          }
+        }
+      }
+    }
+  }
+}
+
+.page-title {
+  @include heading1;
+  font-weight: 700;
+  margin-bottom: 1.55em;  
+  .path-people & {
+	  float: left;
+  }
+}
+
+//content elements 
+table {
+  margin-bottom: 1.5em;
+  .field--name-field-body & {
+    width: 100%;
+  }
+  tr {
+    th, td {
+      padding: 4px 9px;      
+      border: 1px solid #fff
+    }
+    th {
+      font-size: 85%;
+      color: #fff;
+      background: $pitt-blue-dark
+    }
+    td {
+      color: #000;
+      font-size: 85%;
+      background: $gray-light;
+      a {
+        color: $bright-blue-bg;
+      }
+    }
+    &:nth-child(2n) td {
+      background: $gray-lighter;
+    }
+  }
+  caption {
+    @include smallfont;
+    color: $pitt-gray;
+  } 
+}
+
+
+// people-specific 
+
+.page-node-type-person {
+  h1.title {
+    @include heading1;
+  }
+  // subtitles 
+  .field--label-above .field__label {
+    @include heading3;
+    margin: 2em 0 1em;
+  }
+  ul.field--name-field-degrees-education,
+  ul.field--name-field-awards {
+	  .field__label {
+		  margin-left: -0.8em
+	  }
+  }
+}

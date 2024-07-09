@@ -1,0 +1,272 @@
+@import 'variables.scss';
+
+//*** common styles ***/
+
+// view blocks
+
+.block-views {
+  padding: 25px;
+  h2 {
+    margin-top: 0;
+  }
+}
+.views-row {
+  margin-bottom: 20px;
+}
+.view-content.row {
+  //overrides flex
+  display: block;
+  margin: 0;
+}
+.view-footer {
+  a {
+    @include small-font;
+    @include allcaps;
+  }
+}  
+/*** news ***/
+
+//full-featured news
+.view-display-id-news_full {
+  .views-row {
+    margin-bottom: 40px;
+    @include tablet {
+      @include flex-parent;
+    }
+    .views-field-field-image img {
+      width: 100%;
+      margin: 0 0 20px;
+      @include tablet {
+        width: 150px;
+        max-width: 150px;
+        margin-right: 10px;
+      }
+    }
+    h3 {
+      a {
+        color: $pitt-gray;
+        &:hover {
+          color: $bright-blue;
+        }
+        &:after {
+          @include raquo;
+          color: $orange;
+          font-size: 85%;
+          margin-left: 0.5em;
+        }
+      }
+    }
+    .field--name-created {
+      @include small-font;
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+  }
+  .social_share {
+    margin-top: 10px;
+    a {
+      margin-right: 10px;
+    }
+  }
+}
+//new block 
+.view-news {
+  .views-field-field-external-link a {
+    color: $pitt-gray;
+    &:hover {
+      color: $bright-blue-alt;
+    }
+    &::after {
+      content: "";
+      background-image: url("../images/news-link-arrow.png");
+      display: inline-block;
+      background-size: contain;
+      height: 11px;
+      width: 35px;
+      background-repeat: no-repeat;
+      margin-left: 10px;
+      margin-right: -45px;
+    }
+  }  
+}
+
+
+/*** people views ***/
+
+// people page
+.view-display-id-people {
+  position: relative;
+  @include small-font;
+  
+  //exposed form
+  .view-filters {
+    position: absolute;
+    top: -49px;
+    right: 0;
+    @include desktop {
+      top: -83px;
+    }
+    @include wide {
+      top: -92px;
+    }
+    // remove visual label
+    label {
+      height: 0;
+      overflow: hidden;
+    }
+  }
+
+  // Sticky Attachment
+  .attachment-before{
+    margin-bottom: 30px;
+    .views-row{
+      flex-basis: 100% !important;
+    }
+    .views-field-title{
+      img{
+      max-width: 52%;
+      float: left;
+      padding-right: 20px;
+        @include tablet{
+          max-width: 280px;
+        }
+      }
+    }
+  }
+
+  .view-content.row, .row_group {
+    @include flex-parent;
+    margin: 0 -10px;
+    > h3 {
+      @include heading2;
+      flex-basis: 100%;
+      margin: 2em 10px .5em;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    .views-row {
+      //flex from variables.scss
+      @include flex-equal-2;
+      padding: 10px;
+      margin: 0;
+      overflow: hidden;
+      @include tablet {
+        @include flex-equal-3; 
+      }
+      @include desktop {        
+        @include flex-equal-4;
+      }
+      @include wide {
+        @include flex-equal-5; 
+      }
+    }
+  }
+  .views-field-title {
+    font-weight: bold;  
+    a {
+      color: $pitt-blue;
+      &:after {
+        @include raquo; 
+        color: $orange;
+        font-size: 85%;
+      }      
+    }
+    img {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+// people title block
+#block-views-block-people-title {
+  padding: 0;
+  .views-row {
+    margin-bottom: 25px; 
+    @include desktop {
+      margin-bottom: 32px;
+    }
+    @include wide {  
+      margin-bottom: 40px;    
+    }
+  }
+  h1 {
+    margin-bottom: 0;
+    display: inline-block;
+  }
+  .views-field-field-pronouns{
+    display: inline-block;
+    margin-left: 10px;
+  }
+}
+
+// people sidebar block
+#block-views-block-people-contact {
+  .views-row, .views-field {
+    margin: 0;
+  }
+  .views-field-field-person-img {
+    margin: -25px -25px 20px;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+// front page jump menu
+.path-frontpage div.layout__region--content div.block-views-blockjump-menu-block-1 {
+  div.view-content.row>div {
+    text-align: center;
+
+    select {
+      max-width: 730px;
+      width: 100%;
+      margin: 0 auto;
+      height: 70px;
+      padding-left: 15px;
+      font-size: 2.4rem;
+      appearance: none;
+      border: none;
+      background: url(../images/jump-menu-arrow.png) no-repeat;
+      background-position-x: 0%;
+      background-position-y: 0%;
+      background-size: auto;
+      background-size: 70px;
+      background-position: right;
+      background-color: #fff;
+    }
+  }
+}
+
+// Xtra xtra
+span.fab.fa-twitter {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url(../images/xlogo.svg) no-repeat;
+  background-size: contain;
+
+  &:before {
+    content: "";
+  }
+
+  .block-block-groupdrawer-nav-footer & {
+    width: 18px;
+    height: 18px;
+    background-image: url(../images/xlogo-blue.svg);
+
+    &:hover {
+      background-image: url(../images/xlogo-navy.svg);
+    }
+  }
+}
+
+.view-news{
+  span.fab.fa-twitter{
+    background: url(../images/xlogo-blue.svg) no-repeat !important;
+    width: 13px;
+    height: 13px;
+  }
+}

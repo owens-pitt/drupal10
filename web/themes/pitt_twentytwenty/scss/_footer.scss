@@ -1,0 +1,184 @@
+@import 'variables.scss';
+
+.site-footer {
+  padding-top: 30px;
+  margin-top: 50px;
+  background: $gritty $pitt-gray;
+  background-size: 50%;
+  @include desktop {
+    margin-top: 75px;
+  }
+  @include wide {
+    margin-top: 95px;
+  }
+  .block {
+    border: none;
+    padding: 0 20px 20px 0;
+    margin: 0;
+    @include desktop {
+//       flex: 0 0 440px;
+    }
+  }
+  h2 {
+    @include body-font;
+    color: #fff;
+    text-transform: none;
+    border-bottom: none;
+    margin: 0 0 1em;
+  }
+  h3 {
+    @include small-font;
+    color: #fff;
+    font-weight: 600;
+  }
+  .content {
+    @include small-font;
+    color: #fff;
+    font-family: "open sans";
+    a, a:visited, a.is-active {
+      color: $pitt-gold;
+      &:hover, &:focus {
+        color: #fff;
+      }
+    }
+    ul {
+      padding-left: 0 !important;
+      li {
+        list-style: none;
+        margin-bottom: 0.5em;
+        &:hover, &:focus {
+          background: none;
+        }
+      }
+    }
+    .list-column {
+      float: left;
+      width: 24%;
+    }
+  }
+}
+
+
+//shield and name
+.site-footer__branding {
+  margin: 0 20px 15px; 
+  @include tablet {
+    margin: 0 0 30px;
+  }
+  img {
+    max-width: 150px;
+    height: auto;
+  } 
+  a.site_title {
+    font-size: 2.4rem;
+    color: #fff;
+    padding: 7px 0px 0 17px;
+    margin: 13px 0 0 6px;
+    &:hover {
+      color: #fff;
+      text-transform: none;
+    }
+  }
+}
+
+
+
+
+// footer regions  
+
+.site-footer__top {
+  @include tablet {
+    @include flex-parent;
+    justify-content: space-between;
+  }
+  //shared
+  .content {
+    p {
+      margin: 0 0 1em;
+    }
+    li a {
+      border-bottom: none;
+      text-indent: 0;
+      padding: 0;
+    }
+  }
+
+  .region {
+    width: 100%;
+    @include tablet {
+      width: auto;
+    }
+  }
+  // address block
+  .region-footer-first {
+    margin: 0 40px 0 23px;
+    padding: 0 !important;
+    @include tablet {
+      min-width: 220px;
+    }
+  }
+  
+  //content block
+  .region-footer-second {
+    margin-left: 25px;
+    @include tablet {
+      margin-left: 0;
+    }
+  }
+  //usually social icons 
+  .region-footer-third {
+    margin-left: 25px;
+    @include tablet {
+      margin-left: 0;
+    }
+    .block {
+      min-width: 200px
+    }
+  }
+
+}
+.site-footer__bottom {
+  border: none;
+  .region {
+    margin-left: 23px;
+  }
+}
+.view-copyright {
+  font-size: 1.0rem;
+  .view-content.row {
+    display: inline-block;
+  }
+  .view-footer {
+    display: inline;
+  }
+}
+//
+// static styling 
+//
+#footer-address {
+  margin-left: 35px;
+}
+#footer_logo img {
+  width: 115px;
+  height: auto;  
+}
+#block-nodesinblock-4 {
+  width: 100%;
+  margin: 0;
+  padding-left: 35px;
+}
+
+#nodesinblock-20 {
+  float: left;
+  margin-right: 70px;
+}
+
+#block-block-7 {
+  float: right;
+  margin-top: 0;
+  li {
+    font-size: 12px;
+    display: inline;
+    margin-right: 10px;
+  }
+}

@@ -1,0 +1,20 @@
+{%
+    set classes = [
+    'card-carousel-slide',
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+]
+%}
+{% block paragraph %}
+    <div{{ attributes.addClass(classes) }}>
+        {{ content.field_overline_text }}
+        {{ content.field_title }}
+{#         {% if(content.field_link|render|striptags|length > 0 and content.field_link_text|render|striptags|length > 0) %} #}
+            <h2 class="card-carousel-slide-header"><a href="{{ content.field_link|render|striptags|trim }}">{{ content.field_link_text|render|striptags }}</a></h2>
+{#         {% endif %} #}
+        {{ content.field_body }}
+
+    </div>
+{% endblock paragraph %}

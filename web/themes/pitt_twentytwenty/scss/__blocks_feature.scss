@@ -1,0 +1,330 @@
+@import 'variables.scss';
+
+// reset 
+.flexslider {
+  margin: 0;
+  background: transparent;
+  border: none; 
+}
+// common styles
+.view-featured-image {
+  h2, h3, h2.feature__title {
+    margin: 0 0 0.5em;
+  }
+  ul {
+    margin-bottom: 0;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+  // common nav
+  .flex-control-paging {
+    position: absolute; 
+    z-index: 1000;
+    li {
+      a {
+        background: $pitt-gold;
+        height: 6px;
+        width: 25px;
+        border-radius: 0;
+        &.flex-active {
+          background: $orange;
+        }
+      }
+    }
+  }
+  .flex-control-nav {
+    li {
+      &:first-child {
+        margin-left: 0;
+      }
+      a {
+        
+      }
+    }
+  }
+}
+//left feature image
+.block-views-blockfeatured-image-left {
+  padding: 0;
+  .view-featured-image .view-content > div {
+    width: 100%;
+//     max-width: 1800px;
+    max-width: 1315px;
+    margin: 0 auto;
+  }
+  .flexslider {
+    max-height: 725px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 0;
+    &:after {
+      content: "";
+      background: url(../images/grit_feature_bottom.png) repeat-x bottom left;
+      background-size: contain;
+      position: absolute;
+      bottom: 0;
+      z-index: 1;
+      bottom: -24px;
+      z-index: 2;
+      height: 43px;
+      width: 100%;
+      @include tablet {
+        bottom: -14px;
+      }
+      @include desktop {
+        bottom: -18px;
+      }
+      @include wide {
+        bottom: -20px;
+      }
+
+    }
+  }
+  .views-field-field-feature-image:after {
+      @include tablet {
+        content: "";
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.65) 100%);
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.65) 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.65) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=0);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 1;
+      }
+    }
+  .feature-caption {
+    padding: 25px 0;
+    background: $gray-light;
+    @include tablet {
+      color: #fff;
+      padding: 0;
+      background: none;
+      position: absolute;
+      bottom: 50px;
+      width: 100%;
+      z-index: 2;
+    }
+    @include desktop {
+    }
+    @include wide {
+      font-size: 1.8rem;
+    }     
+    @include widest {
+      top: 345px;
+      bottom: auto;
+    }
+    .feature__info {
+      @include desktop {
+        max-width: 50%;
+      }
+    }
+    .feature__title {
+      @include display-font;
+      font-size: 2.0rem;
+      line-height: 1;
+      margin-bottom: 5px;
+      @include tablet {
+        font-size: 2.5rem;
+      }
+      @include desktop {
+        font-size: 3.6rem;
+      }
+      @include wide {
+        font-size: 4.8rem;
+      }
+      @include widest {
+        font-size: 6.0rem;
+      }
+    }
+    .feature__link a {
+      @include readmore;
+      color: #fff;
+      margin-top: 10px;
+      margin-right: 10px;
+      @include desktop {
+        font-size: 1.6rem;
+        margin-top: 15px;
+      }
+    }
+  }
+  .flex-control-paging {
+    @include make-container;
+    text-align: left;
+    top: 0px;
+    bottom: auto;
+    margin: 0 auto;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-left: 10px;
+    @include tablet{
+      bottom: 210px;
+      top: auto;
+      display: block;
+      padding-left: 35px;
+    }
+    @include desktop {
+      padding-left: 25px;
+      bottom: 270px;
+      top: auto;
+      display: block;
+    }
+    @include wide {
+      padding-left: 40px;
+      top: auto;
+      bottom: 350px;
+      display: block;
+    }
+    @include widest {
+      padding-left: 40px;
+      top: 330px;
+      bottom: auto;
+      display: block;
+    }
+  }
+}
+
+// default feature image with blue caption box
+
+.block-views-blockfeatured-image-caption {
+  padding: 0;
+  width: 100%;
+//   max-width: 1800px;
+  max-width: 1315px;
+  margin: 0 auto;
+  .feature-caption {
+    background: $pitt-blue;
+    @include tablet {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: none
+    }
+    .feature-info {
+      color: #fff;
+      width: 100%;
+      padding: 25px 0;
+      height: 164px;
+      @include tablet {
+        float: right;
+        padding: 25px;
+        background: $blue-trans;
+        width: 47.5%;
+      }
+      a {
+        color: $pitt-gold;
+        &:hover {
+          color: #f60;
+        }
+      }
+    }
+  }
+  .paging_wrapper {
+    @include make-container;
+  }
+  .flex-control-paging {
+    display: inline-block;
+    text-align: left;
+    bottom: 116px;
+    top: auto;
+    @include tablet{
+      width: 47.5%;
+      margin: 0 auto;
+      right: 0;
+      padding-left: 20px;
+      bottom: 139px;
+      li:first-child {
+      }
+    }
+    @include desktop{
+    }
+    @include wide{
+      bottom: 140px;
+      li:first-child {
+      }
+    }
+  }
+}
+
+// feature image with long text 
+.block-views-blockfeatured-image-long-text {
+  background: $gray-lighter;
+  padding: 0;
+  li {
+    @include tablet {
+      @include flex-parent;
+      align-items: center;
+    }
+    > div {
+      margin: 0;
+//       flex-shrink: 3;
+    }
+    .views-field-field-feature-image {
+//       flex-shrink: 2;
+      @include tablet {
+        flex: 0 0 380px;
+      }
+      @include desktop {
+        flex: 0 0 571px;
+      }
+      @include wide {
+        flex: 0 0 665px;
+      }
+    }
+  }
+  .feature-caption { 
+    padding: 20px 0;
+    p {
+      @include small-font;
+      @include desktop {
+        font-size: 1.5rem;
+      }
+    }
+    @include tablet {
+      padding: 0 0 0 20px;
+    }
+  }
+  .flex-control-paging {
+    li{
+      display: inline-block !important;
+    }
+    bottom: auto;
+    margin: 0 auto;
+    text-align: left;
+    top: 0;
+    @include tablet{
+      top: 52px;
+    }
+    @include desktop{
+      top: 15px;
+    }
+    @include wide{
+      text-align: center;
+      right: -177px;
+    }
+  }
+}
+
+//big hero 
+.view-home-hero {
+  .path-frontpage & {
+    margin-top: -77px;
+  }
+  .views-field-field-hero-text {
+    @include display-font;
+    font-size: 6.0rem;
+    line-height: 1;
+    text-align: center;
+    color: #fff;  
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    @include desktop {
+      font-size: 9.0rem;
+    }
+  }
+}

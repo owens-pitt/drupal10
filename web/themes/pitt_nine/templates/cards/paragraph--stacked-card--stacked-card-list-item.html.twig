@@ -1,0 +1,5 @@
+{% block paragraph %}
+    <li>
+        <a href="{{ content.field_link|render|striptags|trim }}" class="data-gtm-exploreCards" data-target="stacked-card-{{ paragraph.id() }}" >{{ content.field_link_text }}</a>
+    </li>
+{% endblock paragraph %}

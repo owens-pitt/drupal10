@@ -1,0 +1,99 @@
+// import utilities
+/*
+@import "../../styles/utilities/extends";
+@import "../../styles/utilities/variables";
+*/
+
+.view .image-grid-callout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  @include desktop{
+    grid-template-columns: 1fr 1fr;
+  }
+   &-content-wrapper {
+     max-width: 425px;
+   }
+   &-images {
+      figure {
+         position: relative;
+
+         img {
+            width: 100%;
+         }
+      }
+   }
+
+   &-content {
+      align-self: center;
+      padding: 45px 30px;
+      @include tablet {
+        padding: 45px 75px;
+      }
+      @include wide {
+        padding: 80px 105px;
+      }
+      .layout--article & {
+        position: relative;
+        z-index: 1;
+        margin-left: -15px;
+        margin-right: -15px;
+        @include tablet {
+        }
+        @include tablet {
+        }
+        @include wide {
+          padding: 0 80px;
+        }
+        @include wider {
+        }
+      @media (min-width: 1600px) {
+      }
+
+/*
+margin-left: -15px;
+margin-right: -333px;
+
+        margin-left: -86px;
+        margin-right: -240px;
+
+
+
+margin-right: -45%;
+
+margin-left: -43%;
+margin-right: -60%;
+
+padding: 0 50px;
+
+
+padding: 45px 30px;
+
+padding: 45px;
+*/
+
+
+}
+      h3 {
+         color: $color-primary;
+         @include heading1;
+         margin-bottom: 0.25em !important;
+      }
+      p {
+         font-family: $display_font;
+      }
+    }
+  }
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+
+ 

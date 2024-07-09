@@ -1,0 +1,70 @@
+.navbar-search {
+  background: none;
+  border: none;
+  color: #fff;
+  position: relative;
+
+  @include tablet {
+    padding-right: 30px;
+  }
+  &:before {
+    @include fontawesome;
+    content: "\f002";
+    font-weight: 700;
+    @include tablet {
+      font-size: 2.0rem;
+    }
+  }
+  &.search_after {
+    margin-right: 10px;
+    padding-right: 20px;
+    &:after {
+      content: "";
+      height: 25px;
+      width: 1px;
+      background: #fff;
+      display: block;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+/*
+  &.collapsed:before  {
+    @include fontawesome;
+    content: "\f002";
+  }
+*/
+}
+/*
+
+#block-pitt-nine-searchform {
+  display: none;
+  &.show {
+    display: block;
+  }
+}
+*/
+
+/*** search results ***/
+#search-form {
+  margin-bottom: 2em;
+}
+// node search 
+.search-help-link {
+  display: none;
+}
+h3.search-result__title {
+  margin-top: 1.5em;
+}
+ol.node_search-results {
+  padding-left: 0;
+  li {
+    list-style: none;
+    margin: 0 0 1.5em
+  }
+}
+/*** search index view mode ***/
+.node--view-mode-search-index {
+ margin-bottom: 2em; 
+}

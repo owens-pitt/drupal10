@@ -1,0 +1,20 @@
+<div class="{{ container }}">
+  {% if page.footer_branding %}
+    <div class="site-footer__branding clearfix">
+      {{ page.footer_branding }}
+    </div>
+  {% endif %}
+  {% if page.footer_first or page.footer_second or page.footer_third or page.footer_fourth %}
+    <div class="site-footer__top clearfix">
+      {{ page.footer_first }}
+      {{ page.footer_second }}
+      {{ page.footer_third }}
+    </div>
+  {% endif %}
+  {% if page.footer_copyright %}
+    <div class="site-footer__bottom">
+      {{ page.footer_copyright }}
+    </div>
+  {% endif %}
+</div>
+      {{ page.footer_end }}

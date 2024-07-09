@@ -1,0 +1,1354 @@
+@import 'variables.scss';
+@mixin tint-block {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;  
+  z-index: 0;
+}
+@mixin white-box {
+  color: $pitt-gray;
+  background: $white-trans;
+  padding: 30px;
+  a {
+    color: $bright-blue;
+  }
+  @media $wide {
+    min-height: 200px;
+  }
+}
+@mixin blue-box {
+  color: #fff;
+  background: $blue-trans-dark;
+  padding: 30px;
+  a {
+    color: $pitt-gold;
+  }
+  @media $wide {
+    min-height: 200px;
+  }
+}
+@mixin gray-box {
+  color: #fff;
+  background: $white-trans-dark;
+  padding: 30px;
+  a {
+    color: $pitt-gold ;
+  }
+}
+@mixin border-box {
+  border: 4px solid $gray;
+  margin: 5px;
+}
+@mixin text-box {
+  padding: 0;
+}
+@mixin inner-bloc-full {
+  width: 100%;
+  padding: 10px;
+}
+@mixin inner-bloc-half {
+  width: 100%;
+  padding: 10px;
+  @media $tablet {
+  }
+  @media $desktop {
+    width: 50%;
+    float: left;    
+  }
+  @media $wide {
+  }
+}
+@mixin inner-bloc-third {
+  width: 100%;
+  padding: 10px;
+  @media $tablet {
+    width: 33%;
+    float: left;    
+  }
+  @media $desktop {
+  }
+}
+@mixin link-block {
+  a {
+    font-size: 1.8rem;
+    position: relative;
+    margin-top: 30px;
+    display: block;
+    &:before {
+      content: "";
+      width: 66%;
+      height: 1px;
+      background: $pitt-gold;
+      display: block;
+      position: absolute;
+      top: -5px;
+    }
+    &:after {
+      content: " »";
+    }
+    .layout--background-overlay--blue & {
+      color: #fff;
+    }
+    .layout--background-overlay--gold & {
+      color: $pitt-blue;
+    }
+  }
+}
+// shared 
+/*
+.paragraph--type--stats {
+  text-align: center;
+  .stat_number {
+    font-family: $display_font;
+    font-size: 35px;
+    line-height: 1;
+    margin-bottom: 10px;
+    @media $tablet {
+      font-size: 40px;
+    }
+    @media $desktop {
+      font-size: 50px;      
+    }
+    @media $wide {
+      font-size: 60px;      
+    }
+    .stat_figure {
+      font-size: 170%;
+    }
+    .stat_text {
+      vertical-align: super;
+      font-size: 60%;
+    }
+  }
+}
+*/
+.block-layout-builder {
+  .align-left {
+    @media $tablet {
+      margin: 0 20px 20px 0;
+    }
+    @media $desktop {
+      margin: 0 30px 20px 0;
+    }
+  }
+  .align-right {
+    @media $tablet {
+      margin: 0 0 20px 20px;
+    }
+    @media $desktop {
+      margin: 0 0 20px 30px;
+    }
+  }
+  &.block_left {
+    @media $tablet {
+      margin-right: 40px;
+    }      
+  }
+  &.block_right {
+    @media $tablet {
+      margin-left: 40px;
+    }
+  }
+}
+
+//
+// columns 
+//
+.layout--onecol {
+  .layout-builder-block {
+  }
+  .layout-builder-block.block-full-width {
+  }
+  .layout-builder-block.block-inline-blockspacer-block {
+    .content:after {
+      content: "[spacer]";
+      text-align: center;
+      display: block;
+    }
+  }
+}
+
+
+.layout--base--twocolrow > .layout-content {
+  @media $tablet {
+    .layout__region--first {
+      padding-right: 15px;
+    }
+    .layout__region--second {
+      padding-left: 15px;
+    }
+    @include flex-parent;
+    > .layout__region {
+      @include flex-equal-2;
+      .layout--column-width--67-33 {
+        
+      }
+    }
+  }
+  .block-views, .block-inline-blockbasic {
+    padding: 0;
+  }
+}
+.layout--column-width--67-33 > .layout-content {
+  @media $tablet {
+    .layout__region--first {
+      flex-basis: 66%;
+      flex-grow: 0;
+    }
+    .layout__region--second {
+      flex-basis: 33%;
+      flex-grow: 0;
+    }
+  }
+}
+
+
+//
+//default styling for layout block types
+//
+.layout__region {  
+  .block-layout-builder {
+    margin-bottom: 40px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    // ugh recursive assigned classes
+    .block-layout-builder  {
+      width: 100%;
+      float: none;
+      margin-bottom: 0;
+    }
+    h2 {
+//       @include display-font;
+      margin-top: 0;
+//       margin-bottom: 0.5em;
+      text-align: left;
+      //parent
+      .layout--background-overlay--gold & {
+        color: $pitt-blue;
+      }
+      .layout--background-overlay--blue &,
+      .layout--background-overlay--gray & {
+        color: $pitt-gold;
+      }      
+    }
+  }
+  // main body 
+  .block-field-blocknodelayout-pagebody {
+    @include inner-bloc-full;
+  }
+//stats
+  .block-inline-blockstatistics {
+    text-align: center;
+    .field--name-field-stat-set {
+      @include flex-parent;
+      flex-wrap: wrap;
+      .node--type-layout-page & {
+      .block-full-width & {
+        flex-wrap: nowrap;
+      }
+      > .field__item {
+      @include flex-equal-2;
+//       @include inner-bloc-half;
+            //parent
+        .layout--background-overlay--blue &,
+        .layout--background-overlay--gray & {
+          color: #fff;
+        }
+      .paragraph {
+        background: $white-trans-dark;
+        padding: 20px;
+        border: 2px solid $gray;
+        @media $tablet {
+          height: 100px;
+        }
+        @media $desktop {
+          height: 150px;
+        } 
+        @media $wide {
+          height: 170px;
+        }
+        //parent
+        .layout--background-overlay--gold &,
+        .layout--background-overlay--blue &,       
+        .layout--background-overlay--gray & {
+          border-color: transparent ;
+        }
+        }
+        }
+      }
+    } 
+    &.block-full-width {
+      .field--name-field-stat-set {
+        flex-wrap: nowrap;
+      }
+    }
+  }
+// shared fields
+  .paragraph--type--stats {
+    text-align: center;
+    .field--name-field-stat-number {
+      font-family: $display_font;
+      color: $pitt_blue;
+      font-size: 3.5rem;
+      line-height: 1;
+      margin-bottom: 10px;
+      @media $tablet {
+        font-size: 4.0rem;
+      }
+      @media $desktop {
+        font-size: 5.0rem;      
+      }
+      @media $wide {
+        font-size: 6.0rem;      
+      }
+      .stat_figure {
+        text-align: left;
+        font-size: 170%;
+      }
+      .stat_text {
+        vertical-align: super;
+        font-size: 55%;
+      }
+      
+      //parent
+      .layout--background-overlay--blue &,
+      .layout--background-overlay--gray & {
+        color: $pitt-gold;
+      }
+      .layout--background-overlay--gold & {
+        color: $pitt-gray;
+      }
+      .field--name-field-stat-description {
+        font-size: 2.0rem;
+        margin-top: 1em;
+      }
+    }
+  }
+  .display_text {
+    font-size: 2.5rem; 
+  }
+  .callout_group {
+    margin-bottom: 20px;
+  }
+  .callout_header {
+    font-weight: bold;
+    font-weight: 700;
+    font-size: 2.2rem;
+    a {
+      color: inherit;
+      &:after {
+        content: " »";
+      }
+      &:hover {
+        color: $pitt-gold;
+      }
+    }
+  }
+  .callout_date {
+    @include allcaps;    
+    font-size: 1.7rem;
+  //     color: $pitt-gold;
+  }
+//icons 
+    .block-field-blockblock-contenticon-setfield-icon {
+        .field__item {
+          text-align: center;
+        }
+      .paragraph--type--icons {
+        text-align: center;
+        displaY: inline-block;
+        > span:before, 
+        .block-field-blockparagraphiconsfield-icon {
+          font-size: 3.6rem;
+          @media $tablet {
+            font-size: 4.8rem;
+          }
+          @media $desktop {
+            font-size: 6.0rem;
+            }
+          @media $wide {
+            font-size: 9.0rem;
+          }
+        }
+        .field--name-field-icon-link {
+          font-size: 1.25rem;
+          @media $tablet {
+            font-size: 1.5rem;
+          
+          }
+          @media $desktop {
+          font-size: 1.8rem;
+          
+          }
+          @media $wide {
+           font-size: 2.0rem; 
+          }
+          margin-top: 1em;
+          a {
+            .layout--background-overlay--gold & {
+              color: $pitt-blue;
+            }
+            .layout--background-overlay--blue &,
+            .layout--background-overlay--gray & {
+              color: $pitt-gold;
+            }
+          }
+        }
+      }
+    }
+    .block-field-blocknodelayout-pagefield-icon-set {
+      text-align: center;
+      padding-bottom: 40px;
+      margin-bottom: 40px;
+      .field__item {
+        padding: 20px;      
+        .block-field-blockparagraphiconsfield-icon span {
+          font-size: 9.1rem;
+        }
+        .field--name-field-icon-link {
+        }
+      }
+    }
+//basic txt block
+    .block-inline-blockbasic {
+//       @include inner-bloc-half;
+      .layout--background-attachment--default &,
+      .layout--background-attachment--fixed & {
+//         @include white-box;
+      }
+      .layout--background--white & {
+        padding-top: 0;
+      }
+      &.block-full-width {
+        font-size: 2.4rem;
+        font-weight: 300;
+        line-height: 1.4;
+      }
+    }
+//spacer block
+    .block-inline-blockspacer-block {    
+      display: block;
+      height: 1px;
+    }
+// style a
+  .block-inline-blockgrid-block-a  {
+    .field__items {
+      @include flex-parent; 
+      flex-wrap: wrap;
+    }  
+    .field__item {
+        @include flex-equal-2;
+        padding: 0;
+        > div {
+          @include white-box;
+          height: 170px;
+        }
+      a {
+        font-size: 1.8rem;
+        position: relative;
+        margin-top: 30px;
+        display: block;
+        &:before {
+          content: "";
+          width: 66%;
+          height: 1px;
+          background: $pitt-gold;
+          display: block;
+          position: absolute;
+          top: -5px;
+        }
+        &:after {
+          content: " »";
+        }
+        .layout--background-overlay--blue & {
+          color: #fff;
+        }
+        .layout--background-overlay--gold & {
+          color: $pitt-blue;
+        }
+      }
+    }
+  }
+// style d depricated
+  .block-inline-blockgrid-block-d {
+    .field__item {
+      height: 170px;
+      &.field--type-text-long {
+//         @include inner-bloc-full;
+      }
+      div {
+        @include white-box;
+      }
+    }
+    .field--type-link {
+      @include flex-parent;
+      .field__item {
+        @include flex-equal-2;
+      > div {
+        @include white-box;
+      }
+      a {
+      font-size: 1.8rem;
+      position: relative;
+      margin-top: 30px;
+      display: block;
+        &:before {
+          content: "";
+          width: 66%;
+          height: 1px;
+          background: $pitt-gold;
+          display: block;
+          position: absolute;
+          top: -5px;
+        }
+        &:after {
+          content: " »";
+        }
+        .layout--background-overlay--blue & {
+          color: $bright-blue;
+        }
+        .layout--background-overlay--gold & {
+          color: $pitt-blue;
+        }
+      }
+    }
+  }
+  }
+// style e {
+  .block-inline-blockgrid-block-e {
+//     @include inner-bloc-full;  
+      .field__items  {
+        @include flex-parent;
+        > .field__item {
+          @include flex-equal-3;
+//       @include inner-bloc-third;  
+      flex-basis: 33%;
+      flex-grow: 0;
+    }
+  }
+}
+// image block
+  .block-inline-blockimage-block {
+    .field--type-image {
+      width: 100%;
+      background: $white-trans;
+      img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 0;
+      }
+    }
+    .field--name-field-caption {
+      background: $white-trans;
+      color: $pitt-gray;
+      font-size: 1.5rem;
+      padding: 1em;
+      clear: both;
+      min-height: 0;
+/*
+      .layout--background-overlay--blue & {
+        color: $pitt-gold;
+      }
+      .layout--background-overlay--gold & {
+        color: $pitt-blue;
+      }
+*/
+    }
+  }
+// single image highlight 
+.block-inline-blocksingle-image-highlight {
+  .content {
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    .field--name-field-block-image {
+      margin: 0;
+      @media $tablet {
+        flex: 0 0 40%;
+      }
+      @media $desktop {
+        flex: 0 0 420px;
+      }
+      @media $wide {
+        flex: 0 0 420px;
+      }
+      img {
+        margin-bottom: 20px;
+        @media $tablet {
+          margin: 0;
+        }
+      }
+    }
+    .field_text {
+      @media $tablet {
+        padding: 0 20px;
+      }
+      @media $desktop {
+        padding: 0 35px;
+      }
+      .field--name-field-title {
+        h3 {
+          @include display-font;
+          margin: 0 0 0.5em;
+          @media $wide {
+            font-size: 3.5rem;
+          }
+        } 
+      }
+      .field--name-field-short-text {
+        font-size: 1.8rem;
+        h3 {
+          @include display-font;
+          font-size: 2.4rem;
+          margin: 0 0 0.5em;
+          @media $wide {
+            font-size: 3.2rem;
+          }
+        }
+/*
+        a.readmore {
+          @media $desktop {
+            @include body-font;
+          }
+        }
+*/
+         
+      }
+    }
+  }
+}
+//
+// here we go again 
+//
+// Half-width 4 blocks with images
+  .block-inline-blocklayout-a {
+    margin-bottom: 0;
+    // for multiple rows, to form a grid
+    &:last-child {
+      margin-bottom: 40px;
+    }   
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1em;
+      margin-left: 5px; 
+    }
+    .field__items {
+      @include flex-parent;
+      flex-wrap: wrap;
+//       margin: 0 -5px;
+      .field__item {
+        @include flex-equal-2;
+        margin: 0 0 5px 0;
+        overflow: hidden;
+        > div {
+          @include border-box;
+          @include white-box;
+          height: 170px;
+        }
+        .layout--base--row & {
+           @media $desktop {
+              @include flex-equal-4;
+            }
+          }
+        }
+      }
+    }
+    .layout--background-overlay--blue &,
+    .layout--background-overlay--gray & {
+      color: #fff;
+    }
+  }
+// Half-width Image block
+  .block-inline-blocklayout-b {  
+    h2 {
+      @include headline;
+    } 
+    .field--type-image {
+      width: 100%;
+      background: $white-trans;
+      img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 0;
+      }
+    }
+    .field--name-field-caption {
+      font-size: 1.5rem;
+      padding: 1em;
+      clear: both;
+      min-height: 0 !important;
+      padding: 10px 30px !important;
+/*
+      .layout--background-overlay--blue & {
+        color: $pitt-gold;
+      }
+      .layout--background-overlay--gold & {
+        color: $pitt-blue;
+      }
+*/
+    }
+    .layout--background-overlay--blue &,
+    .layout--background-overlay--gray & {
+      color: #fff;
+    }
+  }
+// Half-width Text Block
+  .block-inline-blocklayout-c {  
+    h2 {
+      @include headline;
+    }  
+    .field--name-body {
+    }
+  }
+// Half-width 1 wide box and 2 smaller boxes below
+  .block-inline-blocklayout-d {   
+    .content > .field--type-text-long {
+      margin: 5px;
+      h2 {
+        @include headline;
+        color: $pitt-gold;
+        margin-bottom: 0;
+      }
+    }
+    .field__items {
+      @include flex-parent;
+      .field__item {
+        @include flex-equal-2;
+      }
+    }
+    .field__items .field__item > div,
+    .content > .field--name-field-text  {
+      @include blue-box;
+      .field--name-field-stat-number {
+        color: $pitt-gold;
+      }
+      .layout--background--blue &,
+      .layout--background--gray &,
+      .layout--background-overlay--blue &,
+      .layout--background-overlay--gray & {
+        @include gray-box;
+        color: #fff;
+        h2 {
+          color: #fff;    
+        }
+        a {
+          color: $pitt-gold;
+        }
+      }
+      .layout--background-attachment--fixed .block-inline-blockgrid-block-d,
+      .layout--background--gold .block-inline-blockgrid-block-d &,
+      .layout--background-overlay--gold .block-inline-blockgrid-block-d & {
+        @include gray-box;
+        color: $pitt-gray;
+        h2 {
+          color: #fff;
+        }
+        a {
+          color: $pitt-blue;
+        }
+      }
+    }    
+  }
+// Half-width 4 links in a grid
+  .block-inline-blocklayout-e {   
+    .field__items {
+      @include flex-parent;
+      flex-wrap: wrap;
+      .field__item {
+        @include flex-equal-2;
+        @include link-block;
+        > div {
+          height: 170px;
+        }
+      }
+    }
+  }
+// Full-width image block
+  .block-inline-blocklayout-f {   
+    .field--type-image {
+      width: 100%;
+      background: $white-trans;
+      img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 0;
+      }
+    }
+    .field--name-field-caption {
+      background: $white-trans;
+      color: $pitt-gray;
+      font-size: 1.5rem;
+      padding: 1em;
+      clear: both;
+        min-height: 0 !important;
+      padding: 10px 30px !important;
+/*
+      .layout--background-overlay--blue & {
+        color: $pitt-gold;
+      }
+      .layout--background-overlay--gold & {
+        color: $pitt-blue;
+      }
+*/
+    }
+  }
+// Full-width text block
+  .block-inline-blocklayout-g {  
+    h2 {
+      @include headline;
+    }  
+    .layout--background-overlay--black-fade-up & {
+      h2 {
+        color: $pitt-gold;
+      }
+      p {
+        color: #fff;
+      }
+    }
+  }
+// Full-width text block with pullquote
+  .block-inline-blocklayout-h {   
+    h2 {
+      @include headline;
+    } 
+    .field--name-field-quote {
+      p {
+        font-size: 2.2rem;
+        &:before {
+          content: "\0201C ";
+          float: left;
+          margin-top: -25px;
+          font-size: 3rem;
+          font-family: georgia, serif;
+        }
+        &:after {
+          content: "\0201D";
+          display: inline;
+          font-family: georgia, serif;
+        }
+      }
+    }
+    .field--name-field-attribution {
+      text-align: right;
+      &:before {
+        content: "— ";
+      }
+    }
+  }
+// Full-width display text
+  .block-inline-blocklayout-i { 
+    p
+     {
+      font-size: 2.2rem;
+    }  
+  }
+// Full-width single image highlight
+  .block-inline-blocklayout-k {   
+    .content {
+      position: relative;
+      overflow: hidden;
+      justify-content: center;
+      padding: 0 !important;
+      > div {
+        @include flex-equal-2;
+      }
+      .field--name-field-block-image {
+        @media $tablet {
+//         width: 50%;
+        }
+       img {
+         margin: 0;
+       }
+      }
+      .field_text {
+       padding: 0 30px 0 10px;
+       .field--name-field-title {
+         @include display-font;
+         font-size: 3.2rem;
+       }
+       .field--name-field-short-text {
+         font-size: 1.8rem;
+       }
+      }
+      @include white-box;
+      .layout--background--gold &,
+      .layout-section-gold-bg &,
+      .layout--background-overlay--gold & {    
+        background: none;
+        .block-field-blockparagraphiconsfield-icon {
+          color: #fff;
+        }
+        .field--name-field-icon-link a {
+            color: $pitt-gray;
+        }
+      }
+    }
+  }
+// Full-width icon set
+  .block-inline-blocklayout-m {   
+    h2 {
+//       @include smallcaps;
+      color: $pitt-gray;
+      font-size: 2.5rem;
+      margin-bottom: 1em;
+    }  
+    .field__items {
+      @include flex-parent;
+      @include flex-justify-around;
+      .field__item {
+        @include flex-equal;
+          text-align: center;
+        }
+        > div {
+        .layout--background--gold &,
+        .layout-section-gold-bg &,
+        .layout--background-overlay--gold & {    
+          background: none;
+          .block-field-blockparagraphiconsfield-icon {
+            color: #fff;
+          }
+          .field--name-field-icon-link a {
+              color: $pitt-gray;
+          }
+        }
+      }
+    }
+    .paragraph--type--icons {
+      text-align: center;
+      display: inline-block;
+      .block-field-blockparagraphiconsfield-icon {
+        font-size: 9.2rem; 
+      }
+      .field--name-field-icon-link {
+        font-size: 1.8rem;
+        a {
+          .layout--background-overlay--gold & {
+            color: $pitt-blue;
+            .block-field-blockparagraphiconsfield-icon {
+              color: #fff;
+            }
+          }
+          .layout--background-overlay--blue &,
+          .layout--background-overlay--gray & {
+            color: $pitt-gold;
+          }
+        }
+      }
+    }
+  }
+/*
+  .block-inline-blocklayout-n .field__item > div,
+  .block-inline-blocklayout-n .paragraph-type-stats
+*/
+// Full-width stats
+.layout__region   .block-inline-blocklayout-n { 
+    margin-bottom: 0;
+    &:last-child {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: $pitt-gray;
+      font-size: 2.5rem;
+    }  
+    .field__items {
+      @include flex-parent;
+      @include flex-justify-around;
+>       .field__item {
+        @include flex-equal;
+/*         > div { */
+          padding: 28px;
+          border: 2px solid $gray;
+          .layout--background--blue &,
+          .layout--background--gray &,
+          .layout--background-overlay--blue &,
+          .layout--background-overlay--gray & {
+            color: #fff;
+            @include gray-box;
+            border: none;
+          }
+          .layout--background-attachment--fixed,
+          .layout--background--gold &,
+          .layout--background-overlay--gold & {
+            @include gray-box;
+            color: $pitt-gray;
+            border: none;
+          }
+        }
+/*       } */
+    }
+  }
+// Full-width slider-style grid
+  .block-inline-blocklayout-o {   
+    h2 {
+      color: $pitt-blue;
+      font-size: 5.0rem;
+      margin-bottom: 1.5em;
+      margin-top: 1em;
+    }
+    .content > .field__items {
+      @include flex-parent;
+      flex-wrap: wrap;
+      align-items: stretch;
+      > .field__item { 
+        @include flex-equal-3;
+        @include flex-equal;
+        position: relative;
+        > div {
+          @include blue-box;
+          height: 100%;
+          h3, h4 {
+            color: $pitt-gold;
+            margin-bottom: 1em;
+          }
+          ul {
+            padding-left: 1em;
+            li {
+              margin-bottom: .75em;
+            }
+          }
+        }
+      }
+    }
+  }
+//override for 
+  .block-full-width {
+    width: 100%;
+    float: none;
+  }
+ //end layout-region
+.layout-content {
+  position: relative;
+  z-index: 1;
+}  
+//
+// layout overlays
+//
+.layout--background-position--center,
+.layout--background-position--default {
+  background-position: center center; 
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.layout--background-attachment--default {
+  background-size: cover;
+  background-repeat: no-repeat;  
+}
+.layout--background-attachment--fixed {
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.layout--background-overlay {
+  position: relative;
+  &:after {
+    @include tint-block;
+  }
+  &--gray, &--blue, &--blue-fade {
+    color: #fff;
+    h2 {
+      color: $pitt-gold;
+    }
+  }
+  &--gold {
+    &:after {
+      background: $gold-trans;
+    }
+  }
+  &--gray {
+    &:after {
+      background: $gray-trans;
+    }
+  }
+  &--blue {
+    color: #fff;
+    &:after {
+      background: $blue-trans-dark;
+    }
+  }
+  &--blue-fade {
+    &:after {
+      background: $arrow-bg, -moz-linear-gradient(left,  $blue-trans-dark 25%, rgba(0,0,0,0) 75%); /* FF3.6-15 */
+      background: $arrow-bg, -webkit-linear-gradient(left,  $blue-trans-dark 25%,rgba(0,0,0,0) 75%); /* Chrome10-25,Safari5.1-6 */
+      background: $arrow-bg, linear-gradient(to right,  $blue-trans-dark 25%,rgba(0,0,0,0) 75%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$blue-trans-dark', endColorstr='#00003594',GradientType=1 ); /* IE6-9 */
+      background-size: 33%, cover;
+    }
+  }
+  &--gold-fade {
+    &:after {
+      background: $arrow-bg, -moz-linear-gradient(left,  $gold-trans 25%, rgba(0,0,0,0) 75%); /* FF3.6-15 */
+      background: $arrow-bg, -webkit-linear-gradient(left,  $gold-trans 25%,rgba(0,0,0,0) 75%); /* Chrome10-25,Safari5.1-6 */
+      background: $arrow-bg, linear-gradient(to right,  $gold-trans 25%,rgba(0,0,0,0) 75%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$gold-trans', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+      background-size: 33%, cover;
+    }
+  }
+  &--gray-fade {
+    &:after {
+      background: $arrow-bg, -moz-linear-gradient(left,  $gray-trans-dark 25%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+      background: $arrow-bg, -webkit-linear-gradient(left,  $gray-trans-dark 25%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: $arrow-bg, linear-gradient(to right,  $gray-trans-dark 25%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$gray-trans-dark', endColorstr='#00000000',GradientType=1 ); /* IE6-9 */
+      background-size: 33%, cover;
+    }
+  }
+}
+.layout--background--blue,
+.layout-section-blue-bg {
+  background: $pitt-blue;
+  color: #fff;
+  .layout-builder-block {
+    background: transparent;
+  }
+  a {
+    color: $pitt-gold;
+  }
+}
+.layout-background--white,  
+.layout-section-white-bg {
+  background: #fff;
+}
+.layout--background--gold,
+.layout-section-gold-bg {
+  background: $pitt-gold;
+  color: $pitt-blue;
+  .layout-builder-block {
+    background: transparent;
+  }
+  a {
+    color: $bright-blue;
+  }
+}
+.layout--background--gray,
+.layout-section-gray-bg {
+  background: $pitt-gray;
+  color: #fff;
+  .layout-builder-block {
+    background: transparent;
+  }
+  a {
+    color: $pitt-gold;
+  }
+}
+
+//extra top margin, like for news and events
+.layout-section-generous {
+  @media $desktop {
+    margin-top: 75px;
+  }
+}
+
+//
+// color variations 
+//
+  .block-inline-blocklayout-b .field--name-field-caption,
+  .block-inline-blocklayout-c,
+/*
+  .block-inline-blocklayout-d .field__items .field__item > div,
+  .block-inline-blocklayout-d .content > .field--name-field-text,  
+*/
+  .block-inline-blocklayout-e .field__item > div,
+  .block-inline-blocklayout-f .field--name-field-caption,
+//   .block-inline-blocklayout-g,
+  .block-inline-blocklayout-h,
+  .block-inline-blocklayout-i {
+    @include white-box;
+    .layout--background--blue &,
+    .layout--background--gray &,
+    .layout--background-overlay--blue &,
+    .layout--background-overlay--gray & {
+      color: #fff;
+      @include gray-box;
+      a {
+        color: $pitt-gold;
+      }
+    }
+    .layout--background-attachment--fixed,
+    .layout--background--gold &,
+    .layout--background-overlay--gold & {
+      @include gray-box;
+      color: $pitt-gray;
+      a {
+        color: $pitt-blue;
+      }
+    }
+    .layout--background--fog &,
+    .layout--background-overlay--fog & {
+      color: $pitt-blue;
+      a {
+        color: $bright-blue;
+      }
+    } 
+    .layout--background-overlay--blue-fade & {
+      background: none;
+      padding: 0;
+      color: #fff;
+    }
+    &.block-blue-bg {
+      color: #fff;
+      background: $blue-trans-dark;
+    }
+  }
+/*
+  .block-inline-blocklayout-m .field__item > div {
+    @include white-box;
+    .layout--background--gold &,
+    .layout-section-gold-bg &,
+    .layout--background-overlay--gold & {    
+      background: none;
+      .block-field-blockparagraphiconsfield-icon {
+        color: #fff;
+      }
+      .field--name-field-icon-link a {
+          color: $pitt-gray;
+      }
+    }
+  }
+*/
+/*
+.layout--background--gold,
+.layout--background-overlay--gold {
+  .block-inline-blocklayout-b field--name-field-caption,
+  .block-inline-blocklayout-d .field__items .field__item > div,
+  .block-inline-blocklayout-d .field--type-text-long,
+  .block-inline-blocklayout-e .field__item > div,
+  .block-inline-blocklayout-f field--name-field-caption,
+  .block-inline-blocklayout-g,
+  .block-inline-blocklayout-h,
+  .block-inline-blocklayout-i  {
+    @include white-box;
+    a {
+      color: $pitt-blue;
+    }
+  }
+}
+*/
+//
+// used for layout editor
+//
+.layout-builder-block__content-preview-placeholder-label {
+  color: $gray-dark !important;
+}
+.js-layout-builder-block {
+  background: transparent;
+/*
+//   float: none !important;
+  padding: 20px !important;
+//   display: inline-block !important; 
+  width: 48%;
+*/
+}
+.layout-builder__add-block {
+/*
+  overflow: hidden;
+  clear: both;
+*/
+}
+.js-form-wrapper .layout--base--twocolrow {
+  &:before {
+    content: "(Two Column)";
+  }
+}
+.js-form-wrapper .layout--base--row {
+  &:before {
+    content: "(One Column)";
+  }
+}
+.node--type-layout-page {
+  .field--name-title {
+    @include display-font;
+    font-size: 4.5rem;
+    @media $tablet {
+      font-size: 6.0rem;
+    }
+    @media $desktop {
+      font-size: 7.0rem;
+    }
+    @media $wide {
+      font-size: 8.5rem;
+    }
+  }
+  .node__content {
+    // header and title
+    .layout.layout--base--header {
+      padding: 0; 
+      .layout__header {
+        height: 200px;
+        position: relative;
+  //       margin: 0 20px;
+        @media $tablet {
+          height: 300px;
+        }
+        @media $desktop {
+          height: 450px;
+        }
+        @media $wide {
+          height: 640px;
+        }
+        .block-field-blocknodelayout-pagetitle {
+          position: absolute;
+          color: #fff;
+          bottom: 7%;
+          @media $tablet {
+  //           bottom: 30px;
+          }
+          @media $desktop {
+  //           bottom: 40px;
+          }
+          @media $wide {
+  //            bottom: 64px; 
+          }
+        }    
+      }
+    }
+    > .layout, > .layout-section, > .layout__region {
+      overflow: hidden;
+      padding-top: 40px;
+      padding-bottom: 50px;
+      @media $desktop {
+        padding-top: 60px;
+        padding-bottom: 75px;
+      }
+      @media $wide {
+        padding-top: 75px;
+        padding-bottom: 90px;
+      }
+      &.layout-section-torn {
+        padding: 0;
+        margin: 20px 0;
+        @media $desktop {
+          margin: 40px 0;
+        }
+        @media $wide {
+        }
+        &:before {
+          content: " ";
+          @include torn-top;
+        }
+        &:after {
+          content: " ";
+          @include torn-bottom;
+        }   
+      }
+      &.layout--background-overlay--black-fade-up, 
+      &.layout--bgimg--gray--gradient {
+        min-height: 600px;
+        position: relative;
+        > .container {
+          margin-top: 25%;
+        }
+        &:after {
+          content: "";
+          @include black-fade-up;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }  
+} 

@@ -1,0 +1,15 @@
+{%
+    set classes = [
+    'media',
+    'media--type-' ~ media.bundle()|clean_class,
+    not media.isPublished() ? 'media--unpublished',
+    view_mode ? 'media--view-mode-' ~ view_mode|clean_class,
+]
+%}
+<figure{{ attributes.addClass(classes) }}>
+    {{ content.field_media_image }}
+    {% if content.field_caption|render|striptags|trim|length > 0 %}
+        <button class="btn btn--primary media-caption-btn" aria-expanded="false" aria-controls="media-caption--{{ media.id() }}" data-gtm="" aria-label="Toggle image caption"></button>
+        <figcaption class="media-caption hidden" aria-hidden="true" id="media-caption--{{ media.id() }}">{{ content.field_caption }}</figcaption>
+    {% endif %}
+</figure>

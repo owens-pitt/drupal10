@@ -1,0 +1,206 @@
+@import 'variables.scss';
+
+/*** overall block styling ***/
+.block-block-content {
+  width: 100%;
+}
+.viewmore {
+  @include small-font;
+  @include allcaps;
+}
+/*** landing page header ***/
+.region-landing-title {
+  max-width: 1800px;
+  margin: 0 auto;
+  .block-views {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    height: auto;
+    //when there's a header image
+    .landing_image_wrapper {
+      @include tablet {
+        &:after {
+          content: "";
+  				position: absolute;
+  				bottom: 0;
+  				left: 0;
+  				right: 0;
+  				height: 100%;
+  				width: 100%;
+  				z-index: 0;
+  				background: url(../images/grit_feature_bottom.png) repeat-x center 101%, linear-gradient(to bottom,  rgba(30,87,153,0) 50%,rgba(0,0,0,.75) 100%);
+  				background-size: 100%; 
+        }
+      }
+    }
+    .landing_image_title {
+      margin-top: 25px;
+      @include tablet {
+          
+        width: 100%;
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        container {
+          padding: 0;
+        }
+        h1 {
+          color: #fff;
+          max-width: 66%;
+        }
+      }    
+    }
+    //when there's no header image
+    .landing_title {
+      margin-top: 40px;
+      h1.title {
+        padding-left: 20px;
+      }
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+/** custom block types ***/
+
+// stats
+.block-inline-blockstatistics {
+  text-align: center;
+  .field--name-field-stat-set {
+    @include flex-parent;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    > .field__item {
+      flex-grow: 1;
+    }
+  } 
+} 
+
+/*** sidebar ***/
+
+.sidebar {
+  h2 {
+    text-shadow: none;
+    border-bottom: none
+  }
+  .block {
+    color: #fff;
+    border: none;
+    background: $pitt-gray;
+    padding: 25px;
+    .content {
+      @include small-font;
+      line-height: 1.5;
+      a {
+        color: $pitt-gold;
+      }
+      .field--name-field-block-link a {
+        margin-top: 1.5em;
+        @include readmore;
+      }
+      ul{
+        padding-left: 1em;
+      }
+    }
+  } 
+  //text/image blocks
+  .field--name-field-block-image {
+    margin: -25px -25px 0;
+    img {
+      max-width: 100%;
+      height: auto !important;
+    }
+  }
+}
+
+  // custom block types
+.block-inline-blocksidebar-image-block,
+.sidebar .block-sidebar-image {
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  a {
+    &:hover {
+      color: $light-yellow;
+    }
+  }
+  .field--name-field-block-image {
+    margin: 0;
+    img {
+      margin: 0;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+  .field--name-field-title {
+    @include heading4;
+    color: #fff;
+    background: $pitt-blue;
+    padding: 10px 25px;
+    position: absolute;
+    bottom: 20px; 
+    &:after {
+      @include raquo;
+      color: $light-yellow;
+    }
+  }
+}
+.block-sidebar-text {
+  
+} 
+
+
+/*** social media header and footer blocks ***/
+.social_block {
+  padding: 0;
+  #header & {
+    float: left;
+    display: none;
+    @include tablet {
+      display: block;
+    }
+  }
+}
+.view-social-media-icons {
+  .views-row {
+    float: left;
+    margin: 0 20px 0 0;
+    @include desktop {
+      margin: 0 20px 0 0;
+    }
+    &:last-child {
+      margin: 0;
+    }
+    a {
+      font-size: 2.0rem;
+      color: #fff;
+      .header & {
+      }
+      .site-footer & {
+      }
+    }
+  }
+}
+
+
+/*** events block ***/
+.embed-default .lw .event-item {
+  margin-bottom: 15px;
+  .event-info a.event-name {
+    color: $pitt-gray;
+    margin-top: -5px;
+    &:hover {
+      color: $bright-blue-alt;
+    }
+  }
+  .event-date span {
+    font-weight: 600;
+  }
+} 

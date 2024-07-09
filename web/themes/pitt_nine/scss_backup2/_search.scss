@@ -1,0 +1,20 @@
+.navbar-search {
+  background: none;
+  border: none;
+  color: #fff;
+  margin-left: 20px;
+  &:before {
+    @include fontawesome;
+    content: "\f010";
+  }
+  &.collapsed:before  {
+    @include fontawesome;
+    content: "\f002";
+  }
+}
+#block-pitt-nine-searchform {
+  display: none;
+  &.show {
+    display: block;
+  }
+}

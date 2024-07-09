@@ -1,0 +1,57 @@
+{%
+    set classes = [
+    'card-carousel v2',
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+]
+%}
+{% block paragraph %}
+    {{ attach_library('pitt_nine/carousel') }}
+    <div{{ attributes.addClass(classes) }}>
+    {# check for image side options; fallback if nothing chosen #}
+      {% if paragraph.field_image_side.0.value == 'left' %}
+        <div class="card-carousel-container card-carousel-reverse">
+      {% else %}
+        <div class="card-carousel-container">
+      {% endif %}
+            <div class="card-carousel-inner">
+                <div class="card-carousel-left">
+                    <div class="card-carousel-content">
+                        {% for item in paragraph.field_cards %}
+                            {{ bamboo_render_entity('paragraph', item.entity.id(), 'card_carousel_content_slide') }}
+                        {% endfor %}
+                    </div>
+                    {% set cardcount = 0 %}
+                    {% for items in paragraph.field_cards %}
+                        {% set cardcount = cardcount + 1 %}
+                    {% endfor %}
+                    {% if cardcount != 1 %}
+                      <ul class="card-carousel-nav">
+                      {% for item in paragraph.field_cards %}
+                          {% if(loop.index == 1) %}
+                              <li><button type="button" class="active"><span class="sr-only">Slide {{ loop.index }}</span></button></li>
+                          {% else %}
+                              <li><button type="button"><span class="sr-only">Slide {{ loop.index }}</span></button></li>
+                          {% endif %}
+                      {% endfor %}
+                      </ul>
+                    {% endif %}
+                </div>
+                <div class="card-carousel-right">
+                    <div class="card-carousel-image">
+                        {% for item in paragraph.field_cards %}
+                            {{ bamboo_render_entity('paragraph', item.entity.id(), 'card_carousel_image_slide') }}
+                        {% endfor %}
+                    </div>
+{#
+                    {% if(content.field_link|render|striptags|length > 0 and content.field_link_text|render|striptags|length > 0)%}
+                        <a href="{{ content.field_link|render|striptags }}" class="btn--primary">{{ content.field_link_text|render|striptags|trim }}</a>
+                    {% endif %}
+#}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock paragraph %}

@@ -1,0 +1,208 @@
+@import 'variables.scss';
+
+
+
+
+//overall search form 
+header #search-block-form {
+//   background: $pitt-gold;
+  padding: 0; 
+  @include tablet {
+    background: $pitt-gold;
+  }
+  @include desktop {
+    padding: 20px 15px;
+  }
+  //reset 
+  .form-group {
+    margin: 0;
+    padding: 0;
+  }
+  .form-control {
+    color: #fff;
+    font-size: 1.2rem;
+    border-color: $bright-blue;
+    border-width: 0;
+    border-radius: 0;
+    padding: 2px 6px;
+    margin-top: 2px;
+    background: $white-trans-dark;
+    height: 22px;
+    @include tablet {
+      color: $pitt-blue;
+      font-size: 1.5rem;
+      border-width: 1px;
+      min-width: 300px;
+      padding: 4px 7px;
+      margin: 0;
+      height: auto;
+    }
+  }
+  .btn {
+    @include smallcaps;
+    font-weight: bold;
+    border-color: $bright-blue;
+    border-width: 0;
+    border-radius: 0;
+//     margin-left: 20px;
+    padding: 2px 10px;
+    height: 22px;
+    @include tablet {
+      padding: 6px 10px;
+      border-width: 1px 1px 1px 0;
+      height: auto;
+    }
+    &:hover {
+      background: $pitt-blue;
+    }
+  }
+  .search-button {
+    @include fontawesome;
+    font-weight: 900;
+    background: none;
+    border: none;
+  }
+}
+
+//search form "tray"
+header #block-searchform {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  @include tablet {
+    top: 58px;
+    right: 20px;
+  }
+}
+//sticky
+header .affix #block-searchform {
+  top: 0;
+}
+
+// show/hide button
+#block-searchbutton {
+  width: auto;
+  margin-left: 20px;
+  float: right;
+  margin-right: 20px;
+  display: none;
+  @include tablet {
+    display: block;
+    margin-right: 0;
+  }
+}
+#searchicon, #searchicon-close {
+  color: #fff;
+  text-align: center;
+  display: block;
+  height: 48px;
+  width: 50px;
+  line-height: 1;
+  font-size: 2.0rem;
+  border: none;
+  border-radius: 0%;
+  background: none;
+  @include tablet {
+    margin-right: 0;
+  }
+  span {
+   display: block;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    outline-width: 1px;
+    outline-style: dotted;
+  }
+}
+#searchicon-close {
+  color: $pitt-blue;
+  background: $pitt-gold;
+}
+
+// in-menu search box
+#block-searchform-2 {
+  width: 100%;
+  margin-bottom: 30px;
+  .search-form {
+    background: #363636;
+    padding: 10px;
+    margin: 0 0 30px;
+    .form-group.form-type-search {
+        float: left;
+        width: 90%;
+      .form-control {
+        background: transparent;
+        border: none;
+        font-size: 3.0rem;
+        color: #fff;
+        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+          color: $gray;
+        }
+        &::-moz-placeholder { /* Firefox 19+ */
+          color: $gray;
+        }
+        &:-ms-input-placeholder { /* IE 10+ */
+          color: $gray;
+        }
+        &:-moz-placeholder { /* Firefox 18- */
+          color: $gray;
+        }
+      }
+    }
+    .search-button {
+      float: right;
+      font-size: 4.0rem;
+      display: block;
+      color: $gray;
+    }
+  }
+}
+
+// home-specific search
+.home_search {
+  .search-form {
+    background: $gray;
+    padding: 15px;
+    margin: 40px;
+      .form-group.form-type-search {
+          float: left;
+          width: 90%;
+        .form-control {
+          background: transparent;
+          border: none;
+          font-size: 4.0rem;
+          color: #fff;
+          &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: #fff;
+          }
+          &::-moz-placeholder { /* Firefox 19+ */
+            color: #fff;
+          }
+          &:-ms-input-placeholder { /* IE 10+ */
+            color: #fff;
+          }
+          &:-moz-placeholder { /* Firefox 18- */
+            color: #fff;
+}
+        }
+      }
+      .search-button {
+        float: right;
+        font-size: 6.0rem;
+        display: block;
+        
+      }
+    }
+  }
+  
+  
+//mobile adjustments :always visible
+  @media only screen and (max-width : $screen-xs-max) {
+  header #search-block-form {
+    display: flex !important;
+  }
+
+}
+  

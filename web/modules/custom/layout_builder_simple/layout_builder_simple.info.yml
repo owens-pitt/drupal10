@@ -1,0 +1,11 @@
+name: Layout Builder Simplified
+description: Module that provides simple layouts to build complex pages.
+package: Layout Builder
+type: module
+core_version_requirement: ^8.8.0 || ^9 || ^10
+dependencies:
+#   - drupal:layout_builder_base
+
+# Information added by Drupal.org packaging script on 2020-02-11
+version: '8.x-1.0-beta1'
+datestamp: 1581403988

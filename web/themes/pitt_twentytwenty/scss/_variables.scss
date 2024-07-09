@@ -1,0 +1,436 @@
+//
+// typeography 
+//
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Rubik:700&display=swap');
+
+$title_font:  "cooper_hewittmedium", "open sans", sans-serif;
+$display_font:  'Rubik', sans-serif;
+$body_font: 'Open Sans', sans-serif;
+//
+// Colors
+//
+
+
+$brand-primary:       #003594; // 2019 Pitt royal blue
+$brand-primarylight:  #273A68; // Pitt blue light
+$brand-success:       #ffb81c; // 2019 Pitt spirit gold
+$brand-info:          #3366ff; // 2019 bright blue
+$brand-warning:       #b2ccfc; // Light blue
+$brand-danger:        #f60; // orange
+$brand-light:         #2653a4; // 2019 light blue
+$gray-darker:         #2b2b2b; // 2019 'antracite'
+$gray-dark:           $gray-darker; // we don't need so many grays
+$gray:                #d5d5d5; // 2019 light grey
+$gray-light:        #eaeaea; //2019
+$gray-lighter:          #f2f2f2; //2019
+
+$blue-trans: rgba(0, 53, 148, 0.75); // 2019 pitt blue at 80%
+$pitt-gray-trans: rgba(43,43,43,0.9);
+$gray-trans: rgba(51, 51, 51, .9);
+$white-trans: rgba(255, 255, 255, 0.85);
+$white-trans-med: rgba(255,255,255,0.3);
+$white-trans-dark: rgba(255, 255, 255, 0.1);
+
+$blue-trans-dark:   rgba(0, 53, 148, 0.9); //pitt blue at 75%
+$gray-trans-light:   rgba(198, 201, 213, .75);
+$gray-trans-dark:   rgba(0,0,0,.75);
+$tan-trans:             rgba(248, 244,235, .75);
+$gold-trans:  rgba(255,184,28,0.8);
+$black-trans: rgba(0,0,0,.9);
+$navy-trans: rgba(28, 41, 87, 0.9); //old pitt blue at 80%
+
+$pitt-navy:   #1C2957; //old pitt blue 
+$pitt-blue: 			               $brand-primary;
+$pitt-blue-dark:                #141B4D; // 2019 dark blue
+$pitt-blue-screen:            #b2c2df;
+$pitt-gold: 			               $brand-success;
+$pitt-gold-dark:            #B58500; // 2019 dark gold
+$pitt-gray: #2b2b2b;
+$pitt-tan: 				               #f5f1e5; // 2019 Pitt tan
+$pitt-beige:                  $pitt-tan; //no more duplicates
+$bright-blue: 			           $brand-info;
+$bright-blue-alt:           #245BFF; //accessible links on sidebar
+$blue-gray: 			              #4d72b4; //2019 
+$light-blue:                  #b2ccfc;
+$yellow-hover:             lighten(yellow, 15%);
+$light-yellow:               #ffff00;
+$uber-light-yellow:      #ffffd8;
+$orange:                      $brand-danger;
+
+@mixin display-font {
+  font-family: $display_font;
+  font-weight: 700;
+}
+@mixin body-font {
+  font-size: 1.5rem;
+  @include desktop {
+    font-size: 1.6rem;
+  }
+  @include wide {
+    font-size: 1.7rem;
+  }  
+}
+@mixin small-font {
+  font-size: 1.3rem;
+}
+@mixin fontawesome {
+  font-family: "Font Awesome 5 Pro";
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1; 
+}
+// just remember
+@mixin allcaps {
+  font-family: $body-font;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+}
+
+@mixin smallcaps {
+  @include allcaps;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+@mixin readmore {
+  color: #fff !important;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  font-size: 1.3rem;
+  background: $bright-blue;
+  padding: 5px 10px;
+  display: inline-block;
+  clear: both;
+}
+.readmore {
+  @include readmore;
+}
+
+@mixin headline {
+  font-size: 2.5rem;
+  @include tablet {
+    font-size: 3.7rem;
+  }
+  @include desktop {
+    font-size: 4.5rem;
+  }
+  @include wide {
+    font-size: 5.0rem;
+  }
+}
+
+@mixin block_title {
+  font-size: 3.0rem;
+  @include tablet {
+    font-size: 4.0rem;
+  }
+  @include desktop {
+    font-size: 5.0rem;
+  }
+  @include wide {
+    font-size: 6.0rem;
+  }  
+}
+
+@mixin heading2 {
+  font-size: 2.0rem;
+  @include tablet {
+    font-size: 2.3rem;
+  }
+  @include desktop {
+    font-size: 2.3rem;
+  }
+  @include wide {
+    font-size: 2.3rem;
+  }  
+}
+@mixin heading3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  @include tablet {
+    font-size: 1.8rem;
+  }
+/*
+  @include desktop {
+    font-size: 2.0rem;
+  }
+  @include wide {
+    font-size: 2.0rem;
+  }  
+*/
+}
+@mixin heading4 {
+  @include allcaps;
+  font-size: 1.3rem;
+  font-weight: bold;
+/*
+  @include tablet {
+    font-size: 4.0rem;
+  }
+  @include desktop {
+    font-size: 5.0rem;
+  }
+  @include wide {
+    font-size: 6.0rem;
+  } 
+*/ 
+}
+@mixin raquo {
+  @include fontawesome;
+  content: "\f101";
+  font-size: 85%;
+  margin-left: 0.35em;
+}
+
+@mixin gray-fade-down {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#2b2b2b+0,2b2b2b+100&1+0,0+100 */
+  background: -moz-linear-gradient(top,  rgba(43,43,43,1) 0%, rgba(43,43,43,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(43,43,43,1) 0%,rgba(43,43,43,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(43,43,43,1) 0%,rgba(43,43,43,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b2b2b', endColorstr='#002b2b2b',GradientType=0 ); /* IE6-9 */
+}
+@mixin black-fade-up {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#1e5799+0,2b2b2b+100&0+0,0.75+100 */
+    background: -moz-linear-gradient(top,  rgba(30,87,153,0) 50%, rgba(0,0,0,.75) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(30,87,153,0) 50%,rgba(0,0,0,.75) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(30,87,153,0) 50%,rgba(0,0,0,.75) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e5799', endColorstr='#bf000000',GradientType=0 ); /* IE6-9 */
+
+}
+@mixin gray-fade-up {
+    background: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 70%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 70%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e5799', endColorstr='#bf000000',GradientType=0 ); /* IE6-9 */
+}
+
+// linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 70%)
+@mixin gray-fade-up-hover {
+    background: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 85%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 85%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.85) 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e5799', endColorstr='#bf000000',GradientType=0 ); /* IE6-9 */
+}
+@mixin blue-fade-down {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#2b2b2b+0,2b2b2b+100&1+0,0+100 */
+  background: -moz-linear-gradient(top,  $pitt-blue 0%, rgba(43,43,43,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  $pitt-blue 0%,rgba(43,43,43,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  $pitt-blue 0%,rgba(43,43,43,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003594e', endColorstr='#00003594',GradientType=0 ); /* IE6-9 */
+}
+
+$gritty: url(../images/tg_tile_10.png);
+
+//media queries 
+
+
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs:                  480px !default;
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min:              $screen-xs !default;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone:               $screen-xs-min !default;
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet:              $screen-sm-min !default;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md:                  992px !default;
+$screen-md-min:              $screen-md !default;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop:             $screen-md-min !default;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg:                  1200px !default;
+$screen-lg-min:              $screen-lg !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop:          $screen-lg-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+
+$phone: only screen and (min-width : $screen-xs);
+$tablet: only screen and (min-width : $screen-sm);
+$desktop: only screen and (min-width : $screen-md);
+$wide: only screen and (min-width : $screen-lg);
+$widest: only screen and (min-width : 1600px);
+
+
+@mixin phone {
+ @media screen and (min-width: $screen-xs) {
+   @content;
+ }
+}
+@mixin tablet {
+ @media screen and (min-width:  $screen-sm) {
+   @content;
+ }
+}
+@mixin desktop {
+ @media screen and (min-width: $screen-md) {
+   @content;
+ }
+}
+@mixin wide {
+ @media screen and (min-width: $screen-lg) {
+   @content;
+ }
+}
+@mixin widest {
+ @media screen and (min-width: 1600px) {
+   @content;
+ }
+}
+
+@mixin make-container {
+  width: $screen-xs-max;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 0 15px;
+  @include tablet {
+    width: $screen-sm;
+    max-width: 720px;
+  }
+  @include desktop {
+    width: $screen-md;
+    max-width: 960px;  
+    padding: 0 20px;
+  }
+  @include wide {
+    width: $screen-lg;  
+    max-width: none;
+  }
+}
+
+
+//
+// shared mixins
+//
+
+
+@mixin torn-gradient {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  margin: 0 auto;
+  display: block;
+  z-index: 2;
+/*
+  background: url(../images/grit_feature_bottom.png) repeat-x center 100%;
+  background: url(../images/grit_feature_bottom.png) repeat-x center 100%;
+  background: url(../images/grit_feature_bottom.png) repeat-x center 100%;
+*/
+  background: url(../images/grit_feature_bottom.png) repeat-x center 100%, -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+  background: url(../images/grit_feature_bottom.png) repeat-x center 100%, -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+  background: url(../images/grit_feature_bottom.png) repeat-x center 101%, linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 100%);
+  background-size: contain;
+}
+
+@mixin torn-top {
+  position: absolute;
+  width: 100%;
+  height: 11px;
+  top: 0;
+  margin: 0 auto;
+  display: block;
+  z-index: 2;
+  background: url(../images/grit_feature_top.png) repeat-x top 100%;
+  background: url(../images/grit_feature_top.png) repeat-x center 100%;
+  background: url(../images/grit_feature_top.png) repeat-x center 100%;
+  background-size: contain;
+  @include tablet {
+    height: 16px;
+  }
+  @include desktop {
+    height: 20px;
+  }
+  @include wide {
+    height: 28px;
+  }
+}
+@mixin torn-bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  margin: 0 auto;
+  display: block;
+  z-index: 2;
+  background: url(../images/grit_feature_bottom.png) repeat-x center 100%;
+  background: url(../images/grit_feature_bottom.png) repeat-x center 100%;
+  background: url(../images/grit_feature_bottom.png) repeat-x center 100%;
+  background-size: contain;
+}
+
+
+$arrow-bg: url(../images/bg_arrows_right.png) no-repeat 15% 25%;
+
+
+
+
+//
+// flexin'
+//
+// parent styles
+@mixin flex-parent {
+  display: -ms-flexbox !important;
+  display: flex !important;
+   > div {
+     margin: 5px;
+   }
+}
+@mixin flex-justify-between {
+  -ms-flex-pack: justify !important;
+  justify-content: space-between !important;
+}
+@mixin flex-justify-around {
+  -ms-flex-pack: justify !important;
+  justify-content: space-around !important;
+}
+// children
+@mixin flex-equal {
+  flex: 1 0 0px;
+  > div {
+    width: 100%;
+  }
+}
+@mixin flex-equal-2 {
+  flex-basis: 50%;
+  flex-grow: 0;
+}
+@mixin flex-equal-3 {
+  flex-basis: 33%;
+  flex-grow: 0;
+}
+@mixin flex-equal-4 {
+  flex-basis: 25%;
+  flex-grow: 0;
+}
+@mixin flex-equal-5 {
+  flex-basis: 20%;
+  flex-grow: 0;
+}
+@mixin flex-equal-6 {
+  flex-basis: 16%;
+  flex-grow: 0;
+}
+

@@ -1,0 +1,29 @@
+{% if page.footer_branding or page.footer_first %}
+  <div class="site-footer__top clearfix align-items-center container">
+    <div class="site-footer__branding clearfix">
+      {{ page.footer_branding }}
+    </div>
+      {{ page.footer_first }}
+  </div>
+{% endif %}
+{% if page.footer_second or page.footer_third or page.footer_fourth %}
+  <div class="container">
+    <div class="site-footer__bottom clearfix">
+      <div class="site-footer__left">
+        {{ page.footer_second }}
+      </div>
+      <div class="site-footer__right">
+        {{ page.footer_third }}
+        {{ page.footer_fourth }}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{# modal content #}
+{% if page.nav_content %}
+   {{ page.nav_content }}
+{% endif %}
+{% if page.search_modal %}
+  {{ page.search_modal }}
+{% endif %}

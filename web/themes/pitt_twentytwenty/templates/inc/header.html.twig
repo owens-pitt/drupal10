@@ -1,0 +1,82 @@
+{# secondary nav #}
+  {% if page.secondary_menu or page.top_header or page.top_header_form %}
+    <div class="top_header_wrap">
+			{% if container_navbar %}
+        <div class="container ">
+      {% endif %}
+				<nav{{ navbar_top_attributes.addClass(' d-flex justify-content-end') }}>
+				    {{ page.secondary_menu }}
+            {{ page.top_header }}
+            {% if page.top_header_form %}
+              <div class="form-inline navbar-form float-right">
+                {{ page.top_header_form }}
+              </div>
+            {% endif %}
+				</nav>
+      {% if container_navbar %}
+        </div>
+      {% endif %}
+      </div>
+    {% endif %}
+
+
+
+{# check for menu placement #}
+
+{% if page.primary_menu %}
+
+  <div class="container">
+    <div class="row">        
+{# logo #}
+      {{ page.header }}
+{# main nav #}
+      {% if page.header_form %}
+          {{ page.header_form }}
+      {% endif %}
+    </div>
+    <div class="row navbar_full">
+      <nav{{ navbar_attributes }}>
+{#         <div class="nav_wrapper"> #}
+          <button class="nav-content-toggle" type="button" data-toggle="collapse" data-target="#CollapsingNavbar" aria-controls="CollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>  
+          <div class="collapse navbar-collapse" id="CollapsingNavbar">
+            {{ page.primary_menu }}
+          </div>
+            {% if page.search_form %}
+              {{ page.search_form }}
+            {% endif %}
+{#           </div> #}
+        </nav>
+    </div>
+  </div>
+
+{% else %}
+
+  <div class="container">
+    <div class="d-lg-flex justify-content-between navbar_header">        
+{# logo #}
+    {{ page.header }}
+    <button class="nav-content-toggle" type="button" data-toggle="collapse" data-target="#CollapsingNavbar" aria-controls="CollapsingNavbar" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+{# main nav #}
+      <nav{{ navbar_attributes }}>
+        {% if page.primary_menu_header or page.header_form %}
+          <div class="collapse navbar-collapse" id="CollapsingNavbar">
+            {{ page.primary_menu_header }}
+{# no social in this header style #}
+            {% if page.search_form %}
+              {{ page.search_form }}
+            {% endif %}
+
+          </div>
+        {% endif %}
+      </nav>
+    </div>
+   </div>
+
+
+{% endif %}
+
+
+{% if page.nav_content %}
+      {{ page.nav_content }}
+{% endif %}

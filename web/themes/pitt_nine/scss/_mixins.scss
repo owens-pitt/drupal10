@@ -1,0 +1,479 @@
+// typography
+
+// override parent variables 
+$headings-font-weight:    700;
+$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$h1-font-size:                $font-size-base * 3.25 !default;
+$h2-font-size:                $font-size-base * 2.35 !default;
+$h3-font-size:                $font-size-base * 1.75 !default;
+$h4-font-size:                $font-size-base * 1.5 !default;
+$h5-font-size:                $font-size-base * 1.25 !default;
+$h6-font-size:                $font-size-base !default;
+
+
+// faces of type
+$title_font:  "cooper_hewittmedium", "open sans", sans-serif;
+$display_font:  'Rubik', sans-serif;
+$body_font: 'Open Sans', sans-serif;
+$serif: 'Merriweather', serif;
+
+@mixin display-font {
+  font-family: $display_font;
+  font-weight: 700;
+}
+
+@mixin fontawesome {
+  font-family: "Font Awesome 5 Pro";
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1; 
+}
+// just remember
+@mixin allcaps {
+  font-family: $body-font;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+}
+@mixin smallcaps {
+  @include allcaps;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+// flexin'
+// parent styles
+@mixin flex-parent {
+  display: -ms-flexbox !important;
+  display: flex !important;
+   > div {
+//      margin: 5px;
+   }
+}
+@mixin flex-justify-between {
+  -ms-flex-pack: justify !important;
+  justify-content: space-between !important;
+}
+@mixin flex-justify-around {
+  -ms-flex-pack: justify !important;
+  justify-content: space-around !important;
+}
+// children
+@mixin flex-equal {
+  flex: 1 0 0px;
+  > div {
+    width: 100%;
+  }
+}
+@mixin flex-equal-2 {
+  flex-basis: 50%;
+  flex-grow: 0;
+}
+@mixin flex-equal-3 {
+  flex-basis: 33%;
+  flex-grow: 0;
+}
+@mixin flex-equal-4 {
+  flex-basis: 25%;
+  flex-grow: 0;
+}
+@mixin flex-equal-5 {
+  flex-basis: 20%;
+  flex-grow: 0;
+}
+@mixin flex-equal-6 {
+  flex-basis: 16%;
+  flex-grow: 0;
+}
+
+@mixin blue-fade-down {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#2b2b2b+0,2b2b2b+100&1+0,0+100 */
+  background: -moz-linear-gradient(top, rgba(0,53,148,1) 0,rgba(0,53,148,.4) 33%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,53,148,1) 0,rgba(0,53,148,.4) 33%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,53,148,1) 0,rgba(0,53,148,.4) 33%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003594e', endColorstr='#00003594',GradientType=0 ); /* IE6-9 */
+}
+@mixin hero-fade-down {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#2b2b2b+0,2b2b2b+100&1+0,0+100 */
+  background: -moz-linear-gradient(top, rgba(0,53,148,1) 0,rgba(0,53,148,.6) 6%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,53,148,1) 0,rgba(0,53,148,.6) 6%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,53,148,1) 0,rgba(0,53,148,.6) 6%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003594e', endColorstr='#00003594',GradientType=0 ); /* IE6-9 */
+}
+@mixin blue-fade-out {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#2b2b2b+0,2b2b2b+100&1+0,0+100 */
+  background: -moz-linear-gradient(top, rgba(0,53,148,1) 0,rgba(0,0,0,0) 33%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0,53,148,1) 0,rgba(0,0,0,0) 33%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,53,148,1) 0,rgba(0,0,0,0) 33%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003594e', endColorstr='#00003594',GradientType=0 ); /* IE6-9 */
+}
+@mixin gray-fade-up {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+33,000000+66&0+0,0.75+74 */
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.33) 33%, rgba(0,0,0,0.67) 66%, rgba(0,0,0,0.75) 74%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.33) 33%,rgba(0,0,0,0.67) 66%,rgba(0,0,0,0.75) 74%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.33) 33%,rgba(0,0,0,0.67) 66%,rgba(0,0,0,0.75) 74%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#bf000000',GradientType=0 ); /* IE6-9 */
+}
+@mixin grid-fade-up {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+33,000000+66&0+0,0.75+74 */
+  background: -moz-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 33%, rgba(0, 0, 0, 0.85) 56%, rgba(0, 0, 0, 0.95) 74%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 33%, rgba(0, 0, 0, 0.85) 56%, rgba(0, 0, 0, 0.95) 74%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 33%, rgba(0, 0, 0, 0.85) 56%, rgba(0, 0, 0, 0.95) 74%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#bf000000',GradientType=0 ); /* IE6-9 */
+}
+@mixin gray-fade-up_hover {
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+33,000000+66&0+0,0.75+74 */
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.33) 0%, rgba(0,0,0,0.67) 50%, rgba(0,0,0,0.75) 74%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.33) 0%,rgba(0,0,0,0.67) 50%,rgba(0,0,0,0.75) 74%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.33) 0%,rgba(0,0,0,0.67) 50%,rgba(0,0,0,0.75) 74%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#bf000000',GradientType=0 ); /* IE6-9 */
+}
+
+$gritty: url(../img/tg_tile_10.png);
+
+@mixin darklink {
+  a {
+    color: $pitt-blue-dark;
+    &:hover {
+      color: $bright-blue;
+    }
+  }
+}
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+@mixin make-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  @include tablet {
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 720px;
+  }
+  @include desktop {
+    max-width: 960px;
+  }
+  @include wide {
+    max-width: 1140px;
+  }
+  @include wider {
+    max-width: 1320px;
+  }
+}
+@mixin make-container-p0 {
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: auto;
+  margin-left: auto;
+  @include tablet {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    max-width: 720px;
+  }
+  @include desktop {
+    max-width: 960px;
+  }
+  @include wide {
+    max-width: 1140px;
+  }
+  @include wider {
+    max-width: 1320px;
+  }
+}
+@mixin make-container-onecol {
+  @include tablet {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 720px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @include desktop {
+    max-width: 960px;
+  }
+  @include wide {
+    max-width: 1050px;
+  }
+}
+@mixin make-container-onecol-p0 {
+  padding-right: 15px !important;
+  padding-left: 15px !important;
+  @include tablet {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 720px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  @include desktop {
+    max-width: 960px;
+  }
+  @include wide {
+    max-width: 1050px;
+  }
+}
+
+// Reusable nav styling for subsites n at. Applied at nav tag
+@mixin burger_nav {
+  h5, .menu_header {
+    @include smallcaps;
+    margin-bottom: 1.5em;
+  }
+  ul {
+    margin-left: 0;
+    li {
+      font-size: 1.6rem;
+      font-family: $serif;
+      line-height: normal;
+      margin-bottom: 1em;
+      ul {
+        margin-top: 1em;
+      }
+      a {
+        padding: 0;
+        display: inline;
+        white-space: pre-wrap;
+        &.is-active {
+          color: $bright-blue-bg;
+        }
+      }
+      &.menu-item--collapsed {
+        list-style: none;
+      } 
+      @include tablet {
+        font-size: 1.8rem;
+      }
+      @include desktop {
+        font-size: 2.0rem;
+      }
+      @include wide {
+        font-size: 2.4rem;
+      }
+      @include widest {
+        font-size: 2.6rem;
+      }
+    }
+  }
+}
+
+// For each breakpoint, define the maximum width of the container in a media query
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+   @each $breakpoint, $container-max-width in $max-widths {
+      @include media-breakpoint-up($breakpoint, $breakpoints) {
+         max-width: $container-max-width;
+      }
+   }
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+   $min: breakpoint-min($name, $breakpoints);
+   @if $min {
+      @media (min-width: $min) {
+         @content;
+      }
+   } @else {
+      @content;
+   }
+}
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+   $max: breakpoint-max($name, $breakpoints);
+   @if $max {
+      @media (max-width: $max) {
+         @content;
+      }
+   } @else {
+      @content;
+   }
+}
+
+
+
+@mixin readmore {
+  color: #fff !important;
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  font-family: $body-font;
+  background: $pitt-blue-dark;
+  padding: 1em 2em;
+  margin-top: 2em;
+  border-radius: 2em;
+  display: inline-block;
+  text-decoration: none;
+  &:hover {
+    background: $bright-blue;
+  }
+}
+
+@mixin viewmore {
+  color: $pitt-blue-dark !important;
+  font-weight: bold;
+  font-family: $body-font;
+  line-height: 1;
+  font-size: 1.6rem;
+  @include tablet {
+    font-size: 1.6rem
+  }
+  @include desktop {
+    font-size: 2.0rem;
+  }
+  &:hover {
+    color: $bright-blue !important;
+  }
+  &:after {
+    content: "";
+    background: url(../img/arrow_right.png) no-repeat;
+    background-size: contain;
+    display: inline-block;
+    width: 40px;
+    height: 12px;
+    margin-left: 0.75em;  
+  }
+}
+@mixin arrowlink {
+  &:after {
+    content: "";
+    background: url(../img/arrow_right.png) no-repeat;
+    background-size: cover;
+    height: 8px;
+    width: 40px;
+    display: inline-block;
+    margin: -4px 0 0 1em;
+  }
+}
+
+@mixin headline {
+  font-size: 2.5rem;
+  @include tablet {
+    font-size: 3.7rem;
+  }
+  @include desktop {
+    font-size: 4.5rem;
+  }
+  @include wide {
+    font-size: 5.0rem;
+  }
+}
+
+@mixin block_title {
+  font-size: 3.0rem;
+  @include tablet {
+    font-size: 4.0rem;
+  }
+  @include desktop {
+    font-size: 5.0rem;
+  }
+  @include wide {
+    font-size: 6.0rem;
+  }  
+}
+@mixin heading1 {
+  font-size: 3.0rem;
+  font-weight: 700;
+  @include tablet {
+    font-size: 3.6rem;
+  }
+  @include desktop {
+    font-size: 4.8rem;
+  }
+  @include wide {
+    font-size: 5.5rem;
+  }  
+}
+
+@mixin heading2 {
+  font-size: 2.0rem;
+  font-weight: 700;
+  color: $pitt-blue-dark;
+  @include tablet {
+    font-size: 2.3rem;
+  }
+  @include desktop {
+    font-size: 2.3rem;
+  }
+  @include wide {
+    font-size: 4.0rem;
+  }  
+}
+@mixin heading3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  @include tablet {
+    font-size: 2.0rem;
+  }
+  @include desktop {
+    font-size: 2.4rem;
+  }
+  @include wide {
+//     font-size: 3.0rem;
+  }  
+}
+@mixin heading4 {
+  @include allcaps;
+  font-size: 1.3rem;
+  font-weight: bold;
+/*
+  @include tablet {
+    font-size: 4.0rem;
+  }
+  @include desktop {
+    font-size: 5.0rem;
+  }
+  @include wide {
+    font-size: 6.0rem;
+  } 
+*/ 
+}
+
+@mixin bodyfont {
+  font-size: 1.6rem;
+  font-family: $body_font;
+  @include desktop {
+    font-size: 1.7rem;
+  }
+  @include wide {
+    font-size: 1.8rem;
+  }
+}
+@mixin smallfont {
+  font-size: 1.3rem;
+}
+@mixin raquo {
+  @include fontawesome;
+  content: "\f101";
+  font-size: 85%;
+  margin-left: 0.35em;
+}
+
+@mixin midpoint {
+  list-style: none;
+  &:before {
+    content: "• ";
+  }
+}
+

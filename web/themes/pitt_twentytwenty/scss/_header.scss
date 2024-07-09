@@ -1,0 +1,78 @@
+  @import 'variables.scss';
+
+#header {
+  background: $gritty $pitt-blue;
+  background-size: 50%;
+  position: relative;
+  z-index:2;
+  .row {}
+  img {
+    max-width: 150px;
+    height: auto;    
+  }
+}
+#navbar-main {
+  background: transparent;
+}
+.navbar-brand {
+  color: #fff;
+}
+#block-pitt-twentytwenty-branding,
+.site-branding {
+  margin: 10px 20px 0;
+  max-width: 100%;
+  flex: 0 0 100%;
+  &.block-block-content {
+    width: auto;
+  }
+  @include tablet {
+    flex: 1  0 auto;    
+    margin: 10px 0 0;
+  }
+  .navbar-brand {
+    padding-top: 6px !important;
+  }
+}
+
+
+//title block when site name present
+.site_title_block {
+  margin: 5px 0 15px;
+  overflow: hidden;
+  a {
+    float: left;
+  }
+}
+.site_title {
+  font-family: $title_font;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: #fff;
+  padding: 9px 0 0 20px;
+  margin-top: 12px;
+  @include tablet {
+    margin-left: 9px; 
+    border-left: 1px solid $white-trans-med;
+  }
+
+  &:hover {
+    color: #fff;
+  }
+  &:focus {
+    color: #fff;
+  }
+  //for two-line site titles
+  .unit-branding & {
+    padding-top: 5px !important;
+    padding-bottom: 0 !important;
+    margin-top: 0 !important;
+    width: 90%;
+    @include tablet {
+      width: auto;
+    }
+  }
+  .field--name-field-unit-description {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+  }
+}

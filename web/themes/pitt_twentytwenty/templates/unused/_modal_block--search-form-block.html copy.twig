@@ -1,0 +1,38 @@
+{% extends "@bootstrap_barrio/block/block.html.twig" %}
+{#
+/**
+ * @file
+ * Bartik's theme implementation for a search form block. Extends Classy's
+ * search form block template.
+ *
+ * Available variables:
+ * - content: The content of this block.
+ * - content_attributes: A list of HTML attributes applied to the main content
+ *   tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ * @see search_preprocess_block()
+ *
+ * @ingroup themeable
+ */
+#}
+{# <div class="modal fade"> #}
+{% block content %}
+<div class="modal-dialog modal-search" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+    <h3>Search</h3></div>
+    <div class="modal-body">
+
+      <div{{ content_attributes}}>
+        {{ parent() }}
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class="far fa-times"></span>
+          </button>
+        </div>
+
+      </div>
+  </div>
+</div>
+
+{% endblock %}

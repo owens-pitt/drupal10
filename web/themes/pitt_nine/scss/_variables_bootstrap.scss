@@ -1,0 +1,129 @@
+// Bootstrap variables (overrides).
+
+// override default bootstrap colors for accessibility
+//$white: #fff !default;
+//$black: #000 !default;
+//$gray-700: #495057 !default;
+
+//$blue: #0056b3 !default;
+//$cyan: #006170 !default;
+//$pink: #e21181 !default;
+//$green: #008a00 !default;
+
+//$breadcrumb-divider-color: $gray-700 !default;
+//$breadcrumb-active-color: $gray-700 !default;
+
+//$navbar-light-color: rgba($black, .6) !default;
+//$navbar-dark-color: rgba($white, .6) !default;
+
+//$form-text-margin-top: 0 !default;
+
+$nav-link-color: #fff;
+
+$brand-primary:       #003594; // 2019 Pitt royal blue
+$brand-primarylight:  #273A68; // Pitt blue light
+$brand-success:       #ffb81c; // 2019 Pitt spirit gold
+$brand-info:          #3366ff; // 2019 bright blue
+$brand-warning:       #b2ccfc; // Light blue
+$brand-danger:        #f60; // orange
+$brand-light:         #2653a4; // 2019 light blue
+$gray-darker:         #2b2b2b; // 2019 'antracite'
+$gray-dark:           $gray-darker; // we don't need so many grays
+$gray:                #d5d5d5; // 2019 light grey
+$gray-med:            #d0d0d0; // well, at least four greys
+$gray-light:          #eaeaea; //2019
+$gray-lighter:        #f2f2f2; //2019
+
+$blue-trans: rgba(20, 28, 77, 0.66); // 2021 pitt blue dark at 66%
+$pitt-gray-trans: rgba(43,43,43,0.9);
+$gray-trans: rgba(51, 51, 51, .9);
+$white-trans: rgba(255, 255, 255, 0.75);
+$white-trans-med: rgba(255,255,255,0.5);
+$white-trans-dark: rgba(255, 255, 255, 0.1);
+
+$blue-trans-dark:   rgba(0, 53, 148, 0.9); //pitt blue at 75%
+$gray-trans-light:   rgba(198, 201, 213, .75);
+$gray-trans-dark:   rgba(0,0,0,.75);
+$tan-trans:             rgba(248, 244,235, .75);
+$gold-trans:  rgba(255,184,28,0.8);
+$black-trans: rgba(0,0,0,.9);
+$navy-trans: rgba(28, 41, 87, 0.9); //old pitt blue at 80%
+
+$pitt-navy:   #1C2957; //old pitt blue 
+$pitt-blue: 			               $brand-primary;
+$pitt-blue-dark:                #141B4D; // 2019 dark blue
+$pitt-blue-bg:                #162591; // dark blue with contrast on tan
+$pitt-blue-screen:            #b2c2df;
+$pitt-gold: 			               $brand-success;
+$pitt-gold-dark:            #B58500; // 2019 dark gold
+$pitt-gray: #2b2b2b;
+$pitt-tan: 				               #f5f1e5; // 2019 Pitt tan
+$pitt-beige:                  $pitt-tan; //no more duplicates
+$bright-blue: 			           $brand-info;
+$bright-blue-alt:           #245BFF; //accessible links on sidebar
+$bright-blue-bg:      #1A53FF;  //accessible links on gray bg
+$blue-gray: 			              #4d72b4; //2019 
+$light-blue:                  #b2ccfc;
+$yellow-hover:             lighten(yellow, 15%);
+$light-yellow:               #ffff00;
+$uber-light-yellow:      #ffffd8;
+$orange:   $brand-danger;
+
+//prime colors
+$color-white: #fff;
+$color-black: #000;
+$color-primary: $pitt-blue-dark;
+$color-secondary: $pitt-gold;
+$color-body: $pitt-gray;
+$color-yellow: #ffb81c;
+$color-merino: #f7f2e9;
+
+// query shorthand 
+
+$sm-min: 576px;
+$md-min: 768px;
+$lg-min: 992px;
+$xl-min: 1200px;
+$xxl-min: 1400px;
+$xxxl-min: 1600px;
+
+$phone: only screen and (min-width : $sm-min);
+$tablet: only screen and (min-width : $md-min);
+$desktop: only screen and (min-width : $lg-min);
+$wide: only screen and (min-width : $xl-min);
+$wider: only screen and (min-width : $xxl-min);
+$widest: only screen and (min-width : $xxxl-min);
+
+@mixin phone {
+ @media screen and (min-width: $sm-min) {
+   @content;
+ }
+}
+@mixin tablet {
+ @media screen and (min-width:  $md-min) {
+   @content;
+ }
+}
+@mixin desktop {
+ @media screen and (min-width: $lg-min) {
+   @content;
+ }
+}
+@mixin wide {
+ @media screen and (min-width: $xl-min) {
+   @content;
+ }
+}
+@mixin wider {
+ @media screen and (min-width: $xxl-min) {
+   @content;
+ }
+}
+@mixin widest {
+ @media screen and (min-width: $xxxl-min) {
+   @content;
+ }
+}
+
+
+

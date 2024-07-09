@@ -1,0 +1,85 @@
+<?php
+
+
+use Drupal\Component\Utility\Url;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Markup;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\miniorange_saml\Utilities;
+use Drupal\miniorange_saml\MiniorangeSAMLConstants;
+use Drupal\miniorange_saml\Controller\miniorange_samlController;
+function miniorange_saml_page_attachments(array &$s_)
+{
+    $s_["\x23\x61\x74\x74\141\143\x68\145\x64"]["\154\151\142\162\141\162\x79"][] = "\x6d\x69\x6e\151\x6f\x72\141\x6e\x67\x65\137\x73\x61\155\x6c\x2f\x6d\151\x6e\151\x6f\162\141\x6e\147\x65\x5f\163\141\x6d\x6c\56\141\x64\155\151\x6e";
+}
+function miniorange_saml_update_projects_alter(&$Ku)
+{
+    $ll = \Drupal::config("\155\151\156\x69\x6f\162\141\156\x67\145\x5f\x73\x61\155\154\x2e\163\x65\x74\x74\151\156\147\x73");
+    $HK = $ll->get("\155\151\x6e\151\157\162\x61\156\147\145\x5f\163\x61\155\x6c\x5f\165\160\x67\x72\x61\144\145\137\x75\162\x6c");
+    if (is_null($HK)) {
+        goto X4;
+    }
+    $Ku["\x6d\151\x6e\151\x6f\x72\141\156\147\x65\137\163\x61\x6d\154"]["\151\156\146\157"]["\160\162\157\152\x65\x63\x74\40\x73\x74\x61\x74\x75\163\40\165\162\154"] = $HK;
+    goto W4;
+    X4:
+    unset($Ku["\155\x69\x6e\x69\x6f\x72\141\156\x67\145\137\x73\141\x6d\x6c"]);
+    W4:
+}
+function miniorange_saml_form_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $ir)
+{
+    $ll = \Drupal::config("\x6d\x69\156\x69\x6f\x72\x61\x6e\147\145\137\163\x61\155\154\x2e\x73\145\164\x74\x69\156\x67\163");
+    $Dc = $ll->get("\155\151\156\x69\x6f\x72\141\x6e\147\145\137\x73\141\x6d\154\x5f\146\157\162\x63\145\x5f\x61\165\x74\150");
+    $C1 = $ll->get("\x6d\151\x6e\151\157\x72\x61\x6e\x67\x65\137\x73\x61\x6d\x6c\137\x61\x75\x74\x6f\137\x72\145\x64\151\162\x65\143\x74\x5f\x74\x6f\x5f\151\144\160");
+    $UL = $ll->get("\x6d\x69\156\151\x6f\x72\x61\x6e\x67\x65\137\163\141\155\154\137\x65\x6e\x61\142\x6c\x65\x5f\x62\x61\143\153\144\x6f\157\x72");
+    $Lo = $ll->get("\155\x69\156\x69\x6f\162\x61\156\147\x65\x5f\163\x61\x6d\154\x5f\145\x6e\x61\x62\154\145\x5f\x6c\x6f\x67\151\x6e");
+    $KT = $ll->get("\x6d\151\156\151\x6f\162\x61\x6e\147\145\137\x62\x61\143\153\x64\x6f\157\162\137\x71\x75\145\162\171");
+    if (!$Lo) {
+        goto Za;
+    }
+    $pa = $_GET;
+    if (!($Dc && !\Drupal::currentUser()->isAuthenticated() && !isset($_POST["\x70\x61\163\163"]))) {
+        goto nZ;
+    }
+    if (!(!$UL || !isset($pa["\x73\141\x6d\x6c\x5f\x6c\x6f\x67\x69\156"]) || $pa["\163\141\155\x6c\137\154\x6f\147\151\x6e"] != $KT)) {
+        goto WT;
+    }
+    miniorange_samlController::saml_login();
+    WT:
+    nZ:
+    if (!($ir == "\x75\x73\x65\162\137\154\x6f\147\151\156\x5f\142\x6c\157\x63\x6b" || $ir == "\165\163\x65\x72\137\154\x6f\147\x69\156\x5f\x66\x6f\162\x6d")) {
+        goto GO;
+    }
+    if (!($C1 && !\Drupal::currentUser()->isAuthenticated() && !isset($_POST["\x70\141\x73\163"]))) {
+        goto oD;
+    }
+    if (!(!$UL || !isset($pa["\x73\141\155\x6c\137\154\x6f\x67\x69\x6e"]) || $pa["\x73\141\155\x6c\x5f\x6c\x6f\147\151\156"] != $KT)) {
+        goto el;
+    }
+    miniorange_samlController::saml_login();
+    el:
+    oD:
+    $wb = Utilities::getBaseUrl() . "\x2f\163\x61\x6d\154\x6c\157\x67\x69\156";
+    $gk = $ll->get("\155\151\156\151\x6f\162\x61\x6e\x67\x65\x5f\163\x61\155\154\137\151\x64\160\x5f\x6e\x61\x6d\145");
+    $form["\154\x6f\x67\151\x6e\165\x72\154"] = array(array("\x23\x6d\141\x72\x6b\x75\160" => "\x3c\141\40\x68\162\x65\146\x3d\42" . $wb . "\42\x3e\114\x6f\x67\x20\151\x6e\40\x75\163\151\156\147\x20" . $gk . "\74\57\x61\x3e"));
+    \Drupal::service("\x70\141\147\145\x5f\x63\141\x63\x68\145\137\x6b\151\x6c\x6c\x5f\163\x77\151\x74\143\x68")->trigger();
+    GO:
+    Za:
+}
+function miniorange_saml_cron()
+{
+    miniorange_samlController::moLicenseFetch("\143\x72\157\x6e\122\x75\156");
+    if (!(MiniorangeSAMLConstants::PLUGIN_VERSION == MiniorangeSAMLConstants::ENTERPRISE_VERSION)) {
+        goto xd;
+    }
+    \Drupal\miniorange_saml\HigherUtilities::preodicMetadatafetch();
+    xd:
+}
+function miniorange_saml_user_logout(AccountInterface $dJ)
+{
+    if (!\Drupal::service("\x73\x65\x73\163\151\x6f\x6e")->get("\155\x61\163\161\x75\x65\162\141\144\x69\x6e\147")) {
+        goto ej;
+    }
+    return;
+    ej:
+    miniorange_samlController::saml_logout();
+}

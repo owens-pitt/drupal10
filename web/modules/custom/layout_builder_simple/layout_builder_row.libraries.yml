@@ -1,0 +1,5 @@
+layout-builder-simple:
+  version: VERSION
+  css:
+    base:
+      css/layout-builder-simple.css: {}

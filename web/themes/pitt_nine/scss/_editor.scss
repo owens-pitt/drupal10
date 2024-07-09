@@ -1,0 +1,16 @@
+// styles in the editor
+.cke_wysiwyg_frame {
+  img {
+    max-width: 100%;
+  }
+}
+.card-header.bg-light {
+  color: $pitt-gray !important;
+}
+.block-inline-blockspacer-block.js-layout-builder-block {
+  &:before {
+    content: "[Spacer block]";
+    text-align: center;
+    display: block;
+  }
+}

@@ -1,0 +1,58 @@
+/*
+.layout-builder-configure-section { 
+  color: blue;
+  .js-form-wrapper {
+    display: none !important;
+    &:first-child {
+      display: block !important;
+    }
+  }
+}
+*/
+  /*
+  [data-drupal-selector="edit-layout-settings-margin"],
+  [data-drupal-selector="edit-layout-settings-padding"],
+  [data-drupal-selector="edit-layout-settings-container-detail"],
+  [data-drupal-selector="edit-layout-settings-style"],
+  [data-drupal-selector="edit-layout-settings-grid"]
+  .form-item-layout-settings-background-detail-background-size
+   {
+    display: none !important;
+  }
+  [data-drupal-selector="edit-layout-settings-background-detail"] {
+    .details-wrapper {
+      display: block !important;
+    }
+  }
+  */
+  
+.paragraph-type-label {
+  font-weight: bold;
+}
+
+#drupal-off-canvas {
+  .layout-builder-configure-section {
+    details {
+      min-height: 50px;
+    }
+    
+  }
+  .js-form-item {
+    display: block;
+  }
+}
+
+#node-home-layout-page-layout-builder-form #edit-revert {
+  display: none;
+} 
+
+#drupal-off-canvas *, #drupal-off-canvas :not(div) {
+  font-family: $body_font;
+  color: $gray-lighter !important;
+  input {
+    color: $gray-dark !important;
+  }
+}
+#drupal-off-canvas details, #drupal-off-canvas summary, #drupal-off-canvas .ui-dialog-content {
+  margin-top: 20px;
+}

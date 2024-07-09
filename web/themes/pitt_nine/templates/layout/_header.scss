@@ -1,0 +1,22 @@
+.region.region-header {
+  margin: 0 5px;
+  @media $tablet {
+    margin: 0;
+  }
+  @media $widest {
+//     margin-left: 144px;
+  margin: 0 -40px;
+  }
+}
+header#header {
+  background: $pitt-blue;
+  padding: 20px 0 0;
+  .navbar-brand {
+    margin-bottom: 20px;
+  }
+}
+// nav under header
+.brand-wrapper {}
+.nav-wrapper {
+  background: #062d7d;
+}

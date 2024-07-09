@@ -1,0 +1,39 @@
+{%
+    set classes = [
+    'stacked-cards-wrapper',
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+]
+%}
+{% block paragraph %}
+    <div{{ attributes.addClass(classes) }}>
+        <div class="stacked-cards-container">
+            <div class="stacked-cards-inner">
+                <div class="stacked-cards-links-wrapper">
+                    {{ content.field_title }}
+                    <ul class="stacked-cards-links">
+                        {% for item in paragraph.field_cards %}
+                            {% if(loop.index == 1) %}
+                                {{ bamboo_render_entity('paragraph', item.entity.id(), 'stacked_card_list_item_active') }}
+                            {% else %}
+                                {{ bamboo_render_entity('paragraph', item.entity.id(), 'stacked_card_list_item') }}
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+{#                     {% if(content.field_button_link|render|striptags|length > 0) %} #}
+                        {{ content.field_button_link }}
+{#                     {% endif %} #}
+                </div>
+                <div class="stacked-cards-content-wrapper">
+                    <div class="stacked-cards">
+                        {% for item in paragraph.field_cards %}
+                            {{ bamboo_render_entity('paragraph', item.entity.id(), 'stacked_card_media') }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock paragraph %}

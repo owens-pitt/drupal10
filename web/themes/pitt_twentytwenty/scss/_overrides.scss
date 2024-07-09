@@ -1,0 +1,202 @@
+@import 'variables.scss';
+
+//override parent theme styles
+// let's use rems for accessibility, but make 1rem = 10px for sanity
+html {
+  font-size: 62.5%;
+}
+body {
+  font-size: 1.5rem;
+  color: $gray-dark;
+}
+a {
+  color: $bright-blue;
+  &:hover {
+    text-decoration: none;
+  }
+} 
+.breadcrumb {
+  background: transparent;
+  border: none;
+  margin-top: 0;
+  padding: 0 0 1em;
+}
+.embed-responsive {
+  margin: 2.5em 0;
+}
+.node .field--type-image {
+    margin: 0; /* LTR */
+  }
+.node__content {
+    //keep proportional with font size. 
+  p {
+    @include body-font;
+    //25px for a 17px paragraph
+    margin-bottom: 1.47em;
+    word-wrap: anywhere;
+  }
+  dl, ol, ul, table {
+    margin-bottom: 1.47em;
+  }
+  table {
+    tr {
+      th {
+        background: $pitt-gray;
+      }
+      td {
+        background: $gray-light;
+      }
+      &:nth-child(even) td {
+        background: $gray-lighter;
+      }  
+    }
+  }
+  h2 {
+    @include heading2;
+    //margin: 60px 0 30px;
+    margin: 2.6em 0 1.3em;
+    &.no_top_margin {
+      margin-top: 0;
+    }
+  }
+  h3 {
+    @include heading3;
+    //margin: 50px 0 30px;
+    margin: 2.8em 0 1.7em;
+  }
+  h4 {
+    @include heading4;
+    //margin: 40px 0 15px;
+    margin: 3.1em 0 1.2em;
+
+  }
+}
+.btn {
+  @include smallcaps;
+  border-radius: 0;
+}
+.form-control {
+  border-radius: 0;
+}
+
+// removes pesky quick edit
+.settings-trayblock-configure {
+  display: none !important;
+}
+
+// list item group
+.list-group-item {
+  border: none !important;
+}
+
+// CKEDITOR Accordion Module
+.ckeditor-accordion-container {
+  dl {
+    border: 0;
+    dt {
+      margin-bottom: 4px;
+      > a {
+        background: #d6d6e0;
+        color: $pitt-blue;
+        border: 0;
+        &:hover {
+          background: darken(#d6d6e0, 3%);
+        }
+        &:focus, &:active {
+          text-decoration: none;
+        }
+      }
+      &.active {
+        > a {
+          background: $pitt-blue;
+          color: #fff;
+          border: 0;
+          &:focus, &:active {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+    dd {
+      @include body-font;
+      padding: 15px;
+    }
+  }
+}
+.ckeditor-accordion-toggle {
+  &:before, &:after {
+    background: $orange !important;
+  }
+}
+
+// Temporary fix for "skip to main content" visibility bug.
+body>a.visually-hidden-focusable {
+  position: absolute;
+  left: -9999px;
+}
+
+// login form 
+.login_container {
+  #login_passport {
+    margin-bottom: 6em; 
+    display: inline-block;
+  }
+  #login_local {
+    font-size: 1.25rem;
+    &:after {
+      @include fontawesome;
+      content: " \f0da";
+      font-weight: 900;
+      margin-left: 0.5em;
+    }
+    &.active{ 
+      color: $pitt-blue-dark;
+      &:after {
+        content: " \f0d7";
+      }
+    }
+  }
+}
+
+// CKEditor Style Dropdown Fixes
+.cke_panel_block[title="Formatting Styles"] {
+  .cke_panel_list {
+    white-space: normal;
+  }
+
+  .cke_panel_list *,
+  .cke_panel_listItem a,
+  .cke_panel_listItem p,
+  .cke_panel_listItem div,
+  .cke_panel_listItem iframe {
+    font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 14px;
+    margin: 0;
+    display: inline-block;
+    max-width: 100%;
+    color: #000;
+    line-height: inherit;
+    height: auto;
+  }
+
+  .cke_panel_listItem iframe {
+    height: 0px;
+    border: none;
+  }
+
+  .cke_panel_listItem a {
+    padding: 2px 7px;
+  }
+
+  // Add label to iframe styles, since default ckeditor abilities do not allow this. 
+  // Not an ideal solution, but the best we could do for now.
+  .cke_panel_listItem [title="Non-responsive iFrame"]::before {
+    content: "Non-responsive iFrame";
+  }
+
+  .cke_panel_listItem [title="4x3 Video"]::before {
+    content: "4x3 Video";
+  }
+}

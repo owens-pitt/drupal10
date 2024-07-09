@@ -1,0 +1,66 @@
+layout_base_header:
+  label: 'Header Row'
+  path: layouts/header
+  template: layout--base--header
+  class: '\Drupal\layout_builder_simple\Plugin\Layout\BaseHeaderLayout'
+  category: 'Columns: 1'
+  default_region: content
+  icon_map:
+    - [content]
+  regions:
+    content:
+      label: Content
+
+layout_base_row:
+  label: 'One Column Row'
+  path: layouts/row
+  template: layout--base--row
+  class: '\Drupal\layout_builder_simple\Plugin\Layout\BaseRowLayout'
+  category: 'Columns: 1'
+  default_region: content
+  icon_map:
+    - [content]
+  regions:
+    content:
+      label: Content
+
+layout_base_twocolrow:
+  label: 'Two Column Row'
+  path: layouts/twocolrow
+  template: layout--base--twocolrow
+  class: '\Drupal\layout_builder_simple\Plugin\Layout\BaseTwoColumnsRowLayout'
+  category: 'Columns: 2'
+  default_region: content
+  icon_map:
+    - [first, second]
+  regions:
+    first:
+      label: Left Column
+    second:
+      label: Right Column
+
+layout_base_slider:
+  label: 'Slider Row'
+  path: layouts/slider
+  template: layout--base--slider
+  class: '\Drupal\layout_builder_simple\Plugin\Layout\BaseSliderLayout'
+  category: 'Columns: 1'
+  default_region: content
+  icon_map:
+    - [content]
+  regions:
+    content:
+      label: Content
+
+layout_base_fullbleed:
+  label: 'Full-bleed Background Row'
+  path: layouts/fullbleed
+  template: layout--base--fullbleed
+  class: '\Drupal\layout_builder_simple\Plugin\Layout\BasefullbleedLayout'
+  category: 'Columns: 1'
+  default_region: content
+  icon_map:
+    - [content]
+  regions:
+    content:
+      label: Content

@@ -1,0 +1,311 @@
+@import 'variables.scss';
+
+/*** general styles ***/
+.node--type-home-layout-page {
+  .layout--onecol,
+  .layout--base--twocolrow {
+    padding: 25px 0 30px;  
+//     margin-bottom: 30px;
+    overflow: hidden;
+    @include tablet {
+      padding: 30px 0 40px;    
+//       margin-bottom: 30px;
+    }
+    @include desktop {
+      padding: 45px 0 53px;
+//       margin-bottom: 40px;
+    }
+    @include wide {
+      padding: 55px 0 65px;
+    }
+    h2 {
+      @include heading2;
+      margin: 0 0 1.0em;
+    }
+  }
+  .layout--base--header {
+    padding: 0;
+  }
+  .layout--base--fullbleed {
+    
+  }
+  .block-system-main-block .block {    
+    @include tablet {
+    }
+    @include desktop {
+    }
+    @include wide {
+      
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/*** home layouts ***/ 
+// torn edge
+.node--type-home-layout-page .layout--background-fullbleed--lightgraytorn {
+  background: $gray-light;
+  position: relative;
+  @include desktop {
+    padding: 70px 0 110px;
+  }
+  &:before, &:after {
+    content: "";
+    height: 50px;
+    width: 100%;    
+    display: block;
+    position: absolute;   
+    left: 0;
+    right: 0; 
+  }
+  &:before {
+    // background: url(../images/grit_callout_top.png) repeat-x center center;
+    background: none;
+    top: -24px;
+    background-size: cover;
+  }
+  &:after {
+    // background: url(../images/grit_callout_bottom.png) repeat-x bottom left;
+    background: none;
+    bottom: 0;
+    background-size: cover;
+  }
+}
+.layout--background-fullbleed--graygrit {    
+  color: #fff;
+  background: $gritty center center $pitt-gray;
+  background-size: 50%;
+  a {
+    color: $pitt-gold;
+  }
+}
+.layout--background-fullbleed--goldgrit {     
+  background: $gritty center center $pitt-gold;
+}
+.layout--background-fullbleed--gray {         
+  color: #fff;
+  background: $pitt-gray;
+}
+.layout--background-fullbleed--gold { 
+  background: $pitt-gold;
+}
+
+//extra spacing for bg rows
+.layout--background-fullbleed--goldgrit,
+.layout--background-fullbleed--gray,
+.layout--background-fullbleed--gold {
+  margin-bottom: 30px;
+  @include tablet {
+    margin-bottom: 30px;
+  }
+  @include desktop {
+    margin-bottom: 40px;
+  }
+  .block {}
+}
+
+
+/*** block types ***/
+.block-inline-blockhome-display-text {
+/*   margin: 40px 0 0 !important; */
+
+  .content {
+    @include tablet {
+      @include flex-parent;
+      > div {
+        margin: 0;
+      }
+    }
+    p {
+      @include tablet {
+        @include heading2;
+      }
+      &.attr {
+        @include body-font;
+        text-align: right;
+        width: 75%;
+        margin: 1em auto 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    blockquote {
+      max-width: 75%;
+      margin: 0 auto;
+      p {
+  
+        &:last-child {
+          display: inline;
+        }
+      }
+      &:before {
+        color: $gray;
+        content: "\201C";
+        float: left;
+        font-size: 92px;
+        margin-top: -37px;
+        height: 54px;
+        width: 40px;
+        line-height: 134%;
+      }
+      &:after {
+        color: $gray;
+        content: "\201D";
+        display: inline;
+      }
+    }  
+    .field--type-image {
+      margin: 25px 0 0;
+      @include tablet {
+        margin: 0 0 0 25px;
+        flex: 0 0 224px;
+      }
+      @include desktop {
+        flex: 0 0 340px;
+      }
+    }
+  }
+}
+
+.block-inline-blockhome-display-text-quote {
+/*   margin: 40px 0 0 !important; */
+  .content {
+    @include tablet {
+      > div {
+        margin: 0;
+      }
+    }
+    //everything is a blockquote
+    .field--name-body {
+      max-width: 75%;
+      margin: 0 auto;
+      p {
+        @include tablet {
+          @include heading2;
+        }
+        &:last-child {
+          display: inline;
+          margin-bottom: 0;
+        }
+      }
+      &:before {
+        color: $gray;
+        content: "\201C";
+        float: left;
+        font-size: 92px;
+        margin-top: -37px;
+        height: 54px;
+        width: 40px;
+        line-height: 134%;
+      }
+      &:after {
+        color: $gray;
+        content: "\201D";
+        display: inline;
+      }      
+      
+    }
+    .field--name-field-quote-attribution {
+      @include tablet {
+        @include body-font;
+        text-align: right;
+        width: 75%;
+        margin: 1em auto 0;
+        &:before {
+          content: "— "; 
+        }
+      }
+    }    
+    .field--type-image {
+      margin: 25px 0 0;
+      @include tablet {
+        margin: 0 0 0 25px;
+        flex: 0 0 224px;
+      }
+      @include desktop {
+        flex: 0 0 340px;
+      }
+    }
+  }
+}
+
+//home page icons 
+.block-inline-blockicon-set {
+  .field--name-field-icon .field__item {
+    width: 100%;
+    flex-grow: 1;
+    padding: 0 20px;
+  }
+  .paragraph--type--icons {
+    text-align: center;   
+    @include desktop {
+      margin-top: 10px;
+      margin-bottom: 25px;
+    }
+    //icon
+    .far, .fas, .fab, .fal {
+      color: #fff;
+      font-size: 3.6rem;
+      margin-bottom: .2em;
+      @include tablet {
+        font-size: 5.0rem;
+      }
+      @include desktop {
+        font-size: 7.5rem;
+        }
+      @include wide {
+        font-size: 10.0rem;
+      }   
+    }
+    .field--name-field-icon-label {
+      font-size: 1.25rem;
+      @include tablet {
+        font-size: 1.5rem;
+      
+      }
+      @include desktop {
+      font-size: 1.8rem;
+      
+      }
+      @include wide {
+       font-size: 2.3rem; 
+      }
+
+    }
+  }
+}
+
+//stats 
+.field--name-field-stat-set {
+  @include tablet {
+    @include flex-parent;
+    justify-content: space-around;
+  }
+}
+
+//grid adjsutment 
+.node--type-home-layout-page {
+  .field--name-field-grid-style-b, .field--name-field-grid-style-c, .field--name-field-grid-style-d, .field--name-field-grid-style-e, .field--name-field-grid-style-f {
+    margin-bottom: 0;
+    .field__item {
+      padding-top: 0;
+      padding-bottom: 20px;
+      .field__item {
+        padding-bottom: 0;
+      }
+    }
+  }
+  .field--name-field-grid-style-b {
+    .field__item {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+//calendar 
+#lw #event-list {
+  padding-left: 0 !important;
+}

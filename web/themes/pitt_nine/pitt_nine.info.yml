@@ -1,0 +1,52 @@
+name: 'Pitt Nine Base Theme 2.0'
+type: theme
+description: 'Pitt Nine subtheme based on Bootstrap 5 theme. Do not edit this theme, please.'
+core_version_requirement: '^8.9 || ^9 || ^10' 
+'base theme': bootstrap5
+
+css:
+  theme:
+    fonts/cooper/cooper.css: {}
+ckeditor_stylesheets:
+#   - css/editor.css
+  - css/style.css      
+libraries:
+  - pitt_nine/global-styling
+stylesheets-remove:
+#   - '@bootstrap5/css/style.css'
+regions:
+  alert: 'Site Top'
+  secondary_menu: 'Secondary menu'
+  top_header: 'Top Header'
+  top_header_form: 'Top Header Form'
+  header: Header
+  header_form: 'Header Form'
+  search_form: 'Search Form'
+  primary_menu_header: 'Primary menu in header'
+  primary_menu: 'Primary Menu Main'
+  nav_content: 'Collapsible Nav Content'
+  search_modal: 'Collapsible search form'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  featured_top: 'Featured top'
+  breadcrumb: Breadcrumb
+  title_image: 'Header Image'
+  title: 'Page Title'
+  landing_title: 'Landing Page Title'
+  before_content: 'Before Main Content'
+  content: Content
+  after_content: 'After Main Content'
+  sidebar_first: 'Sidebar Menu'
+  sidebar_second: 'Sidebar Content'
+  full_bleed: 'Full-width Section'
+  featured_bottom_first: 'Featured bottom first'
+  featured_bottom_second: 'Featured bottom second'
+  featured_bottom_third: 'Featured bottom third'
+  footer_branding: 'Footer branding'
+  footer_first: 'Footer Top Right'
+  footer_second: 'Footer Bottom Left'
+  footer_third: 'Footer Bottom Right 1'
+  footer_fourth: 'Footer Bottom Right 2'
+  footer_copyright: 'Footer copyright'
+  footer_end: 'Footer end'

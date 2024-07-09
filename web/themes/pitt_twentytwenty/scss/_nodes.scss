@@ -1,0 +1,204 @@
+@import 'variables.scss';
+
+// overall styling
+h1.title {
+  @include display-font;
+  margin-bottom: 24px;
+  @include tablet {
+    font-size: 2.4rem;
+    margin-bottom: 1em;
+  }
+  @include desktop {
+    font-size: 3.2rem;
+//     margin-bottom: 40px;
+  }
+  @include wide {
+    font-size: 4.0rem;
+//     margin-bottom: 50px;
+  }
+}
+h2.no_top_margin {
+  margin-top: 0; 
+}
+.path-node {  
+  .field--label-above {
+    .field__label { 
+      @include heading3;
+      margin: 2em 0 1em;
+    }
+  }
+  .text-formatted {
+    ul {
+      padding-left: 1em;
+      list-style: inherit;
+      ul {
+        margin-top: 0.75em;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+.cke_editable {
+  ul ul {
+    font-size: 1.4rem;
+    list-style: inherit;
+  }
+}
+ul.two_column {
+  @include tablet {
+    @include flex-parent;
+    flex-wrap: wrap;
+    li {
+      @include flex-equal;
+      @include flex-equal-2;
+    }
+  }
+}
+.field--name-body {
+  ul li {
+    margin-bottom: .75em;
+  }
+}
+
+// inset images 
+figure, img {
+  &.caption {
+  }
+  &.align-left {
+    margin-bottom: 25px;
+    @include tablet {
+      margin: 0 20px 20px 0; 
+    }
+  }
+  &.align-right {
+    margin-bottom: 20px;
+    @include tablet {
+      margin: 0 0 20px 20px;
+    }
+  }
+  figcaption {
+    @include small-font;
+    padding: 15px 0;
+  }
+}
+
+/*** landing pages and home block ***/
+.node--type-landing-page,
+.block-inline-blockhome-landing-breakouts {
+  .node__content .field--name-body {
+    margin-bottom: 20px;
+    @include tablet {
+      margin-bottom: 25px;
+    }
+    @include desktop {
+      margin-bottom: 35px;
+    }    
+  }
+  .paragraph--type--section-overview {
+    margin-bottom: 20px;
+    @include tablet {
+      @include flex-parent;
+      margin-bottom: 30px;
+    }
+    @include desktop {
+      margin-bottom: 40px;
+    }
+    > div {
+      @include tablet {
+        margin-top: 0;
+        float: left;
+      }
+    }
+    .section_image_link,
+    .field--name-field-section-image {
+      width: 100%;
+      flex: 0 0 170px;
+      @include tablet {
+        height: auto;
+        margin-right: 10px;
+      }
+      img {
+        margin: 7px 0 10px;
+        width: 100%;
+      }
+    }
+    .section_image_link {
+      overflow: hidden;
+      transition: .2s ease;
+      @include tablet {
+        height: 85px;
+      }
+      &:hover {
+        div {
+          
+        }
+        img {
+          width: 104%;
+          margin-left: -2%;
+          max-width: none;
+          transition: .2s ease;
+        }
+      }
+    }
+    a.field-group-link {
+      color: $pitt-gray;
+      .field--name-field-section-title:after {
+        @include raquo;
+        color: $orange;
+        font-weight: 900;
+      }
+      &:hover {
+        color: $bright-blue;
+        &:after {
+          margin-left: 0.75em;
+        }
+      }
+    }
+    .field--name-field-section-title {
+      @include heading3;
+      margin-bottom: .325em;
+    }
+    .field--name-field-section-body p:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+//person content type
+.node--type-person {
+  .field--label-above .field__label {
+    margin-bottom: 0;
+  }
+  .field--label {
+    @include heading3;
+    margin: 2.8em 0 1.7em;
+  }
+  #block-pitt-twentytwenty-content{
+    ul {
+      padding-left: 1em;
+      h3.field--label {
+      }
+      li {
+        list-style: inherit;
+        margin-bottom: 0.75em;
+      }
+    }
+  }
+}
+
+//unpublished node indicator
+.node--unpublished {
+  background: rgb(255, 244, 244);
+}
+
+// News Article Image Padding
+.node--type-article .field--name-field-image {
+  @media only screen and (max-width: 992px){
+    width: 100%;
+  }
+  img{
+    @media only screen and (min-width: 992px){
+      padding-right: 20px;
+    }
+  }
+}

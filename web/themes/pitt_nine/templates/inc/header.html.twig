@@ -1,0 +1,92 @@
+{# check for menu placement #}
+  
+{# main nav below title #}
+{% if page.header and page.primary_menu %}
+  <div class="brand-wrapper">
+    <div class="{{ b5_top_container }} d-flex justify-content-between">
+      {{ page.header }}
+      {% if page.search_form %}
+        {{ page.search_form }}
+      {% endif %}
+      
+      <div class="header_icons">
+        {# hides burger menu icon, from theme settings 
+        double negatives to default to showing #}
+        
+        {% if not hide_search and not hide_burger %}
+<div class="header_icons">
+  <button class="navbar-search search_after" type="button" data-bs-toggle="modal" data-bs-target="#search-content" aria-controls="block-pitt-nine-searchform" aria-expanded="false" aria-label="Toggle search"></button>
+  <button type="button" class="nav_content_trigger" data-bs-toggle="modal" data-bs-target="#nav-content"><span class="sr-only">Open Navigation</span></button>
+</div>
+
+        {% elseif not hide_search and hide_burger %}
+          <div class="header_icons">
+            <button class="navbar-search" type="button" data-bs-toggle="modal" data-bs-target="#search-content" aria-controls="block-pitt-nine-searchform" aria-expanded="false" aria-label="Toggle search"><span class="navbar-toggler-icon"></span></button>
+          </div>        
+        {% elseif hide_search and not hide_burger %}
+          <div class="header_icons">
+            <button type="button" class="nav_content_trigger" data-bs-toggle="modal" data-bs-target="#nav-content"><span class="sr-only">Open Navigation</span></button>
+          </div>        
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+  <div class="nav-wrapper">
+    <div class="{{ b5_top_container }}">
+
+  <nav class="{{ nav_classes }} justify-content-between">
+    {{ page.primary_menu }}
+  </nav>
+
+      <div class="collapse navbar-collapse justify-content-md-end" id="navbarSupportedContent"></div>
+    </div>
+  </div>
+
+{# main nav beside title #}
+{% elseif page.header and page.primary_menu_header %}
+
+      <div class="{{ b5_top_container }} d-flex justify-content-between">
+      {{ page.header }}
+      <div class="header_links_wrapper">
+      <nav class="{{ nav_classes }}">
+        {{ page.primary_menu_header }}
+      </nav>
+      <div class="header_icons">
+        {# hides burger menu icon, from theme settings #}
+        
+        {% if not hide_search and not hide_burger %}
+          <div class="header_icons">
+            <button class="navbar-search search_after" type="button" data-bs-toggle="modal" data-bs-target="#search-content" aria-controls="block-pitt-nine-searchform" aria-expanded="false" aria-label="Toggle search"></button>
+            <button type="button" class="nav_content_trigger" data-bs-toggle="modal" data-bs-target="#nav-content"><span class="sr-only">Open Navigation</span></button>
+          </div>
+        {% elseif not hide_search and hide_burger %}
+          <div class="header_icons">
+            <button class="navbar-search" type="button" data-bs-toggle="modal" data-bs-target="#search-content" aria-controls="block-pitt-nine-searchform" aria-expanded="false" aria-label="Toggle search"><span class="navbar-toggler-icon"></span></button>
+          </div>        
+        {% elseif hide_search and not hide_burger %}
+          <div class="header_icons">
+            <button type="button" class="nav_content_trigger" data-bs-toggle="modal" data-bs-target="#nav-content"><span class="sr-only">Open Navigation</span></button>
+          </div>        
+        {% endif %}
+
+      </div>
+
+      </div>
+  </div>
+{% else %}
+
+  {% if page.header %}
+    <div class="{{ b5_top_container }} d-flex">
+      {{ page.header }}
+    </div>
+  {% endif %}
+{% endif %}
+
+
+
+
+
+
+
+

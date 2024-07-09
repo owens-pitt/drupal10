@@ -1,0 +1,50 @@
+{%
+    set classes = [
+    'card-carousel',
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+]
+%}
+{% block paragraph %}
+{#     {{ attach_library('pitt_nine/carousel') }} #}
+    <div{{ attributes.addClass(classes) }}>
+        <div class="card-carousel-container">
+            <div class="card-carousel-inner">
+                {% block content %}
+                <div class="card-carousel-left">
+                    <div class="card-carousel-content">
+                        {% for item in paragraph.field_news_articles %}
+                            {{ bamboo_render_entity('node', item.entity.id(), 'news_article_left_carousel') }}
+                        {% endfor %}
+                    </div>
+                    <div class="card-carousel-slide-btn">
+                        <div class="card-carousel-slide-btn-title">Next Story</div>
+                        <button type="button" class="card-carousel-slide-btn-next arrow"></button>
+                    </div>
+                    <ul class="card-carousel-nav">
+                        {% for item in paragraph.field_news_articles %}
+                            {% if(loop.index == 1) %}
+                                <li><button type="button" class="active"><span class="sr-only">Slide {{ loop.index }}</span></button></li>
+                            {% else %}
+                                <li><button type="button"><span class="sr-only">Slide {{ loop.index }}</span></button></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="card-carousel-right">
+                    <div class="card-carousel-image">
+                        {% for item in paragraph.field_news_articles %}
+                            {{ bamboo_render_entity('node', item.entity.id(), 'news_article_right_carousel') }}
+                        {% endfor %}
+                    </div>
+                    {% if(content.field_link|render|striptags|length > 0 and content.field_link_text|render|striptags|length > 0) %}
+                        <a href="{{ content.field_link|render|striptags|trim }}" class="btn--primary">{{ content.field_link_text }}</a>
+                    {% endif %}
+                </div>
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock paragraph %}

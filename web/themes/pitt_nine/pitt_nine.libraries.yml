@@ -1,0 +1,72 @@
+global-styling:
+  js:
+    js/global.js: {}
+#     js/modal.js: {}
+    js/gsap/dist/gsap.min.js: {}
+    js/gsap/dist/ScrollTrigger.min.js: {}
+    js/transition.js: {}
+    js/hoverintent.min.js: {}
+    js/cards.js: {}
+    js/userInterface.js: {}
+  dependencies:
+    - core/drupal.debounce
+  css:
+    theme:
+      css/style.css: {}
+      css/custom.css: {}
+    component:
+      fonts/cooper/cooper.css: {}
+hero-banner:
+  js:
+    js/video.min.js: {}
+    js/video.js: {}
+    js/hero-banner.js: {}
+  css:
+    component:
+      css/lib_hero.css: {}
+#       css/video.css: {}
+#       css/hero-banner.css: {}
+media-item:
+  js:
+    js/media-item.js: {}
+ranking-list:
+  js:
+    js/ranking-list.js: { }
+callout:
+  css:
+    component:
+      css/lib_callout.css: { }
+# blue/white feature
+carousel:
+  js:
+    js/swiper-bundle.min.js: {}
+    js/carousel.js: {}
+  css:
+    component:
+      css/lib_carousel.css: {}
+# gold/white feature
+carousel-alt:
+  js:
+    js/swiper-bundle.min.js: {}
+    js/carousel.js: {}
+  css:
+    component:
+      css/lib_carousel_alt.css: {}
+image-tile-cards:
+  js:
+    js/image-tile-cards.js: {}
+acalog:
+  js:
+    https://catalog.upp.pitt.edu/widget-api/widget-api.min.js: { type: external, minified: true }
+    js/acalog.js: {}
+  css:
+    component:
+      https://catalog.upp.pitt.edu/widget-api/widget-api.min.css: { type: external, minified: true }      
+loginform:
+  js:
+    js/loginform.js: {} 
+light_bg:
+  css:
+    component:
+      css/light_bg.css: {}
+    

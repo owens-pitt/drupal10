@@ -1,0 +1,51 @@
+miniorange_saml.test_configuration:
+  route_name: miniorange_saml.test_configuration
+
+miniorange_saml.customer_setup:
+  route_name: miniorange_saml.customer_setup
+  title: 'miniOrange SAML Login Configuration'
+  description: 'miniOrange SAML Login Configuration'
+  parent: user.admin_index
+  weight: 10
+
+miniorange_saml.idp_setup:
+  route_name: miniorange_saml.idp_setup
+  title: 'Service Provider Metadata'
+  description: 'Service Provider Metadata Tab'
+  parent: miniorange_saml.customer_setup
+  weight: 20
+
+miniorange_saml.sp_setup:
+  route_name: miniorange_saml.sp_setup
+  title: 'Service Provider Setup'
+  description: 'Service Provider Setup Tab'
+  parent: miniorange_saml.customer_setup
+  weight: 30
+
+miniorange_saml.login_options:
+  route_name: miniorange_saml.login_options
+  title: 'Signin Settings'
+  description: 'Signin Settings Tab'
+  parent: miniorange_saml.customer_setup
+  weight: 40
+
+miniorange_saml.mapping:
+  route_name: miniorange_saml.mapping
+  title: 'Mapping'
+  description: 'Mapping Tab'
+  parent: miniorange_saml.customer_setup
+  weight: 50
+
+miniorange_saml.advance_settings:
+    route_name: miniorange_saml.advance_settings
+    title: 'Advance Settings'
+    description: 'Advance Settings Tab'
+    parent: miniorange_saml.customer_setup
+    weight: 60
+
+miniorange_saml.licensing:
+  route_name: miniorange_saml.licensing
+  title: 'Upgrade Plans'
+  description: 'Upgrade Plans Tab'
+  parent: miniorange_saml.customer_setup
+  weight: 80

@@ -1,0 +1,21 @@
+%display_font {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+}
+%body_font {
+  font-family: 'Open Sans', 'helvetica neue', helvetica, sans-serif;
+}
+%title_font {
+  
+}
+body {
+  @extend %body_font;
+}
+h1 {
+  @extend %title_font;
+  color: $gray-dark;
+}
+h2, h3, h4, h5 {
+  @extend %body_font;
+  font-weight: 600;
+}

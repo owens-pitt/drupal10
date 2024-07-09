@@ -1,0 +1,173 @@
+// general 
+.block-title {
+  @include heading3;
+}
+
+.field--name-field-overline-text {
+  @include allcaps;
+  font-size: 1.2rem;
+  margin-bottom: 2em;
+}
+
+//blocks in main column
+.region-content,
+.region-after-content {
+  .block-title {
+    margin-bottom: 0.5em;
+  }
+}
+.content_after_block {
+	@include make-container;
+}
+// sidebar blocks
+.sidebar_main,
+.block-views-blocklanding-page-widgets-sidebar {
+  .block-block-content,
+  .paragraph--type--sidebar-widget {
+    color: $pitt-blue-dark;
+    background: $pitt-gold;
+    margin-bottom: 25px;
+    padding: 25px;
+    &.block-bg-gray {
+      background: $gray-light;
+      color: $pitt-navy;
+      a {
+        color: $bright-blue-bg;
+        text-decoration: none;
+      }
+    }
+    @include desktop {
+      padding: 35px;
+    }
+    h2 {
+      font-family: $body_font;
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 1em;
+    }
+    .field--name-field-block-image {
+      margin: -25px -25px 15px;
+      @include desktop {
+        margin: -35px -35px 20px;
+      }  
+    }
+    .field--name-body,
+    .field--name-field-body {
+      font-family: $serif;
+//       margin-bottom: 2em;
+      a {
+        color: $pitt-blue-dark;
+        text-decoration: underline;
+        &.block-bg-gray {
+          color: $bright-blue-bg;
+          text-decoration: none;
+        }
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .field--name-field-block-link,
+    .field--name-field-link {
+      font-size: 1.6rem;
+      margin-top: 2em;
+      a {
+        @include arrowlink;
+        font-family: $serif; 
+        color: $pitt-blue-dark;
+        &:hover {
+          color: $bright-blue;
+        }
+      }
+    }
+  }
+  // image-only block
+  .block-sidebar-image,
+  .paragraph--type--sidebar-image-widget {
+    position: relative;
+    padding: 0;
+    margin-bottom: 25px;
+    .field--name-field-block-image {
+      margin: 0;
+    }
+    .field-group-link.sidebar_image_block {
+      .field--name-field-block-image {
+        overflow: hidden;
+        &:before {
+          @include gray-fade-up;
+          transition: opacity 0.2s ease;
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          z-index: 1;
+          opacity: 0.8;
+        }
+      }
+      
+      img {
+        transition: 0.2s ease;
+      }
+      
+      &:hover {
+        overflow: hidden;
+        .field--name-field-block-image:before {
+          @include gray-fade-up;
+          transition: 0.2s ease;
+          opacity: 1;
+          z-index: 1;
+        }
+        img {
+          transition: 0.2s ease;
+          transform: scale(1.07,1.07);
+        }
+      }
+    }
+    .field--name-field-title {
+      font-family: $serif;
+      font-size: 4.1rem;
+      color: #fff;
+      line-height: 1.2;
+      position: absolute;
+      bottom: 35px;
+      left: 25px;
+      z-index: 1;
+      margin-right: 20px;
+      @include desktop {
+        font-size: 3.2rem;
+      }
+      @include wide {
+        font-size: 4.1rem;
+      }
+    }
+  }
+}
+
+// inline blocks
+.block-inline-blockbasic,
+.block-views {
+  h2 {
+    @include heading2;
+    @include desktop {
+      margin-bottom: 50px;
+    }
+    @include wide {
+      margin-bottom: 70px;
+    }
+  }
+}
+.block-inline-blockspacer-block, 
+.paragraph--type--spacer {
+  min-height: 50px;
+  @include tablet {
+    min-height: 50px;  
+  }
+  @include desktop {  
+    min-height: 75px;
+  }
+  @include wide {
+    min-height: 90px;
+  }
+}

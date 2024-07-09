@@ -1,0 +1,130 @@
+// main nav
+#block-pitt-nine-main-menu,
+#block-pitt-nine-main-navigation,
+#block-headerlinks {
+  font-family: $title_font; 
+  .nav-item {
+    .nav-link {
+      color: #fff;
+      font-size: 1.5rem;
+      padding: 7px 20px 7px 10px;
+      &.active {
+        color: $pitt-gold;
+      }
+      &:after {
+        content: '';
+        background: url("../img/header-navigation-bar.png") bottom left repeat-x;
+        display: block;
+        opacity: 0;
+        width: 100%;
+        height: 12px;
+        margin-top: -7px;
+        border-radius: 4px;
+        transition: all 0.25s ease-in-out;
+      }      
+      &:hover {
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+    &:last-child .nav-link {
+      padding-right: 0;
+    }
+    &.dropdown:hover {
+      .dropdown-menu {
+        display: block;
+        border: none;
+        border-radius: 0;
+        background: $gray-light;
+        min-width: 200px;
+        margin-top: 5px;
+        .nav-link {
+          color: $pitt-blue;
+          &:hover {
+            color: $bright-blue;
+          }
+        }
+      }
+    }
+  }
+}
+.navbar-expand-lg {
+  @media $desktop {
+//     margin-left: 144px;
+  }
+}
+.header_links_wrapper {
+  @include flex-parent;
+  .navbar {
+    align-items: flex-start;
+  }
+  .header_icons {
+    margin-top: 7px;
+    margin-left: 20px;
+    button {
+      @media $tablet {
+        margin-left: 15px;
+        }
+    }
+  }
+}
+
+// sidebar nav
+.sidebar_main {
+  nav {
+    border-left: 1px solid $pitt-blue-dark;
+    padding-left: 30px;
+    margin-bottom: 50px;
+    h5 {
+      @include darklink;
+      font-size: $smallfont;
+      font-weight: 700;
+      &.active-title, &:hover {
+        &:before {
+          content: "";
+          height: 1px;
+          width: 25px;
+          margin-left: -30px;
+          padding-left: 25px;
+          position: absolute;
+          display: block;
+          top: 8px;
+        }
+      }
+      &.active-title:before {
+        background: $pitt-blue-dark;
+      }
+      &:hover:before {
+        background: $bright-blue;
+      }
+    }
+    .nav-link {
+      font-family: $serif;
+      color: $pitt-blue-dark;
+      padding-left: 0; 
+      position: relative;
+      &.active, &:hover {
+        &:before {
+          content: "";
+          height: 1px;
+          width: 25px;
+          margin-left: -30px;
+          padding-left: 25px;
+          position: absolute;
+          display: block;
+          top: 17px;
+        }
+      }
+      &.active:before {
+        background: $pitt-blue-dark;
+      }
+      &:hover {
+        color: $bright-blue;
+        &:before {
+          background: $bright-blue;
+        }
+      }
+    }
+  }
+}

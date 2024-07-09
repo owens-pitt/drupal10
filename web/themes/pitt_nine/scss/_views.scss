@@ -1,0 +1,579 @@
+/*** landing page header ***/
+.landing_image_wrapper {
+  max-height: 450px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  img {
+    width: 100%;
+  }
+  .landing_image_title {
+    .title {
+      @include heading1;
+      color: #fff;
+      position: absolute;
+      bottom: 100px;
+    }
+  }
+  &:before {
+    @include blue-fade-down;
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+  }
+}
+// new version with bg image
+.view-tier-hero-header,
+.view-landing-page-header- {
+  .views-row {
+    margin-bottom: 0 !important;
+  }
+  // shallow header BG
+  .landing-header-section {
+    width: 100%;
+    padding-top: calc(30.7%);
+    position: relative;
+    @include tablet {
+  
+    }
+    @include desktop {
+      padding-top: 384px;    
+    }
+    &:before {
+      content: "";
+      background: url(../img/bg_heroic_arrows.png) no-repeat right bottom;
+      position:  absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+    }
+    &:after {
+//       @include hero-fade-down;
+      background: rgba(0,53,148,.6);
+      content: "";
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      position: absolute;
+    }
+    .overline_text {
+      @include smallcaps;
+      color: #fff;
+      
+    }
+    .container {
+      position: absolute;
+      z-index: 100;
+      bottom: 25%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    h1 {
+      color: #fff;
+      margin-bottom: 0;
+      font-size: 2.0rem;
+      @include tablet {
+        font-size: 3.2rem;
+      }
+      @include desktop {
+        font-size: 4.5rem;
+      }
+      @include wide {
+        font-size: 5.5rem;
+      }
+    }
+  }
+}
+
+//full pitt.edu-style header
+.landing-hero-section {
+  width: 100%;
+  padding-top: calc(46%);
+  position: relative;
+  @include tablet {
+  }
+  @include desktop {
+    padding-top: 605px;
+  }
+  @include wide {
+  }
+  &:before {
+    content: "";
+    background: url(../img/bg_heroic_arrows.png) no-repeat right bottom;
+    position:  absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+  &:after {
+//     @include hero-fade-down;
+    background: rgba(0,53,148,.6);
+    content: "";
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    position: absolute;
+  }
+  .container {
+    color: #fff;
+    margin-bottom: 0;
+    position: absolute;
+    z-index: 100;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  h1.overline_text {
+    @include smallcaps;
+    margin-bottom: 1em;
+    @include tablet {
+    }
+    @include desktop {
+      font-size: 1.5rem;
+    }
+    @include wide {
+      font-size: 3.0rem;
+    }
+    &:after {
+      @include fontawesome;
+      content: "\f178";
+      font-weight: 300;
+      margin-left: 0.5em;
+    }
+  }
+  .headline {
+    font-family: $display_font;
+    font-weight: bold;
+    line-height: 1.2;
+    font-size: 2.4rem;
+    @include tablet {
+      font-size: 3.2rem;
+    }
+    @include desktop {
+      font-size: 4.8rem;
+      max-width: 66%;
+    }
+    @include wide {
+      font-size: 6.0rem;
+    }
+  }
+}
+
+
+/*** view select lists ***/
+.views-exposed-form .form-type-select {
+  label {
+    margin-bottom: 0.75em;
+  }
+  .form-select {
+    font-size: 1.25rem;
+    width: 195px;
+    height: 27px;
+    border: none;
+    border-radius: 0;
+    padding: 0 0 0 .5em;
+    background: url(../img/select-arrow.png) no-repeat right center $gray-lighter;
+    background-size: auto 100%;
+  }
+}
+
+
+/*** social icons view in header and footer ***/
+.view-social-media-icons {
+  .view-content {
+    @include flex-parent;
+    .views-row {
+      width: auto;
+      a:hover {
+        color: $pitt-gold;
+      }      
+    }
+  }
+}
+// Xtra xtra
+span.fab.fa-twitter {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background: url(../img/xlogo.svg) no-repeat;
+  background-size: contain;  
+  &:before {
+    content: "";
+  }
+  &:hover {
+    background-image: url(../img/xlogo-gold.svg);
+  }
+  .block-block-groupdrawer-nav-footer & {
+    width: 18px;
+    height: 18px;
+    background-image: url(../img/xlogo-blue.svg);
+    &:hover {
+      background-image: url(../img/xlogo-navy.svg);
+    }
+  }
+  .view-news .social_share & {
+    background-image: url(../img/xlogo-navy.svg);
+    &:hover {
+      background-image: url(../img/xlogo-blue.svg);
+    }
+  }
+}
+
+/*** landing layout widget view ***/
+.view-landing-page-widgets {
+  .views-field-field-blocks {
+    width: 100%;
+  }
+}
+
+/*** people view ***/
+//exposed filter in block
+#block-people-sort,
+.block-views-exposed-filter-blockpeople-page-1 {
+	float: right;
+	@include smallfont;
+}
+#block-titleforpeopletype {
+	float: left;
+}
+// people page
+.people-grid,
+.view-display-id-people,
+.view-display-id-people_all {
+  position: relative;
+  @include smallfont;
+  
+  //exposed form
+  .view-filters {
+    @include tablet {
+      position: absolute;
+      top: -74px;
+      right: 0;
+    }
+    @include desktop {
+      top: -83px;
+    }
+    @include wide {
+      top: -92px;
+    }
+    // remove visual label
+    label {
+      height: 0;
+      overflow: hidden;
+    }
+  }
+  .view-content.row, .row_group {
+    @include flex-parent;
+    margin: 0 -10px;
+    > h3 {
+      @include heading2;
+      flex-basis: 100%;
+      margin: 2em 0 1em;
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+    .views-row {
+      //flex from variables.scss
+      @include flex-equal-2;
+      padding: 10px 10px 30px;
+      margin: 0;
+      overflow: hidden;
+      @include tablet {
+        @include flex-equal-3; 
+      }
+      @include desktop {        
+        @include flex-equal-4;
+      }
+      @include wide {
+        @include flex-equal-5; 
+      }
+    }
+  }
+  // common people
+  .views-field {
+    font-size: 1.4rem;
+    margin-bottom: 0.25em;
+    a {
+      color: $pitt-gray;
+      &:hover {
+        color: $bright-blue;
+      }
+    }
+  }
+  // title and image in one field
+  .views-field-title {
+    @include darklink;
+    font-weight: bold;  
+    font-size: 1.8rem;
+    margin-bottom: 0.5em;
+    line-height: 1.2;
+    img {
+      margin-bottom: .75em;
+    }
+  }
+  // position, not title
+  .views-field-field-title {
+    color: $pitt-blue-dark;
+    font-family: $serif;
+    margin-bottom: 0.5em;
+  }
+}
+
+// people page title block
+.block-views-blockpeople-title,
+#block-pitt-nine-views-block-people-title {
+  padding: 0;
+  .views-row {
+    margin-bottom: 25px; 
+    @include desktop {
+      margin-bottom: 32px;
+    }
+    @include wide {  
+      margin-bottom: 40px;    
+    }
+  }
+  h1 {
+    margin-bottom: 0;
+  }
+  // position, not title-title
+  .views-field-field-suffix {
+    font-family: $serif;
+  }
+  .views-field-field-title,
+  .views-field-field-pronouns {
+    font-family: $serif;
+    display: inline-block;
+    div {
+      display: inline;
+    }
+    li {
+      list-style: none;
+      margin: 0;
+    }
+  }
+
+  .views-field-field-pronouns {
+    &:after {
+      content: "|";
+      margin: 0 0.375em;
+    }
+  }
+}
+
+// people sidebar block
+.block-views-blockpeople-contact {
+  background: $pitt-gold;
+  padding: 25px;
+  @include desktop {
+    padding: 35px;
+  }
+  .views-row, .views-field {
+    margin: 0;
+  }
+  .views-field {
+    @include darklink;
+    color: $pitt-blue-dark;
+    font-family: $serif;
+    font-size: 1.4rem;
+  }
+  .views-field-field-person-img {
+    margin: -25px -25px 20px;
+    @include desktop {
+      margin: -35px -35px 20px;
+    }
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .views-field-title {
+    font-family: $body_font;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: .75em;
+    // "contact" 
+    span span {
+      @include smallcaps;
+      display: block;
+      margin-bottom: 1.25em;
+      &.contact_pronouns {
+        font-family: $serif;
+        font-size: 1.4rem;
+        font-weight: normal;
+        text-transform: none;
+      }
+    }
+  }
+  .views-field-field-campus-address {
+    font-size: 1.8rem;
+    line-height: 1.25;
+    margin-bottom: 1.5em;
+    padding-bottom: 0.5em;
+    border-bottom: 1px solid $pitt-blue-dark;
+  }
+  .views-field-field-phone,
+  .views-field-field-fax,
+  .views-field-field-cv {
+	  margin-bottom: 0.325em;
+	      @include desktop {
+/*
+      float: left;
+      width: 50%;
+*/
+    }
+  }
+  .views-field-field-website,
+  .views-field-field-email {
+	  margin-bottom: 0.325em;
+    @include desktop {
+/*
+      float: left;
+      min-width: 50%;
+*/
+    }
+	}
+}
+
+
+/*** News ***/
+// common news styling
+.view-news {
+  //pagination
+  .page-item {
+    &.pager__item--previous,
+    &.pager__item--next {
+      text-indent: -9999px;
+      background-size: 40px 8px !important;
+      height: 20px;
+      width: 40px; 
+    }
+    &.pager__item--previous {
+      background: url(../img/arrow_left.png) no-repeat center center;
+      a {
+        padding-left: 0;
+      }
+    }
+    &.pager__item--next {
+      background: url(../img/arrow_right.png) no-repeat center center;
+    }
+    &.pager__item--first,
+    &.pager__item--last {
+      display: none;
+    }
+  }
+}
+
+// basic news 
+.view-display-id-news_page {
+  .views-field {
+    @include darklink;
+    font-size: 1.8rem;
+    font-family: $serif;
+    margin-bottom: 1.25em;
+  }
+}
+
+// news with thumbnails n'at
+.page-news-full, 
+.view-display-id-news_full {
+  .views-row {
+    margin-bottom: 50px;
+    @include tablet {
+      @include flex-parent;
+      margin-bottom: 40px;
+    }
+    @include desktop {
+      margin-bottom: 60px;
+    }
+    .views-field-field-image {
+      margin-bottom: 25px;
+      width: 100%;
+      @include tablet {
+        flex: 187px 0 0;
+        margin: 0 25px 0 0 ;
+      }
+      img {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    .views-field-nothing {
+      font-size: 1.7rem;
+      margin-top: -8px;
+    }
+    .field--name-created {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    h3 {
+      @include darklink;
+      font-size: 2.4rem;
+      margin-bottom: 0.5em;
+    }
+    .social_share {
+      @include darklink;
+      > a, > span {
+        margin-right: 0.5em;
+      }
+    }
+  }
+}
+
+// news block 
+.block-views .view-news {
+  .views-row {
+    @include flex-parent;
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    @include tablet {
+      margin-bottom: 35px;
+      &:last-child {
+        margin-bottom: 35px;
+      }
+    }
+    .views-field-field-image {
+      display: none;
+      @include tablet {
+        display: block;
+        flex: 105px 0 0;
+        margin-right: 22px;
+      }
+      @include desktop {
+	      flex: 150px 0 0;
+      }
+      img {
+        max-width: 100%;
+      }
+    }
+    .views-field-nothing {
+      font-size: 1.6rem;
+      margin-top: -6px;
+    }
+    h3 {
+      @include darklink;
+      @include heading3;
+      margin: 0 0 0.5em;
+    }
+  }
+  .view-footer a {
+    @include viewmore;
+  }
+}
+
+//taxonomy archives 
+.view-taxonomy-term {
+  .views-row {
+    margin-bottom: 1em;
+  }
+  .feed-icons {
+    margin-top: 1em;
+  }
+}

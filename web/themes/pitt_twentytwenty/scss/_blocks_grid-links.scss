@@ -1,0 +1,442 @@
+@import 'variables.scss';
+
+//consistent across all grid styles
+.field--name-field-grid-style-b,
+.field--name-field-grid-style-c,
+.field--name-field-grid-style-d,
+.field--name-field-grid-style-e,
+.field--name-field-grid-style-f {
+  @include tablet {
+    @include flex-parent;
+    flex-wrap: wrap;
+    margin: 0 -10px 60px;
+  }  
+  > .field__item {
+    padding: 10px;
+    margin: 0;   
+    position: relative;
+    overflow: hidden;
+    .field--type-image img {
+      margin: 0;
+    }
+  }
+  .field--type-image {
+    margin: 0;
+  }
+}
+
+
+
+
+@mixin inset-title {
+  position: absolute;
+  padding: 10px 25px 0;
+  font-weight: bold;
+  color: #fff;
+  &:after {
+    @include raquo;
+  }
+}
+@mixin lined-title {
+  &:before {
+    content: "";
+    background: $pitt-gold;
+    height: 1px;
+    width: 50%;
+    display: block;
+    top: 0;
+//     position: absolute;
+    z-index: 2;
+//     left: 23px;
+    transition: .2s ease;
+    margin-bottom: 6px;
+  }
+}
+
+
+//grid intro
+.block-gridintro {
+  .content {
+    @include tablet {
+      @include flex-parent;
+      margin-bottom: 40px;
+      align-items: baseline;
+      > div {
+      }
+      .field--name-field-short-text {
+        @include heading2;
+        font-weight: bold;
+//         @include tablet {
+          margin-left: 0;
+          margin-right: 25px;
+          padding-right: 25px;
+          border-right: 1px solid $gray;
+          flex-shrink: 0;
+
+//         }
+        } 
+        p {
+          @include heading2;
+          margin-bottom: 0;
+        }
+        .field--name-body {
+          p:last-child {
+            margin-bottom: 0;
+          }
+        }
+
+    }
+  }
+}
+
+
+//style b
+.field--name-field-grid-style-b {
+  > .field__item {
+    @include tablet {
+      @include flex-equal-3;    
+    }
+    @include desktop {
+      @include flex-equal-5;    
+    }
+    @include wide {}
+    .field--name-field-grid-item-title {
+      @include inset-title;
+      @include lined-title; 
+      font-size: 1.4rem;
+      line-height: 1.2;     
+      top: 75%;
+      @include tablet {
+        top: 90px;
+      }
+      @include desktop {
+        top: 60px;
+      }
+      @include wide {
+        top: 90px;
+      }
+    }
+    .field--type-image {
+      position: relative;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+      &:after {
+        content: "";
+        background: $blue-trans-dark;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        transition: .2s ease;
+        opacity: 0.9;
+      }
+    }
+    //the whole thing is a link? Always has been
+    a:hover {
+      .field--name-field-grid-item-title {
+        color: $pitt-gold;
+      }
+      .field--type-image:after {
+        transition: .2s ease;
+//         background: $pitt-blue;
+        opacity: 1;
+      }
+    }
+  }
+  // gray variant
+  .grid_b_gray & {
+    > .field__item  {
+      a:hover {
+        .field--type-image:after  {
+//           background: $pitt-gray;
+        }
+      }
+      .field--type-image::after {
+        background: $pitt-gray-trans;
+      }
+    }
+  }
+}
+.display_text {
+  @include heading2;
+}
+//style c
+.field--name-field-grid-style-c {
+  > .field__item {
+    @include tablet {
+      @include flex-equal-3;
+    }
+    @include desktop {}
+    @include wide {}
+    .paragraph--type--grid-c {
+      background: $gritty $pitt-gray;
+    }
+    .field--name-field-grid-item-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      line-height: 1.2;
+      padding: 20px 22px;
+      &:after {
+        @include fontawesome;
+        color: $pitt-gold;
+        content: " \f054";
+        font-size: 85%;
+        margin-left: 0.58em;
+        visibility:visible;
+        height: auto;
+      }
+    }
+    a {
+      color: #fff;
+      &:hover {
+        .field--name-field-grid-item-title {
+          color: $pitt-gold;
+        }
+      }
+    }
+  }
+}
+
+//style d
+.field--name-field-grid-style-d {
+  > .field__item {
+    @include tablet {
+      @include flex-equal-3;
+    }
+    @include desktop {}
+    @include wide {}
+    .item_caption {
+      color: #fff;
+      line-height: 1.2;
+      position: absolute;
+      padding: 10px 25px 10px;
+      bottom: 25px;
+      @include tablet {
+        bottom: auto;
+        top: 25px;
+      }
+      @include desktop {
+        top: 81px;
+      }
+      @include wide {
+        top: 115px;
+      }
+    }
+    .field--name-field-grid-item-title {
+      @include lined-title;
+      font-size: 1.6rem;
+      font-weight: bold;
+      padding: 0;
+      margin-bottom: 5px;
+      &:after {
+        @include raquo;
+      }  
+    }
+    .field--name-field-grid-item-body {
+      font-size: 1.4rem;
+    }
+    .field--type-image {
+      position: relative;
+      overflow: hidden;
+      &:after {
+        @include gray-fade-up;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        transition: .2s ease;
+        opacity: 0.8;
+      }
+    }
+    a:hover {
+      .field--name-field-grid-item-title {
+        color: $pitt-gold;
+        .field--name-field-grid-item-body {
+          color: #fff;
+        }
+      }
+      .field--type-image {
+        &:after {
+          opacity: 1; 
+          transition: .2s ease;
+        }
+      }
+    }
+  }
+}
+
+//style e
+.field--name-field-grid-style-e {
+  > .field__item {
+    @include tablet {
+      @include flex-equal-3;    
+    }
+    @include desktop {}
+    @include wide {}
+    .paragraph {
+      color: #fff;
+      background: $pitt-gray;
+      height: 100%;
+      .field--name-field-grid-item-title {
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.8rem;
+        padding: 0 25px 5px;
+        &:after {
+          @include raquo;
+        }  
+        &:hover {
+        } 
+      }
+      a.field-group-link:hover {
+        .field--name-field-grid-item-title {
+          color: $pitt-gold;
+        }
+      }
+      .field--type-text-long {
+        font-size: 1.4rem;
+        padding: 0 25px 25px;
+        a {
+          color: $pitt-gold;
+        }
+      }
+      .field--type-image {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+
+
+//style f
+.field--name-field-grid-style-f {
+  > .field__item {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    @include tablet {
+      @include flex-equal-2;    
+    }
+    @include desktop {
+      @include flex-equal-4;
+    }
+    @include wide {}
+    a {
+      @include lined-title;
+      color: #fff;
+      line-height: 1.2;
+      background: $pitt-blue;
+      height: 70px;
+      padding: 15px 25px;
+      margin: 0 10px 20px;
+      display: block;
+      position: relative;
+      &:before {
+/*
+        left: 0;
+        top: 0;
+        position: relative;
+*/
+        margin-bottom: 6px;
+      }
+      &:hover {
+        color: $pitt-gold;
+      }
+    }
+  }
+  //special formatting for full-bleed blocks
+  .region-full-bleed .block_bg & {
+    @include make-container;
+    padding: 0 35px;
+    > .field__item {
+      a {
+        font-size: 1.8rem;
+        padding: 0;
+        background: none;
+        margin-bottom: 10px;
+        &:before {
+          margin-bottom: 10px;
+        }
+        &:after {
+          @include raquo;
+          font-size: 75%;
+          color: $pitt-gold;
+        }
+      }
+    }
+  }
+}
+.field--name-field-grid-g-item {
+  @include flex-parent;
+  > div {
+    margin: 0;
+    position: relative;
+    //before pseudoclass only shows on front end
+    .layout--base--fullbleed & {
+      &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+      }
+    }
+    .field--type-image img {
+      margin: 0;
+    }
+    .grid_caption {
+      color: #fff;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      .field--name-field-caption {
+        @include heading2;
+        font-weight: 600;
+        line-height: 1.2;
+        @include wide {
+          font-size: 3.5rem;
+        }
+      }
+      .field--name-field-button-text {
+        @include readmore;
+        margin-top: 1em;
+      }
+    }
+  }
+}
+
+.region-full-bleed .block_bg {
+  padding: 50px 0 60px;
+  margin-bottom: 25px;
+  h2 {
+    @include make-container;
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 1.75em !important;
+    padding: 0 45px;
+  }
+}
+.gold_block_bg {
+  background: $pitt-gold;
+}
+.gray_block_bg {
+  background: $pitt-gray;
+}
+.blue_block_bg {
+  background: $pitt-blue;
+}

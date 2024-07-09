@@ -1,0 +1,25 @@
+one_column:
+  label: 'One column'
+  category: 'Layouts'
+  template: templates/layouts/one-column
+  default_region: main
+  regions:
+    main:
+      label: Main content
+full_width:
+  label: 'Full-width'
+  category: 'Layouts'
+  template: templates/layouts/full-width
+  default_region: content
+  regions:
+    main:
+      label: Content
+full_width2:
+  label: 'Full-width2'
+  category: 'Layouts'
+  template: templates/layouts/full-width
+  default_region: main
+  regions:
+    main:
+      label: Main
+        

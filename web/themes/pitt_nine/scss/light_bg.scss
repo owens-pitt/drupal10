@@ -1,0 +1,186 @@
+@import 'variables_bootstrap';
+@import 'variables_theme';
+@import 'typography';
+@import 'mixins';
+
+$blue-trans-spirit: rgba(0,53,148,.75);
+
+.body_light {
+  
+  /*** no more workhorse blues ***/
+  h1,h2,h3,h4,h5,
+  .block-views .view-news .view-footer a,
+  .breadcrumb .breadcrumb-item,
+  .card-carousel-slide-date,
+  .embed-default .event-date .date,
+  .embed-default .event-date .month,
+  .embed-default .event-info a.event-name,
+  .node--view-mode-full .node__content h2, 
+  .node--view-mode-full .node__content h3, 
+  .node--view-mode-full .node__content h4, 
+  .page-node-type-landing-layout-page .field--name-body h2, 
+  .page-node-type-landing-layout-page .paragraph--type--body-text .field--name-field-body h2,
+  .page-node-type-t1-landing-layout-page .field--name-body h2, 
+  .page-node-type-t1-landing-layout-page .paragraph--type--body-text .field--name-field-body h2, 
+  .paragraph--type--body-text .field--name-field-body h2,
+  .paragraph--type--body-text .field--name-field-body h3,
+  .paragraph--type--body-text .field--name-field-body h4,
+  .paragraph--type--grid-a > div .field--name-field-grid-item-title p, 
+  .paragraph--type--grid-a > div .field--name-field-grid-item-title, 
+  .paragraph--type--grid-a > div .field--name-field-grid-title,
+  .paragraph--type--grid-style-a .field--name-field-title,
+  .paragraph--type--grid-style-a2 .field--name-field-title,
+  .paragraph--type--grid-style-b .field--name-field-title
+  .paragraph--type--grid-style-c .field--name-field-title,
+  .paragraph--type--grid-style-d .field--name-field-title,
+  .paragraph--type--grid-style-e .field--name-field-title,
+  .paragraph--type--grid-style-f .field--name-field-title,
+  .paragraph--type--home-display-text .field--name-field-body,
+  .paragraph--type--home-display-text,
+  .view .image-grid-callout-content h3,
+  .people-grid .view-content.row > h3, 
+  .people-grid .row_group > h3, 
+  .view-display-id-people .view-content.row > h3, 
+  .view-display-id-people .row_group > h3, 
+  .view-display-id-people_all .view-content.row > h3, 
+  .view-display-id-people_all .row_group > h3,
+  .people-grid .views-field-title a, 
+  .view-display-id-people .views-field-title a, 
+  .view-display-id-people_all .views-field-title a,
+  .viewmore {
+    color: $pitt-gray;
+  }
+  h1.overline_text {
+    color: #fff;
+  }
+  
+  /*** header ***/ 
+  header#header {
+    background: #fff; 
+    border-bottom: 1px solid $blue-trans-spirit;
+  }
+  .navbar-brand {
+    a.site-title {
+      color: $pitt_blue;
+      &:hover {
+        color: $pitt_blue;
+      }
+    }
+    .site-logo {  //bar
+      &:after {
+        background: $blue-trans-spirit;
+      }
+    }
+  }
+  .navbar-brand {
+    .microsite_title_block {
+      a, a:hover {
+        color: $pitt_blue;
+      }
+      @include tablet {
+        &:before {
+          content: "";
+          background: $blue-trans-spirit;
+        }
+      }
+    }
+  }  
+  
+  /*** nav ***/ 
+  .navbar.bg-primary,
+  .nav-wrapper {
+    background: transparent !important;
+  }
+  .region-primary-menu-header, .region-primary-menu {
+    .block-menu ul {
+      .nav-link,
+      .menu-item {
+        color: $pitt_navy;
+        &:hover {
+          color: $bright-blue;
+        }
+      }
+    }
+  }
+  .region-primary-menu {
+    .navbar-wrapper {
+      background: transparent !important;
+    }
+   .block-menu ul li.nav-item {
+      &.root-item > a {
+        color: $pitt_blue;
+        &.active {
+          background: $gray-light;
+        }
+        &:hover {
+          background: $gray-lighter;
+        }
+      }
+      &.dropdown:hover {
+        @include desktop {
+          .dropdown-menu {
+            background: $gray-lighter;
+          } 
+        }
+      }
+    }
+  }
+  .navbar-search {
+    color: $pitt_navy;
+    &.search_after:after {
+      background: $blue-trans-spirit;
+    }
+  }
+  .nav_content_trigger:before {
+    color: $pitt_navy;
+  }  
+    
+  /*** paragprahs and widgets ***/
+  
+  //replaces blue fade
+  .landing-hero-section::after {
+    background: rgba(0,53,148,.6);
+  }
+  
+  
+  /*** footer ***/
+  footer {
+    color: $pitt_blue;
+    background: #fff;
+    border-top: 2px solid $blue-trans-spirit;
+    padding-bottom: 50px !important;
+    a {
+      color: $pitt_blue;
+      &:hover {
+        color: $bright-blue;
+      }
+      span.fab.fa-twitter {
+        background-image: url(../img/xlogo-navy.svg);
+      }
+    }
+    //remove backgrounds
+    &:after,
+    .site-footer__top.container:before,
+    .site-footer__right:after {
+      display: none !important;
+    }
+    nav ul li.nav-item a.nav-link,
+    .site-footer__bottom .region-footer-third .block ul li a,
+    .site-footer__bottom .region-footer-second .block ul li a {
+      color: $pitt_blue;
+      &:hover {
+        color: $bright-blue;
+      }
+    }
+    .site-footer__bottom .region-footer-fourth {
+      border-color: $gray;
+    }
+  }
+  
+  
+  /*** drawer ***/
+  .block-block-groupdrawer-nav-footer span.fab.fa-twitter {
+    background-image: url(../img/xlogo-blue.svg);
+  }
+  
+}

@@ -1,0 +1,28 @@
+miniorange_saml_copy.icon:
+  version: VERSION
+  js:
+    js/addCopyIcon.js: {}
+
+miniorange_saml.backdoor:
+  version: VERSION
+  js:
+    js/backdoor.js: {}
+
+miniorange_saml.add:
+  version: VERSION
+  js:
+    js/addAttribute.js: {}
+
+miniorange_saml.admin:
+  version: VERSION
+  css:
+    layout:
+      css/miniorange_saml.module.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+miniorange_saml.test:
+  version: VERSION
+  js:
+    js/testconfig.js: {}

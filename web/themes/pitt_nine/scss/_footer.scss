@@ -1,0 +1,317 @@
+footer {
+  color: #fff;
+  background: $pitt-blue;
+  padding: 0 0 150px !important; 
+  margin-top: 75px;
+  position: relative;
+  overflow: hidden;
+  @include desktop {
+    margin-top: 125px;
+    padding: 0 0 200px !important; 
+    min-height: 600px;
+//    padding: 0 0 300px !important; 
+  }
+  @include wide {
+	  margin-top: 172px;    
+//     padding: 0 0 450px !important; 
+  }
+  @include wider {
+//    padding: 0 0 600px !important; 
+  }
+  .site-footer .content {
+    color: #fff;
+  }
+  .path-frontpage & {
+    margin-top: 75px;
+    @include desktop {
+      margin-top: 100px;
+    }
+    @include wide {
+      margin-top: 125px;
+    }
+  }
+  a {
+    color: #fff;
+    &:hover {
+      color: $pitt-gold;
+    }
+  }
+  ul.menu {
+    @include tablet {
+      margin-left: 0;
+    
+    }
+    li a.is-active {
+      color: $pitt-gold;
+    }
+  } 
+  //
+  .site-title-full {}
+  //bridge graphic
+  &:after {
+    background: url(../img/bg_bridge_blue.png) no-repeat left bottom;
+    background-size: contain;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    max-height: 461px;
+    max-width: 988px;
+    z-index: 0;  
+
+  }
+  .site-footer__top.container {
+    position: relative;
+    z-index: 2;
+    padding: 15px;
+    > div {
+      z-index: 1;
+      position: relative;
+    }
+
+    @include desktop {
+//       padding: 24px 0;
+      padding-top: 24px;
+      padding-bottom: 24px;
+      margin-bottom: 40px;
+      @include flex-parent;
+      > div {
+        @include flex-equal-2;
+      }
+    }
+    // blue bar
+    &:before {
+      background: #141b4d;
+      content: "";
+      display: block;
+      opacity: 0.12;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 9999px;
+      height: 100%;
+      z-index: 0;
+    }
+  }
+  // menu beside branding
+  .region-footer-first  {
+    padding: 20px 0 0;
+    @include tablet {
+      padding: 0 0 0 50px;
+    }
+    @include desktop {
+      padding: 0 75px;
+    }
+    @include wide {
+      padding: 0 100px;
+    }
+    .navbar-nav {
+      flex-direction: row;
+      ul {
+        margin-left: 0;
+      }
+      .nav-item {
+        a.nav-link {
+          @include smallfont;
+          color: #fff;
+          padding: 0 1.5em 0 0;
+          &:hover {
+            color: $pitt-gold;
+          }
+        }
+      }
+    }
+  }
+  .site-footer__left {}
+  
+  
+  .site-footer__bottom {
+    position: relative;
+    z-index: 1;
+    @include desktop {
+      @include flex-parent;
+      > div {
+        @include flex-equal-2;
+      }
+    }
+    .site-footer__right {
+      position: relative;
+      padding: 20px;
+      @include tablet {
+        padding: 30px 0 30px 20px;
+        @include flex-parent;
+      }
+      @include desktop {
+        padding: 0 0 0 75px;
+      }
+      @include wide {
+        padding: 0 0 0 100px;
+      }
+      > div {
+        @include flex-equal-2;
+        position: relative;
+        z-index: 1;
+        &:first-child {
+          border-left: 0;
+          padding-left: 0;
+        }
+      }
+      &:after {
+        background: #141b4d;
+        content: "";
+        display: block;
+        opacity: 0.25;
+        position: absolute;
+        top: 0;
+        left: -1000px;
+        width: 9999px;
+        height: 2000px;
+        z-index: 0;
+        padding-bottom: 130px;
+        @include desktop {
+          top: -160px;
+          left: 0;          
+        }
+      }
+    }
+
+    // general footer nav
+    nav {
+      h5, .menu_header {
+        @include smallcaps;
+        margin: 0 0 0.5em;
+      }
+      ul li a.nav-link {
+        @include smallfont;
+        color: #fff;
+        padding: 0;
+        &:hover {
+          color: $pitt-gold;
+        }
+      }   
+    }
+    // main nav in footer
+    .region-footer-second {
+      padding: 20px;
+      @include desktop {
+//         margin-left: 155px;
+        margin-left: 10px;
+        margin-right: 40px;
+        padding: 0;
+      }
+      nav ul {
+        @include tablet {
+/*
+          flex-direction: row;
+          flex-wrap: wrap;
+*/
+          display: block;
+          columns: 2;
+        }
+        li {
+          margin-bottom: 1em;
+          padding-right: 20px;
+          list-style: none !important;
+          @include tablet {
+            @include flex-equal-2;
+          }
+          a {
+            @include bodyfont;
+            font-family: $serif;
+            white-space: normal;
+          }
+        }
+      }
+    }
+    // other menus
+    .region-footer-third {
+      @include flex-parent;
+      flex-wrap: wrap;
+      padding-bottom: 30px;
+      margin-bottom: 30px;
+
+      // blocks that act like nav
+      .block {
+        @include tablet {
+          width: 50%;
+        }
+        .block-title {
+          @include smallcaps; 
+          margin-bottom: 0.5em;
+        }
+        ul {
+          padding-left: 0;
+          margin-left: 0;
+          margin-bottom: 25px;
+          li {
+            @include smallfont;
+            line-height: 1.37;
+            list-style: none;
+            color: #fff;
+            padding: 0;
+            margin-bottom: 0.5em;
+            a {
+              color: #fff;
+              &:hover {
+                color: $pitt-gold;
+              }
+            .contextual-links & {
+              color: $pitt-blue;
+            }
+            }
+          }
+        }
+      }
+    }
+    
+    //address and social
+    .region-footer-fourth {
+      flex-wrap: wrap;
+      border-top: 1px solid $white-trans-med;
+      padding-top: 25px;
+      @include tablet {
+        border-top: none;
+        border-left: 1px solid $white-trans-med;
+        padding-top: 0;
+        padding-left: 25px;
+      }
+/*
+      @include desktop {
+        @include flex-parent;
+        > div {
+          @include flex-equal-2;
+        }
+      }
+*/
+      .block {
+        font-family: $serif;
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+        &:last-child {
+          margin-bottom: 10px;
+        }
+        .content > div {
+          padding-left: 0 !important;
+          padding-right: 0 !important;
+        }
+        &.social_block {
+/*
+          .content {
+            @include tablet {
+              float: right;
+            }
+          }
+*/
+          .views-row:last-child {
+            padding-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+

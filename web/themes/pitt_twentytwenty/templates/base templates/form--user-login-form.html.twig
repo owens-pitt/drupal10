@@ -1,0 +1,21 @@
+{{ attach_library('pitt_twentytwenty/loginform') }}
+<div class="login-form login_container">
+  <div>
+    <a class="readmore" id="login_passport" href="/samllogin">Log in with Pitt Passport</a>
+  </div>
+  <div>            
+    <a id="login_local" href="#">Non-SSO Login</a>
+  </div>            
+  <form{{ attributes }}>
+    <div id="error_messages"></div>
+    {{ element.messages }}
+    {{ element.name }} {# username element #}
+    {{ element.pass }} {# password element #}
+    {{ element.form_build_id }} {# required #}
+    {{ element.form_id }} {# required #}
+    <div class="login-form__submit">
+      {{ element.actions.submit }}
+    </div>
+    <a href="/user/password" class="forgot-password">Forgot Password?</a>
+  </form>
+</div>

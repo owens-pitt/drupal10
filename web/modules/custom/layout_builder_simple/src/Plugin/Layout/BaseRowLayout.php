@@ -1,0 +1,244 @@
+<?php
+
+namespace Drupal\layout_builder_simple\Plugin\Layout;
+
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Extension\ModuleHandlerInterface;
+use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\layout_builder_base\Plugin\Layout\DefaultLayoutBase;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+
+/**
+ * Configurable layout plugin class.
+ *
+ * @internal
+ *   Plugin classes are internal.
+ */
+class BaseRowLayout extends DefaultLayoutBase implements ContainerFactoryPluginInterface {
+
+  /**
+   * The module handler service.
+   *
+   * @var \Drupal\Core\Extension\ModuleHandlerInterface
+   */
+  protected $moduleHandler;
+
+  /**
+   * Constructs a BaseRowLayout object.
+   *
+   * @param array $configuration
+   *   A configuration array containing information about the plugin instance.
+   * @param string $plugin_id
+   *   The plugin_id for the plugin instance.
+   * @param mixed $plugin_definition
+   *   The plugin implementation definition.
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
+   *    The config factory service.
+   * @param \Drupal\Core\Extension\ModuleHandlerInterface $account
+   *    The module handler service.
+   */
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, ConfigFactoryInterface $config_factory, ModuleHandlerInterface $module_handler) {
+    $this->moduleHandler = $module_handler;
+    parent::__construct($configuration, $plugin_id, $plugin_definition, $config_factory);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('config.factory'),
+      $container->get('module_handler')
+    );
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getBackgroundOverlayOptions() {
+    $options = [
+      'layout--background-overlay--none' => $this->t('None'),
+/*
+      'layout--background-overlay layout--background-overlay--blue' => $this->t('Blue Overlay'),
+      'layout--background-overlay layout--background-overlay--gold' => $this->t('Gold Overlay'),
+      'layout--background-overlay layout--background-overlay--gray' => $this->t('Gray Overlay'),
+*/
+            'layout--background-fullbleed layout--background-fullbleed--lightgraytorn' => $this->t('Light Gray Torn Edges'),
+      'layout--background-fullbleed layout--background-fullbleed--graygrit' => $this->t('Dark Gray Grit'),
+      'layout--background-fullbleed layout--background-fullbleed--goldgrit' => $this->t('Gold Grit'),  
+      'layout--background-fullbleed layout--background-fullbleed--gray' => $this->t('Dark Gray Solid'),
+      'layout--background-fullbleed layout--background-fullbleed--gold' => $this->t('Gold Solid'),
+/*
+      'layout--background-overlay layout--background-overlay--fog' => $this->t('Light Gray Overlay'),
+      'layout--background-overlay layout--background-overlay--blue-fade' => $this->t('Blue Fade Left'),
+      'layout--background-overlay layout--background-overlay--gold-fade' => $this->t('Gold Fade Left'),
+      'layout--background-overlay layout--background-overlay--gray-fade' => $this->t('Gray Fade Left'),    
+      'layout--background-overlay layout--background-overlay--black-fade-up' => $this->t('Gray Fade Up'),
+*/    
+      ];
+    $this->moduleHandler->alter('layout_builder_base_background_overlay', $options);
+
+    return $options;
+  }
+
+
+  /**
+   * {@inheritdoc}
+   */
+/*
+  protected function getBackgroundOptions() {
+    $options = [
+      'layout--background--none' => $this->t('None'),
+      'layout--background--white' => $this->t('White'),
+      'layout--background--blue' => $this->t('Pitt Blue'),
+      'layout--background--gold' => $this->t('Pitt Gold'),
+      'layout--background--gray' => $this->t('Pitt Gray'),
+    ];
+    $this->moduleHandler->alter('layout_builder_base_background', $options);
+
+    return $options;
+  }
+*/
+
+  /**
+   * {@inheritdoc}
+   */
+
+  protected function getBackgroundAttachmentOptions() {
+    $options = [
+      'layout--background-attachment--default' => $this->t('Default'),
+      'layout--background-attachment--fixed' => $this->t('Fixed'),
+    ];
+
+    $this->moduleHandler->alter('layout_builder_base_background_attachment', $options);
+
+    return $options;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getBackgroundPositionOptions() {
+    $options = [
+      'layout--background-position--default' => $this->t('Default'),
+      'layout--background-position--center' => $this->t('Center'),
+    ];
+    $this->moduleHandler->alter('layout_builder_base_background_position', $options);
+
+    return $options;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getBackgroundSizeOptions() {
+    $options = [
+      'layout--background-size--default' => $this->t('Default'),
+      'layout--background-size--cover' => $this->t('Cover'),
+      'layout--background-size--contain' => $this->t('Contain'),
+    ];
+    $this->moduleHandler->alter('layout_builder_base_background_size', $options);
+
+    return $options;
+  }
+
+ 
+  /**
+   * {@inheritdoc}
+   */
+  protected function getContainerOptions() {
+    $options = [
+      'layout--container--default' => $this->t('Default'),
+      'layout--container--none' => $this->t('None'),
+      'layout--container--small' => $this->t('Small'),
+      'layout--container--large' => $this->t('Large'),
+    ];
+    $this->moduleHandler->alter('layout_builder_base_container', $options);
+
+    return $options;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getContentContainerOptions() {
+    $options = [
+      'layout--content-container--none' => $this->t('None'),
+      'layout--content-container--small' => $this->t('Small'),
+      'layout--content-container--default' => $this->t('Default'),
+      'layout--content-container--large' => $this->t('Large'),
+    ];
+    $this->moduleHandler->alter('layout_builder_base_content_container', $options);
+
+    return $options;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getHeightOptions() {
+    $options = [
+      'layout--height--default' => $this->t('Default'),
+      'layout--height--100vh' => $this->t('100vh'),
+      'layout--height--80vh' => $this->t('80vh'),
+    ];
+    $this->moduleHandler->alter('layout_builder_base_height', $options);
+
+    return $options;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+/*
+  protected function getColorsOptions() {
+    $options = [
+      'layout--color--default' => $this->t('Default'),
+      'layout--color--black' => $this->t('Black'),
+      'layout--color--white' => $this->t('White'),
+      'layout--color--grey' => $this->t('Grey'),
+    ];
+    $this->moduleHandler->alter('layout_builder_base_color', $options);
+
+    return $options;
+  }
+*/
+
+  /**
+   * {@inheritdoc}
+   */
+/*
+  protected function getAlignmentOptions() {
+    $options = [
+      '' => $this->t('Default'),
+      'layout--alignment--left' => $this->t('Left'),
+      'layout--alignment--right' => $this->t('Right'),
+      'layout--alignment--center' => $this->t('Center'),
+      'layout--alignment--justify' => $this->t('Justify'),
+    ];
+    $this->moduleHandler->alter('layout_builder_base_alignment', $options);
+
+    return $options;
+  }
+*/
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function enableImageBackground() {
+    return TRUE;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function build(array $regions) {
+    $build = parent::build($regions);
+    $build['#attached']['library'][] = 'layout_builder_simple/layout-builder-simple';
+    return $build;
+  }
+
+}

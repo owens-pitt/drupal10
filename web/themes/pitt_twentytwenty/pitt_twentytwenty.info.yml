@@ -1,0 +1,54 @@
+name: Pitt Twentytwenty
+type: theme
+description: 'Basic structure for a Bootstrap Barrio SubTheme.'
+version: 0.0.2
+core: 8.x
+core_version_requirement: ^8 || ^9 || ^10
+base theme: bootstrap_barrio
+
+css:
+  theme:
+    fonts/cooper/cooper.css: {}
+
+libraries:
+  - pitt_twentytwenty/bootstrap_cdn
+  - pitt_twentytwenty/global-styling
+  - pitt_twentytwenty/
+
+regions:
+  secondary_menu: 'Secondary menu'
+  top_header: 'Top Header'
+  top_header_form: "Top Header Form"
+  header: Header
+  header_form: "Header Form"
+  search_form: "Search Form"
+  primary_menu_header: 'Primary menu in header'
+  primary_menu: 'Primary Menu Main'
+  nav_content: 'Collapsible Nav Content'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  featured_top: 'Featured top'
+  breadcrumb: Breadcrumb
+  title_image: 'Header Image'
+  title: 'Page Title'
+  landing_title: 'Landing Page Title'
+  before_content: 'Before Main Content'
+  content: Content
+  after_content: 'After Main Content'
+  sidebar_first: 'Sidebar Menu'
+  sidebar_second: 'Sidebar Content'
+  full_bleed: 'Full-width Section'
+  featured_bottom_first: 'Featured bottom first'
+  featured_bottom_second: 'Featured bottom second'
+  featured_bottom_third: 'Featured bottom third'
+  footer_branding: 'Footer branding'
+  footer_first: 'Footer left'
+  footer_second: 'Footer Content'
+  footer_third: 'Footer Third'
+  footer_copyright: 'Footer copyright'
+  footer_end: 'Footer end'
+
+# use our styles in the backend editor
+ckeditor_stylesheets:
+  - css/styles.css

@@ -1,0 +1,12 @@
+{%
+    set classes = [
+    'card-carousel-slide',
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+]
+%}
+{% block paragraph %}
+    <li><button type="button" class="active"><span class="sr-only">Slide One</span></button></li>
+{% endblock paragraph %}

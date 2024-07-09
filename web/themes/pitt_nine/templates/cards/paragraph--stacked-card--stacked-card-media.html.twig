@@ -1,0 +1,12 @@
+{% block paragraph %}
+  <div class="card card--media" id="stacked-card-{{ paragraph.id() }}">
+    {{ content.field_image }}
+    {% if content.field_title|render|striptags|raw|trim %}
+      <div class="card-content">
+        <div class="card-header">
+          <h2 class="card-heading">{{ content.field_title|render|striptags|raw|trim }}</h2>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endblock paragraph %}

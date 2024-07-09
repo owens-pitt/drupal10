@@ -1,0 +1,237 @@
+.modal-dialog {
+  max-width: 100%;
+  @include tablet {
+    max-width: 50% !important;
+  }
+}
+
+// drawer nav
+.nav_content_trigger {
+  background: none;
+  border: none;
+   &:before {
+    @include fontawesome;
+    content: "\f550";
+    color: #fff;
+    @include tablet {
+      font-size: 2.0rem;
+    }
+  }
+  .sr-only {
+    color: $pitt-blue;
+    text-indent: -10000px;
+    direction: ltr;
+    display: block;
+  }
+}
+.nav_content_close {
+  font-size: 4.5rem;
+  color: $pitt-gray;
+  background: none;
+  border: none;
+  float: right;
+  position: absolute;
+  top: 0px;
+  right: 20px;
+  &:before {
+    @include fontawesome;
+    content: "\f00d";
+    font-weight: 300;
+  } 
+  @include desktop {
+    top: 40px;
+    right: 45px;    
+  }
+}
+.drawer_content {
+  .modal-dialog {
+    @include darklink;
+    color: $pitt-blue-dark;
+    background: $pitt-tan;
+    margin: 0 0 0 auto;
+    height: 100%;
+  }
+  .modal-content {
+    border: none;
+    background: $pitt-tan;
+    padding: 40px;
+    @include desktop {
+      padding: 60px;
+    }
+    @include wider {
+      padding: 80px;
+    }
+    @include widest {
+      padding: 100px;
+    }
+  }
+  .region-nav-content {
+    @include phone {
+      @include flex-parent;
+      flex-wrap: wrap;
+      flex-direction: row;
+      gap: 8%;
+      > nav { 
+        flex-basis: 46%;
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+      // general div 
+      > div {
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 46%;
+        padding-right: 0;
+      }
+      // right column specifically
+      > div.block-block-groupdrawer-nav-right-column {
+/*         flex-basis: 40%;         */
+      }
+      
+    }
+  }
+  //general menu styling
+  .menu--main {
+    margin-bottom: 2em;
+    @include burger_nav;
+  }
+
+  // other blocks
+  div.block-block-groupdrawer-nav-left-column,
+  div.block-block-groupdrawer-nav-right-column {
+    .block {
+      list-style: none;
+      padding-bottom: 1em;
+      margin-bottom: 25px;
+      .field--name-body {
+        margin: 0;
+        padding: 0;
+      }
+      .field--name-field-block-link {
+        font-size: 2.0rem;
+        margin-bottom: 0.5em;
+      }
+      p, ul {
+        @include smallfont;
+        padding-left: 0;
+        margin-left: 0;
+        margin-bottom: 1.25em;
+        }
+      ul {
+        list-style: none;
+        line-height: 2; 
+      }
+      .readmore {
+        font-weight: bold;
+        text-transform: none;
+        background: $bright-blue;
+        border-radius: 0;
+        padding: .75em 1em;
+        margin-right: 10px;
+        &:hover {
+          background: $pitt-blue;
+        }
+      }
+      .field--name-field-block-image {
+        margin-bottom: 10px;
+        img {
+          width: 205px;
+        }
+      }
+    }
+  }
+  div.block-block-groupdrawer-nav-right-column {
+    .block {
+      border-bottom: 1px solid $pitt-blue-dark;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+  div.block-block-groupdrawer-nav-footer {
+    @include smallfont;
+    flex: 100% 1 1;
+    border-top: 1px solid $pitt-blue-dark;
+    padding-top: 25px;
+    @include desktop {
+      margin-top: 45px;
+    }
+    > .content {
+      @include desktop {
+        @include flex-parent; 
+        gap: 8%;
+      }
+      .block {
+        flex-basis: 46%;
+        flex-grow: 0;
+        flex-shrink: 0;
+        @include desktop {
+/*           padding-right: 40px; */
+        }
+      }
+    }
+    .view-social-media-icons {
+      margin-top: -10px;
+      a {
+        color: $bright-blue;
+        font-size: 2.4rem;
+        &:hover {
+          color: $pitt-blue;
+        }
+      }
+    }
+  }
+    
+  //main nav in drawer
+  .block-block-groupdrawer-nav-left-column .menu--main ul {
+    @include burger_nav;
+  }
+  
+  
+  // search
+  .search-block-form {
+    h2 {
+      @include heading3;
+      margin-bottom: 1em;
+    }
+    .form-item {
+      width: 100%;
+      margin-right: 15px;
+    }
+    .form-control {
+      font-size: 1.8rem;
+      background: none;
+      padding: 5px;
+      border-radius: 0;
+      border-width: 0 0 1px 0;
+      border-color: $pitt-blue-dark;
+
+    }
+    .form-submit {
+      @include readmore;
+      margin-top: 0;
+    }
+  }
+  // search api form
+  .search-api-page-block-form,
+  .header-search-form {
+    .content {
+      width: 100%;
+      form {
+        @include flex-parent;
+        .form-type-search {
+          input {
+            font-size: 18px;
+            padding: 8px;
+          }
+        }
+        .form-actions {
+          input {
+            padding: 1em 2em;
+          }
+        }
+      }      
+    }
+  }  
+}
+

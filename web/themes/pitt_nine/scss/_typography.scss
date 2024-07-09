@@ -1,0 +1,33 @@
+@import 'mixins';
+
+.smallcaps {
+  @include smallcaps;
+}
+
+.readmore, .btn--primary {
+  @include readmore;
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.viewmore {
+  @include viewmore;
+}
+
+// typography mixins to keep things nice and tidy
+
+
+h2 {
+  @include heading2;
+}
+h3 {      
+  @include heading3;
+}
+h4 {
+  @include heading4;      
+}
+
+
+
